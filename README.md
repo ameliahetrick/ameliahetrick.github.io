@@ -1,37 +1,7 @@
-## Welcome to GitHub Pages
+## ahetric
 
-You can use the [editor on GitHub](https://github.com/ahetric/ahetric.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+### Personal Projects
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+[colorJumper](https://github.com/ahetric/colorJumper) - A Java program that takes two colors - an initial color and a midpoint color - and returns a result such that the initial color and result are equidistant to the midpoint.
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ahetric/ahetric.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[Goodshelf](https://ahetric.github.io/goodshelf/) (preview only, still a work in progress) - An HTML page that displays books from thew [Goodreads](https://www.goodreads.com/) Grid Widget.
