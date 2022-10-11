@@ -1,0 +1,176 @@
+<!--
+
+ahetric.github.io
+
+-->
+
+
+<!DOCTYPE html>
+<head>
+    <title>colorJumper</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/jquery.color.js"></script>
+  
+  
+
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
+  
+  
+<link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+
+
+<style type="text/css">
+
+
+    :root {
+        --background-color: #fff;
+        --accent-color: #ccc;
+        
+        --padding-size: 10px;
+        --border-size: 1px;
+        
+        --sidebar-width: 250px;
+        
+        --border-style: var(--border-size) solid var(--accent-color);
+        --font-size: 10.5px;
+        
+        --img-ease-in-out: .5s ease-in-out;
+        
+        --img-default-saturate: saturate(90%);
+        --img-default-contrast: contrast(100%);
+        --img-default-opacity: opacity(75%);
+        
+        --img-hover-saturate: saturate(100%);
+        --img-hover-contrast: contrast(100%);
+        --img-hover-opacity: opacity(90%);
+        
+        --img-sibling-hover-saturate: saturate(0%);
+        --img-sibling-hover-contrast: contrast(80%);
+        --img-sibling-hover-opacity: opacity(40%);
+    }
+
+
+    
+
+
+
+
+    
+    body {background-color:var(--background-color); color:#9a9a9a; 
+    font-family:roboto,sans-serif; 
+    //font-family: 'Raleway', sans-serif;
+    //font-family: 'Major Mono Display', monospace;
+    font-size: var(--font-size); line-height:150%; letter-spacing:1px; text-align:justify; //text-transform:lowercase;}
+
+a {color:var(--accent-color); text-decoration:none; -moz-transition-duration:0.8s; -webkit-transition-duration:0.8s; -o-transition-duration:0.8s;}
+
+a:hover {color:#eee; text-decoration:none; -moz-transition-duration:0.8s; -webkit-transition-duration:0.8s; -o-transition-duration:0.8s;}
+
+    /* container for the page content
+     */
+    #container {
+        /* position */
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        
+        /* size */
+        width: 743px;
+        //width: calc(var(--sidebar-width) + 482);
+        height: 526px;
+        
+        //border: var(--padding-size) solid #00ff00;
+    }
+    
+
+
+    
+    
+    
+    #credit {
+        position: fixed;
+        width:15px;
+        height:15px;
+        right: 10px;
+        bottom: 10px;
+        //font-style: italic;
+        line-height:100%;
+        font-size: 9px;
+        border: var(--border-style);
+        //border-radius: 50%;
+        text-align:center;
+        background:white;
+        text-transform:uppercase;
+        
+    }
+    
+    #credit span {
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+    
+    #credit:hover {
+        background: rgb(255,236,204);
+background: -moz-linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
+background: -webkit-linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
+background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
+    }
+    
+    /*#credit:after {
+    display: block;
+    content: "";
+    width: 2px;
+    height: 2px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    border-top: 1px solid blue;
+    border-right: 1px solid blue;
+}*/
+
+
+
+
+
+
+
+</style>
+
+
+</head>
+<body>
+
+    <div id="container">
+        
+
+        
+
+        
+    </div> <!-- end <div id="container"> -->
+    
+    
+    
+    
+        <a id="credit" href="https://ahetric.github.io/" title="source"><span></span></a>
+    
+    
+
+</body>
+</html>
