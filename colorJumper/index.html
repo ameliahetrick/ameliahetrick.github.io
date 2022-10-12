@@ -13,6 +13,12 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color#try_it
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery.min.js"></script>
+<!-- MiniColors -->
+<script src="jquery.minicolors.js"></script>
+<link rel="stylesheet" href="jquery.minicolors.css">
+
 
 <style type="text/css">
 
@@ -66,6 +72,16 @@ input {
   every paragraph to the selected color.
 </p>
 
+
+
+
+
+
+
+<input type="text" id="demo" class="demo" value="#ff6161">
+
+
+
 <script>
     let colorWell;
 const defaultColor = "#0000ff";
@@ -104,6 +120,19 @@ function watchColorPicker(event) {
     p.style.color = event.target.value;
   });
 }
+
+
+
+
+
+
+
+
+
+
+$('.demo').minicolors();
+
+
 </script>
 
 
