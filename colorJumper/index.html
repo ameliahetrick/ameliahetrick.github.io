@@ -1,60 +1,20 @@
 <!DOCTYPE html>
-<html>
-  
+<html lang="en">
 <head>
-    <title>jQueryUI | Color Picker</title>
-  
-    <script src=
-"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
+    <title>jQuery Color Picker Sample</title> 
+    <link rel="stylesheet" href="../../jqwidgets/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="../../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxcolorpicker.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Create jqxColorPicker.
+            $("#jqxColorPicker").jqxColorPicker({ width: 350, height: 350 });
+        });
     </script>
-    <script src=
-"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">
-    </script>
-    <link href=
-"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
-          rel="stylesheet" type="text/css" />
-  
-    <!-- Include Pre-compiled files from link or
-        download the files in your localhost folder -->
-    <script src=
-"colorpicker-master/jquery.colorpicker.js">
-    </script>
-    <link href=
-"colorpicker-master/jquery.colorpicker.css"
-          rel="stylesheet" type="text/css" />
-  
-    <style>
-        h1 {
-            color: green;
-        }
-  
-        body {
-            text-align: center;
-        }
-        .height {
-            height: 10px;
-        }
-    </style>
 </head>
-  
-<body>
-    <h1>GeeksforGeeks</h1>
-    <b>jQueryUI | Color Picker </b>
-    <div class="height"></div>
-    <br/>
-  
-    <body>
-        Pick a color :
-        <input type="text" id="my_color_picker">
-  
-        <script>
-            $(document).ready(function() {
-                $(function() {
-                    $("#my_color_picker").colorpicker();
-                });
-            });
-        </script>
-    </body>
+<body class='default'>
+    <div id='jqxColorPicker'>
+    </div>
 </body>
-  
 </html>
