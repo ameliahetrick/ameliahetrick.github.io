@@ -1,50 +1,13 @@
-<!--
-
-ahetric.github.io
-
-set up a color picker:
-https://codepen.io/redgoose/pen/BaRaqEd
-
--->
-
-
 <!DOCTYPE html>
-<head>
-<title>colorJumper</title>
-<link rel="shortcut icon" href="{Favicon}">
-<link rel="alternate" type="application/rss+xml" href="{RSS}">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
 
-</head>
+  <body>
+    <div id="app"></div>
 
-
-<body>
-
-//<main>
-  <div class="wrap">
-    <div class="body">
-      <div id="color_picker"></div>
-      <p class="sample">
-        <i class="sample__color"></i>
-        <em class="sample__code"></em>
-      </p>
-    </div>
-    <nav class="controller">
-      <label>
-        <span>Type: </span>
-        <select onchange="onChangeType(this)">
-          <option value="default" selected>default</option>
-          <option value="circle">circle</option>
-          <option value="mini">mini</option>
-          <option value="ring">ring</option>
-          <option value="none">none</option>
-        </select>
-      </label>
-    </nav>
-  </div>
-//</main>
-
-
-</body>
+    <script src="src/index.js"></script>
+  </body>
 </html>
