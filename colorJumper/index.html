@@ -1,133 +1,60 @@
-<!--
-ahetric.github.io
-set up a color picker:
-https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color#try_it
--->
-
-
 <!DOCTYPE html>
+<html>
+  
 <head>
-<title>colorJumper</title>
-<link rel="shortcut icon" href="{Favicon}">
-<link rel="alternate" type="application/rss+xml" href="{RSS}">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-<script type="text/javascript" src="acolorpicker.js"></script>
-
-
-<style type="text/css">
-
-
-:root {
-    --background-color: #fff;
-}
-
-p,
-label {
-    font: 1rem 'Fira Sans', sans-serif;
-}
-
-input {
-    margin: .4rem;
-}
-
-</style>
+    <title>jQueryUI | Color Picker</title>
+  
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
+    </script>
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">
+    </script>
+    <link href=
+"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+          rel="stylesheet" type="text/css" />
+  
+    <!-- Include Pre-compiled files from link or
+        download the files in your localhost folder -->
+    <script src=
+"colorpicker-master/jquery.colorpicker.js">
+    </script>
+    <link href=
+"colorpicker-master/jquery.colorpicker.css"
+          rel="stylesheet" type="text/css" />
+  
+    <style>
+        h1 {
+            color: green;
+        }
+  
+        body {
+            text-align: center;
+        }
+        .height {
+            height: 10px;
+        }
+    </style>
 </head>
-
-
+  
 <body>
-        
-<p>Choose your monster's colors:</p>
-
-<div>
-    <input type="color" id="head" name="head" value="#e66465">
-    <label for="head">Head</label>
-</div>
-
-<div>
-    <input type="color" id="body" name="body" value="#f6b73c">
-    <label for="body">Body</label>
-</div>
-
-<!-- -->
-
-<p>
-  An example demonstrating the use of the
-  <code>&lt;input type="color"&gt;</code> control.
-</p>
-
-<label for="colorWell">Color:</label>
-<input type="color" value="#ff0000" id="colorWell" />
-
-<p>
-  Watch the paragraph colors change when you adjust the color picker. As you
-  make changes in the color picker, the first paragraph's color changes, as a
-  preview (this uses the <code>input</code> event). When you close the color
-  picker, the <code>change</code> event fires, and we detect that to change
-  every paragraph to the selected color.
-</p>
-
-
-
-
-
-
-
-
-
-
-<script>
-    let colorWell;
-const defaultColor = "#0000ff";
-
-window.addEventListener("load", startup, false);
-
-
-function startup() {
-  colorWell = document.querySelector("#colorWell");
-  colorWell.value = defaultColor;
-  colorWell.addEventListener("input", updateFirst, false);
-  colorWell.addEventListener("change", updateAll, false);
-  colorWell.select();
-}
-
-function updateFirst(event) {
-  const p = document.querySelector("p");
-  if (p) {
-    p.style.color = event.target.value;
-  }
-}
-
-function updateAll(event) {
-  document.querySelectorAll("p").forEach((p) => {
-    p.style.color = event.target.value;
-  });
-}
-
-
-
-colorPicker.addEventListener("input", updateFirst, false);
-colorPicker.addEventListener("change", watchColorPicker, false);
-
-function watchColorPicker(event) {
-  document.querySelectorAll("p").forEach((p) => {
-    p.style.color = event.target.value;
-  });
-}
-
-
-AColorPicker.from('div.container');
-
-
-
-
-
-
-
-</script>
-
-
+    <h1>GeeksforGeeks</h1>
+    <b>jQueryUI | Color Picker </b>
+    <div class="height"></div>
+    <br/>
+  
+    <body>
+        Pick a color :
+        <input type="text" id="my_color_picker">
+  
+        <script>
+            $(document).ready(function() {
+                $(function() {
+                    $("#my_color_picker").colorpicker();
+                });
+            });
+        </script>
+    </body>
 </body>
+  
 </html>
