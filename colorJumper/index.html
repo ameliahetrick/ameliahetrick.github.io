@@ -39,11 +39,11 @@ https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
       }
 
       // override class properties of https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/css/colorjoe.css
-#showPicker {
-    //float: top;
+      
+#rgbValue, #hslaValue {
+}
 
-    //position: absolute;
-    //top: 0;
+#showPicker {
 }
 
 .colorPicker {
@@ -53,19 +53,15 @@ https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
     border-radius: 0em;
 
     position: relative;
-    //width: 240px;
-    height: 500px;
+    height: 400px;
 }
 
 .colorPicker .extras {
-    //float: bottom;
-
     position: absolute;
     bottom: 0;
 }
 
 .colorPicker .extras .currentColor {
-    //float: top;
     width: 20px;
     height: 20px;
     border: 0px;
@@ -73,24 +69,19 @@ https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
     border-radius: 0em;
 
     position: absolute;
-    top: 0;
+    top: -100px;
+}
+
+.colorPicker .extras .colorFields {
+    position: absolute;
+    bottom: 0;
+    right: -240px;
+    text-transform: uppercase;
 }
 
 .colorPicker .extras .hex {
-    //float: bottom;
-
     position: absolute;
     bottom: 0;
-}
-
-#rgbValue, #hslaValue {
-    //float: bottom;
-
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    //float: right;
-
 }
 
 
@@ -106,7 +97,7 @@ https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
 
     <script type="text/javascript">
       $(document).ready(function () {
-        const joe = colorjoe.rgb("colorpicker", "blue", [
+        const joe = colorjoe.rgb("colorpicker", "yellow", [
           "hex",
           ["fields", { space: "RGB", limit: 255, fix: 0 }],
           "currentColor"
