@@ -1,7 +1,6 @@
 <!--
 
-
-ColorJoe:
+color picker - ColorJoe:
 https://github.com/bebraw/colorjoe/
 http://bebraw.github.io/colorjoe/
 https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
@@ -10,36 +9,30 @@ https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
 
 <!DOCTYPE html>
 <html>
-  <head>
 
-    <title>ColorJoe library</title>
-    <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      type="text/javascript"
-      charset="utf-8"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/css/colorjoe.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/dist/colorjoe.js"></script>
+<head>
 
+<title>ColorJumper WIP</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/css/colorjoe.css"/>
+<script src="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/dist/colorjoe.js"></script>
 
-    <style type="text/css">
-      body {
-        width: 80%;
-        height: 80%;
-        margin: auto;
-      }
-      #main {
-        height: 600px;
-      }
-      #color {
-        margin-left: 30%;
-      }
-
-      // override class properties of https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/css/colorjoe.css
+<style type="text/css">
+    
+body {
+    width: 80%;
+    height: 80%;
+    margin: auto;
+}
+#main {
+    height: 600px;
+}
+#color {
+    margin-left: 30%;
+}
       
+/* begin overriding ColorJoe properties */
+
 #rgbValue, #hslaValue {
 }
 
@@ -53,7 +46,7 @@ https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
     border-radius: 0em;
 
     position: relative;
-    height: 400px;
+    height: 500px;
 }
 
 .colorPicker .extras {
@@ -62,14 +55,14 @@ https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
 }
 
 .colorPicker .extras .currentColor {
-    width: 20px;
-    height: 20px;
+    width: 90px;
+    height: 90px;
     border: 0px;
     -moz-border-radius: 0em;
     border-radius: 0em;
 
     position: absolute;
-    top: -100px;
+    top: -490px;
 }
 
 .colorPicker .extras .colorFields {
@@ -84,33 +77,36 @@ https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
     bottom: 0;
 }
 
+.colorPicker .twod, .colorPicker .oned {
+    margin-top:100px;
+}
 
-    </style>
-  </head>
+/* end overriding ColorJoe properties */
 
+</style>
+</head>
 
-  <body>
+<body>
+
     <div id="main">
-      <h1>ColorJoe library</h1>
-      <div id="colorpicker"></div>
+        <h1>ColorJoe library</h1>
+        <div id="colorpicker"></div>
     </div>
 
     <script type="text/javascript">
-      $(document).ready(function () {
-        const joe = colorjoe.rgb("colorpicker", "yellow", [
-          "hex",
-          ["fields", { space: "RGB", limit: 255, fix: 0 }],
-          "currentColor"
+        $(document).ready(function () {
+            const joe = colorjoe.rgb("colorpicker", "green", [
+                "currentColor",
+                "hex",
+                ["fields", { space: "RGB", limit: 255, fix: 0 }]
         ]);
         //change the background color of the main div when color changes
-        joe
-          .on("change", function (c) {
-            $("#main").css("backgroundColor", c.css());
-          })
-          .update();
-      });
+            joe.on("change", function (c) {
+                $("#main").css("backgroundColor", c.css());
+            }).update();
+        });
     </script>
-  </body>
-
+    
+</body>
 
 </html>
