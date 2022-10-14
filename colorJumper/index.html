@@ -40,32 +40,47 @@ https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
 
       // override class properties of https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/css/colorjoe.css
 #rgbValue, #hslaValue {
-    float: bottom !important;
+    //float: bottom;
+
+    position: absolute;
+    bottom: 0;
 }
 
 #showPicker {
-    float: top !important;
+    //float: top;
+
+    position: absolute;
+    top: 0;
 }
 
 .colorPicker {
     background: #ffffff;
     border: 0px;
-    -moz-border-radius: .3em;
-    border-radius: .3em;
-    margin: 1em;
-    display: inline-block;
+    -moz-border-radius: 0em;
+    border-radius: 0em;
+
+    position: relative;
 }
 
 .colorPicker .extras {
-    float: bottom !important;
+    //float: bottom;
+
+    position: absolute;
+    bottom: 0;
 }
 
 .colorPicker .extras .currentColor {
-    float: top !important;
+    //float: top;
+
+    position: absolute;
+    top: 0;
 }
 
 .colorPicker .extras .hex {
-    float: bottom !important;
+    //float: bottom;
+
+    position: absolute;
+    bottom: 0;
 }
 
 
