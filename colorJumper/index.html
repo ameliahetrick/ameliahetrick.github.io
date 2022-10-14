@@ -1,7 +1,10 @@
 <!--
 
+
+ColorJoe:
 https://github.com/bebraw/colorjoe/
 http://bebraw.github.io/colorjoe/
+https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
 
 -->
 
@@ -34,6 +37,36 @@ http://bebraw.github.io/colorjoe/
       #color {
         margin-left: 30%;
       }
+
+      // overwrite class properties of https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/css/colorjoe.css
+
+#rgbValue, #hslaValue {
+    float: bottom;
+}
+
+#showPicker {
+    float: top;
+}
+
+.colorPicker .extras {
+    float: bottom;
+    margin: 0.5em;
+}
+
+.colorPicker .extras .currentColor {
+    float: top;
+    width: 65px;
+    height: 30px;
+    border: 1px solid #BBB;
+    -moz-border-radius: .3em;
+    border-radius: .3em;
+}
+
+.colorPicker .extras .hex {
+    float: bottom;
+}
+
+
     </style>
   </head>
 
@@ -46,9 +79,9 @@ http://bebraw.github.io/colorjoe/
 
     <script type="text/javascript">
       $(document).ready(function () {
-        const joe = colorjoe.rgb("colorpicker", "blue", [
+        const joe = colorjoe.rgb("colorpicker", "green", [
           "hex",
-          ["fields", { space: "RGB", limit: 255, fix: 0 }]
+          ["fields", { space: "RGB", limit: 255, fix: 0 }], "current"
         ]);
         //change the background color of the main div when color changes
         joe
