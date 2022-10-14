@@ -18,15 +18,26 @@ https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
 <script src="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/dist/colorjoe.js"></script>
 
 <style type="text/css">
+
+:root {
+    --initial-color: #00d39a;
+    --midpoint-color: #5497db;
+    
+    --color-block-height: 150px;
+    --color-picker-height: 500px;
+    --color-picker-dimension-height: 150px;
+}
     
 body {
     width: 80%;
     height: 80%;
     margin: auto;
 }
+
 #main {
     height: 600px;
 }
+
 #color {
     margin-left: 30%;
 }
@@ -46,7 +57,7 @@ body {
     border-radius: 0em;
 
     position: relative;
-    height: 500px;
+    height: var(--color-picker-height);
 }
 
 .colorPicker .extras {
@@ -55,20 +66,20 @@ body {
 }
 
 .colorPicker .extras .currentColor {
-    width: 90px;
-    height: 90px;
+    width: calc(var(--color-block-height));
+    height: calc(var(--color-block-height));
     border: 0px;
     -moz-border-radius: 0em;
     border-radius: 0em;
 
     position: absolute;
-    top: -490px;
+    bottom: calc(var(--color-picker-height) - var(--color-block-height) - 5px);
 }
 
 .colorPicker .extras .colorFields {
     position: absolute;
     bottom: 0;
-    right: -240px;
+    right: calc(-1 * var(--color-picker-dimension-height));
     text-transform: uppercase;
 }
 
@@ -78,7 +89,15 @@ body {
 }
 
 .colorPicker .twod, .colorPicker .oned {
-    margin-top:100px;
+    margin-top: var(--color-block-height);
+}
+
+.colorPicker .twod, .colorPicker .twod .bg {
+    width: var(--color-picker-dimension-height);
+    height: var(--color-picker-dimension-height);
+}
+.colorPicker .oned, .colorPicker .oned .bg {
+    height: var(--color-picker-dimension-height);
 }
 
 /* end overriding ColorJoe properties */
