@@ -1,5 +1,5 @@
 /* https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/dist/colorjoe.js
-   with some variables changed (olorJumper change)
+   with some variables changed (colorJumper change)
 */
 
 
