@@ -22,11 +22,8 @@ https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
 <style type="text/css">
 
 :root {
-    --initial-color: #00d39a;
-    --midpoint-color: #5497db;
-    
-    --color-block-height: 150px;
     --colorjoe-height: 450px;
+    --color-block-height: 150px;
 }
     
 body {
@@ -52,14 +49,20 @@ body {
     float:left;
     background:#efefef;
 }
+
+#container3 {
+    float:left;
+    background:#efefef;
+    height: var(--colorjoe-height);
+}
+
+#final-color-block {
+    width: var(--color-block-height);
+    height: var(--color-block-height);
+    background: purple;
+}
       
 /* begin overriding ColorJoe properties */
-
-#rgbValue, #hslaValue {
-}
-
-#showPicker {
-}
 
 .colorPicker {
     //background: inherit;
@@ -67,25 +70,29 @@ body {
     border: 0px;
     -moz-border-radius: 0em;
     border-radius: 0em;
+    margin: 10px;
 
     position: relative;
     height: var(--colorjoe-height);
 }
 
 .colorPicker .extras {
+    margin:inherit;
+    margin-left: 8px;
     position: absolute;
     bottom: 0;
 }
 
 .colorPicker .extras .currentColor {
-    width: calc(var(--color-block-height));
-    height: calc(var(--color-block-height));
+    width: var(--color-block-height);
+    height: var(--color-block-height);
     border: 0px;
     -moz-border-radius: 0em;
     border-radius: 0em;
 
     position: absolute;
-    bottom: calc(var(--colorjoe-height) - var(--color-block-height) - 10px);
+    //bottom: calc(var(--colorjoe-height) - var(--color-block-height) - 10px);
+    bottom: calc(var(--colorjoe-height) - var(--color-block-height) - 18px);
 }
 
 .colorPicker .extras .colorFields {
@@ -101,7 +108,8 @@ body {
 }
 
 .colorPicker .twod, .colorPicker .oned {
-    margin-top: calc(var(--color-block-height) + 5px);
+    //margin-top: calc(var(--color-block-height) + 5px);
+    margin-top: calc(var(--color-block-height) + 18px);
 }
 
 .colorPicker .twod, .colorPicker .twod .bg {
@@ -123,7 +131,8 @@ body {
     width: 150px;
     
     position: absolute;
-    margin-top: calc(var(--color-block-height) + 5px);
+    //margin-top: calc(var(--color-block-height) + 5px);
+    margin-top: calc(var(--color-block-height) + 13px);
 }
 
 .colorPicker .oned .bg {
@@ -139,7 +148,8 @@ body {
     -moz-border-radius: 5px;
     border-radius: 5px;
     
-    margin-top: calc(var(--color-block-height) + 5px);
+    //margin-top: calc(var(--color-block-height) + 5px);
+    margin-top: calc(var(--color-block-height) + 11px);
 }
 
 .colorPicker .oned .bg {
@@ -161,30 +171,75 @@ body {
         <h1>ColorJumper WIP</h1>
         <div id="container1"><div id="colorpicker-initial"></div></div>
         <div id="container2"><div id="colorpicker-midpoint"></div></div>
+        <div id="container3"><div id="final-color-block"></div></div>
     </div>
+    
 
     <script type="text/javascript">
         $(document).ready(function () {
-            const initialColor = colorjoe.rgb("colorpicker-initial", "green", [
+            
+            var initialColor = "#00d39a";
+            var midpointColor = "#5497db";
+            
+            
+            
+            const initialColorPicker = colorjoe.rgb("colorpicker-initial", initialColor, [
                 "currentColor",
                 "hex",
                 ["fields", { space: "RGB", limit: 255, fix: 0 }]
         ]);
         //change the background color of the main div when color changes
-            initialColor.on("change", function (c) {
+            initialColorPicker.on("change", function (c) {
                 //$("#main").css("backgroundColor", c.css());
+                initialColor = c.css();
+                test(c.css());
+                //alert(c.css());
+                //calculateRGB(00, ff);
             }).update();
             
             
-            const midpointColor = colorjoe.rgb("colorpicker-midpoint", "red", [
+            const midpointColorPicker = colorjoe.rgb("colorpicker-midpoint", midpointColor, [
                 "currentColor",
                 "hex",
                 ["fields", { space: "RGB", limit: 255, fix: 0 }]
         ]);
         //change the background color of the main div when color changes
-            midpointColor.on("change", function (c) {
+            midpointColorPicker.on("change", function (c) {
                 //$("#main").css("backgroundColor", c.css());
+                midpointColor = c.css();
             }).update();
+            
+            
+            function test(p) {
+                $("#final-color-block").css("background", p);
+            }
+            
+            /* colorJumper functions */
+            
+            function calculateRGB(initialRGB, midpointRGB) {
+                //return p1 * p2;
+                
+                var finalRGB = 0;
+                var finalRGBtemp = -1;
+                
+               if (midpointRGB >= initialRGB) {
+                  finalRGBtemp = Math.abs((finalRGBtemp+midpointRGB));
+                  finalRGB = Math.min(finalRGBtemp, 0xFF);
+               }
+               else {
+                  finalRGBtemp = Math.abs((rgbtemp-midpointRGB));
+                  finalRGB = Math.max(finalRGBtemp, 0x00);
+               }
+                  
+               if (finalRGBtemp > 0xFF || finalRGBtemp < 0x00) {
+                  //withinBounds = false;
+                  //compromised = true;
+               }
+               $("#final-color-block").css("background", "#000");
+               return finalRGB;
+            }
+            
+            
             
             
         });
