@@ -121,11 +121,6 @@ body {
     height: var(--color-block-height);
 }
 
-/*.colorPicker .oned {
-    transform-origin: top left;
-    transform: rotate(270deg);
-}*/
-
 .colorPicker .oned, .colorPicker .oned .bg {
     height: 20px;
     width: 150px;
@@ -178,8 +173,20 @@ body {
     <script type="text/javascript">
         $(document).ready(function () {
             
-            var initialColor = "#00d39a";
-            var midpointColor = "#5497db";
+            var initialColor = "#754242";
+            var midpointColor = "#aa6161";
+            
+            var initialR = 0x75;
+            var initialG = 0x42;
+            var initialB = 0x42;
+            
+            var midpointR = 0xaa;
+            var midpointG = 0x61;
+            var midpointB = 0x61;
+            
+            var resultR;
+            var resultG;
+            var resultB;
             
             
             
@@ -191,10 +198,17 @@ body {
         //change the background color of the main div when color changes
             initialColorPicker.on("change", function (c) {
                 //$("#main").css("backgroundColor", c.css());
-                initialColor = c.css();
-                test(c.css());
-                //alert(c.css());
-                //calculateRGB(00, ff);
+                
+                
+                initialColor = c.css().split(",");
+                initialR = parseInt(initialColor[0].slice(4));
+                initialG = parseInt(initialColor[1]);
+                initialB = parseInt(initialColor[2].slice(0, -1));
+                //RGBtoInt(c.css(), initialR, initialG, initialB);
+                
+                calculate();
+                
+                
             }).update();
             
             
@@ -206,37 +220,65 @@ body {
         //change the background color of the main div when color changes
             midpointColorPicker.on("change", function (c) {
                 //$("#main").css("backgroundColor", c.css());
-                midpointColor = c.css();
+                
+                midpointColor = c.css().split(",");
+                midpointR = parseInt(midpointColor[0].slice(4));
+                midpointG = parseInt(midpointColor[1]);
+                midpointB = parseInt(midpointColor[2].slice(0, -1));
+                
+                //RGBtoInt(c.css(), midpointR, midpointG, midpointB);
+                
+                calculate();
             }).update();
             
             
-            function test(p) {
-                $("#final-color-block").css("background", p);
-            }
+            
             
             /* colorJumper functions */
             
-            function calculateRGB(initialRGB, midpointRGB) {
-                //return p1 * p2;
+            function RGBtoInt(rgb, r, g, b) {
+                color = rgb.split(",");
+                r = parseInt(color[0].slice(4));
+                g = parseInt(color[1]);
+                b = parseInt(color[2].slice(0, -1));
                 
-                var finalRGB = 0;
-                var finalRGBtemp = -1;
+            }
+            
+            function calculate() {
+                
+                //alert(midpointR);
+                resultR = calculateRGB(initialR, midpointR);
+                resultG = calculateRGB(initialG, midpointG);
+                resultB = calculateRGB(initialB, midpointB);
+                
+                //alert(resultR);
+                
+                $("#final-color-block").css("background", "rgb("+resultR+","+resultG+","+resultB+")");
+            }
+            
+            function calculateRGB(initialRGB, midpointRGB) {
+                
+                //alert(initialRGB);
+                //alert(midpointRGB);
+                var resultRGB = 0;
+                var resultRGBtemp = Math.abs(midpointRGB-initialRGB);
                 
                if (midpointRGB >= initialRGB) {
-                  finalRGBtemp = Math.abs((finalRGBtemp+midpointRGB));
-                  finalRGB = Math.min(finalRGBtemp, 0xFF);
+                  resultRGBtemp = Math.abs(resultRGBtemp+midpointRGB);
+                  resultRGB = Math.min(resultRGBtemp, 0xFF);
+                  //alert(resultRGB);
                }
                else {
-                  finalRGBtemp = Math.abs((rgbtemp-midpointRGB));
-                  finalRGB = Math.max(finalRGBtemp, 0x00);
+                   resultRGBtemp = Math.abs(resultRGBtemp-midpointRGB);
+                   resultRGB = Math.max(resultRGBtemp, 0x00);
                }
                   
-               if (finalRGBtemp > 0xFF || finalRGBtemp < 0x00) {
-                  //withinBounds = false;
-                  //compromised = true;
-               }
-               $("#final-color-block").css("background", "#000");
-               return finalRGB;
+               /*if (resultRGBtemp > 0xFF || resultRGBtemp < 0x00) {
+                  withinBounds = false;
+                  compromised = true;
+               }*/
+               //$("#final-color-block").css("background", "#000");
+               return resultRGB;
             }
             
             
