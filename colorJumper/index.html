@@ -71,12 +71,12 @@ body {
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background: red;
     position: absolute;
     top: -10px;
     right: -10px;
     border: 1px solid white;
     text-align: center;
+    background: black;
     color: white;
 }
       
@@ -223,13 +223,11 @@ body {
                 b: -1
             }
             
-            var compromised = {
-                r: false,
-                g: false,
-                b: false
+            var inBounds = {
+                r: true,
+                g: true,
+                b: true
             }
-            
-            var withinBounds = true;
             
             
             const initialColorPicker = 
@@ -296,12 +294,39 @@ body {
             }
             
             function showBoundsAlert() {
-                if (withinBounds) {
-                    document.getElementById('boundsAlert').style.display = 'none'; 
+                /*if (inBounds.r && inBounds.g && inBounds.b) {
+                    document.getElementById('boundsAlertRed').style.display = 'none'; 
                 } else {
-                    document.getElementById('boundsAlert').style.display = 'block'; 
+                    document.getElementById('boundsAlertRed').style.display = 'block'; 
+                }*/
+                
+                $("#boundsAlert").css("display", "none");
+                
+                if (!inBounds.r) {
+                    $("#boundsAlert").css("display", "block");
+                    $("#boundsAlert").css("background", "#FF3300");
+                    if (!inBounds.g) {
+                        $("#boundsAlert").css("background", "#808000");
+                        if (!inBounds.b) {
+                            $("#boundsAlert").css("background", "#808080");
+                        }
+                    }
+                    else if (!inBounds.b) {
+                        $("#boundsAlert").css("background", "#803380");
+                    }
                 }
-                withinBounds = true;
+                else if (!inBounds.g) {
+                    $("#boundsAlert").css("display", "block");
+                    $("#boundsAlert").css("background", "#00CC00");
+                    if (!inBounds.b) {
+                        $("#boundsAlert").css("background", "#008080");
+                    }
+                }
+                else if (!inBounds.b) {
+                    $("#boundsAlert").css("display", "block");
+                    $("#boundsAlert").css("background", "#0033FF");
+                }
+                
             }
             
             
@@ -310,28 +335,25 @@ body {
              */
             function calculate() {
                 
-                result.r = calculateRGB(initial.r, midpoint.r, compromised.r);
-                result.g = calculateRGB(initial.g, midpoint.g, compromised.g);
-                result.b = calculateRGB(initial.b, midpoint.b, compromised.b);
+                [result.r, inBounds.r] = calculateRGB(initial.r, midpoint.r);
+                [result.g, inBounds.g] = calculateRGB(initial.g, midpoint.g);
+                [result.b, inBounds.b] = calculateRGB(initial.b, midpoint.b);
                 showBoundsAlert();
-                
-                compromised.r = false;
-                compromised.g = false;
-                compromised.b = false;
-                /*compromised = {
-                    r = false,
-                    g = false,
-                    b = false
-                }*/
                 
                 
                 $("#resultBlock").css("background", obj_to_RGB(result));
-                document.getElementById("resultText").innerHTML = obj_to_RGB(result) + "<br>" + obj_to_hex(result) + "<br>" + withinBounds + "<br>" + compromised.r + " " + compromised.g + " " + compromised.b;
+                document.getElementById("resultText").innerHTML = obj_to_RGB(result) + "<br>" + obj_to_hex(result) + "<br>" + inBounds.r + " " + inBounds.g + " " + inBounds.b;
+                
+                
+                inBounds.r = true;
+                inBounds.g = true;
+                inBounds.b = true;
             }
             
-            function calculateRGB(initialRGB, midpointRGB, compromisedRGB) {
+            function calculateRGB(initialRGB, midpointRGB) {
                 
                 var resultRGB = 0;
+                var inBoundsRGB = true;
                 var temp = Math.abs(midpointRGB-initialRGB);
                 
                if (midpointRGB >= initialRGB) {
@@ -345,11 +367,9 @@ body {
                
                   
                if (temp > 0xFF || temp < 0x00) {
-                  withinBounds = false;
-                  compromisedRGB = true;
-                  //compromised = true;
+                  inBoundsRGB = false;
                }
-               return resultRGB;
+               return [resultRGB, inBoundsRGB];
             }
             
             
