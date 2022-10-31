@@ -36,22 +36,6 @@ body {
     height: 550px;
 }
 
-#container1 {
-    float:left;
-    background:#efefef;
-}
-
-#container2 {
-    float:left;
-    background:#efefef;
-}
-
-#container3 {
-    float:left;
-    background:#efefef;
-    height: var(--colorjoe-height);
-}
-
 #titles {
     position: relative;
     top: 0;
@@ -60,11 +44,29 @@ body {
     text-align: center;
 }
 
+#pickerContainer {
+    float:left;
+    background:#efefef;
+}
+
+#resultContainer {
+    float:left;
+    background:#efefef;
+    height: calc(var(--colorjoe-height) + 42px);
+}
+
+#resultInnerContainer {
+    margin: 10px;
+    background: white;
+}
+
 #resultBlock {
     width: var(--color-block-height);
     height: var(--color-block-height);
     background: purple;
     position: relative;
+    margin: 8px;
+    top: 8px;
 }
 
 #boundsAlert {
@@ -178,20 +180,22 @@ body {
 
     <div id="main">
         <h1>ColorJumper WIP</h1>
-        <div id="container1">
-            <div id="titles">Initial Color</div>
+        <div id="pickerContainer">
+            <div id="titles">Initial</div>
             <div id="initialPicker"></div>
         </div>
-        <div id="container2">
-            <div id="titles">Midpoint Color</div>
+        <div id="pickerContainer">
+            <div id="titles">Midpoint</div>
             <div id="midpointPicker"></div>
         </div>
-        <div id="container3">
+        <div id="resultContainer">
             <div id="titles">Result</div>
-            <div id="resultBlock">
-                <div id="boundsAlert">!</div>
+            <div id="resultInnerContainer">
+                <div id="resultBlock">
+                    <div id="boundsAlert">!</div>
+                </div>
+                <p id="resultText" style="margin-left:8px;"></p>
             </div>
-            <p id="resultText"></p>
         </div>
     </div>
     
