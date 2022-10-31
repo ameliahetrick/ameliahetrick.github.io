@@ -36,10 +36,6 @@ body {
     height: 550px;
 }
 
-#color {
-    margin-left: 30%;
-}
-
 #container1 {
     float:left;
     background:#efefef;
@@ -56,10 +52,32 @@ body {
     height: var(--colorjoe-height);
 }
 
-#final-color-block {
+#titles {
+    position: relative;
+    top: 0;
+    text-transform: uppercase;
+    font-family: arial;
+    text-align: center;
+}
+
+#resultBlock {
     width: var(--color-block-height);
     height: var(--color-block-height);
     background: purple;
+    position: relative;
+}
+
+#boundsAlert {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: red;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    border: 1px solid white;
+    text-align: center;
+    color: white;
 }
       
 /* begin overriding ColorJoe properties */
@@ -91,7 +109,6 @@ body {
     border-radius: 0em;
 
     position: absolute;
-    //bottom: calc(var(--colorjoe-height) - var(--color-block-height) - 10px);
     bottom: calc(var(--colorjoe-height) - var(--color-block-height) - 18px);
 }
 
@@ -108,7 +125,6 @@ body {
 }
 
 .colorPicker .twod, .colorPicker .oned {
-    //margin-top: calc(var(--color-block-height) + 5px);
     margin-top: calc(var(--color-block-height) + 18px);
 }
 
@@ -126,7 +142,6 @@ body {
     width: 150px;
     
     position: absolute;
-    //margin-top: calc(var(--color-block-height) + 5px);
     margin-top: calc(var(--color-block-height) + 13px);
 }
 
@@ -143,7 +158,6 @@ body {
     -moz-border-radius: 5px;
     border-radius: 5px;
     
-    //margin-top: calc(var(--color-block-height) + 5px);
     margin-top: calc(var(--color-block-height) + 11px);
 }
 
@@ -164,71 +178,87 @@ body {
 
     <div id="main">
         <h1>ColorJumper WIP</h1>
-        <div id="container1"><div id="colorpicker-initial"></div></div>
-        <div id="container2"><div id="colorpicker-midpoint"></div></div>
-        <div id="container3"><div id="final-color-block"></div></div>
+        <div id="container1">
+            <div id="titles">Initial Color</div>
+            <div id="initialPicker"></div>
+        </div>
+        <div id="container2">
+            <div id="titles">Midpoint Color</div>
+            <div id="midpointPicker"></div>
+        </div>
+        <div id="container3">
+            <div id="titles">Result</div>
+            <div id="resultBlock">
+                <div id="boundsAlert">!</div>
+            </div>
+            <p id="resultText"></p>
+        </div>
     </div>
     
 
     <script type="text/javascript">
         $(document).ready(function () {
             
-            var initialColor = "#754242";
-            var midpointColor = "#aa6161";
+            /*var initial = {
+                r: 0x75,
+                g: 0x42,
+                b: 0x42
+            }*/
             
-            var initialR = 0x75;
-            var initialG = 0x42;
-            var initialB = 0x42;
+            var initial = {
+                r: 0x45,
+                g: 0x37,
+                b: 0x37
+            }
             
-            var midpointR = 0xaa;
-            var midpointG = 0x61;
-            var midpointB = 0x61;
+            var midpoint = {
+                r: 0xaa,
+                g: 0x61,
+                b: 0x61
+            }
             
-            var resultR;
-            var resultG;
-            var resultB;
+            var result = {
+                r: -1,
+                g: -1,
+                b: -1
+            }
+            
+            var compromised = {
+                r: false,
+                g: false,
+                b: false
+            }
+            
+            var withinBounds = true;
             
             
-            
-            const initialColorPicker = colorjoe.rgb("colorpicker-initial", initialColor, [
+            const initialColorPicker = 
+            colorjoe.rgb("initialPicker", obj_to_RGB(initial), [
                 "currentColor",
                 "hex",
                 ["fields", { space: "RGB", limit: 255, fix: 0 }]
         ]);
-        //change the background color of the main div when color changes
+        
             initialColorPicker.on("change", function (c) {
-                //$("#main").css("backgroundColor", c.css());
                 
-                
-                initialColor = c.css().split(",");
-                initialR = parseInt(initialColor[0].slice(4));
-                initialG = parseInt(initialColor[1]);
-                initialB = parseInt(initialColor[2].slice(0, -1));
-                //RGBtoInt(c.css(), initialR, initialG, initialB);
-                
+                RGB_to_obj(c.css(), initial);
                 calculate();
-                
                 
             }).update();
             
             
-            const midpointColorPicker = colorjoe.rgb("colorpicker-midpoint", midpointColor, [
+            const midpointColorPicker = 
+            colorjoe.rgb("midpointPicker", obj_to_RGB(midpoint), [
                 "currentColor",
                 "hex",
                 ["fields", { space: "RGB", limit: 255, fix: 0 }]
         ]);
-        //change the background color of the main div when color changes
+        
             midpointColorPicker.on("change", function (c) {
-                //$("#main").css("backgroundColor", c.css());
                 
-                midpointColor = c.css().split(",");
-                midpointR = parseInt(midpointColor[0].slice(4));
-                midpointG = parseInt(midpointColor[1]);
-                midpointB = parseInt(midpointColor[2].slice(0, -1));
-                
-                //RGBtoInt(c.css(), midpointR, midpointG, midpointB);
-                
+                RGB_to_obj(c.css(), midpoint);
                 calculate();
+                
             }).update();
             
             
@@ -236,50 +266,93 @@ body {
             
             /* colorJumper functions */
             
-            function RGBtoInt(rgb, r, g, b) {
-                color = rgb.split(",");
-                r = parseInt(color[0].slice(4));
-                g = parseInt(color[1]);
-                b = parseInt(color[2].slice(0, -1));
-                
+            
+            /* RGB_to_obj(rgb, color)
+             *
+             * params:
+             * rgb: a String
+             * color: the object with RGB fields to be updated
+             *
+             * converts String "rgb(z,y,z)" to
+             * object properties {r: x, g: y, b: z}
+             */
+            function RGB_to_obj(rgb, color) {
+                var splitString = rgb.split(",");
+                color.r = parseInt(splitString[0].slice(4));
+                color.g = parseInt(splitString[1]);
+                color.b = parseInt(splitString[2].slice(0, -1));
             }
             
+            function obj_to_RGB(color) {
+                return "rgb("+color.r+","
+                             +color.g+","
+                             +color.b+")";
+            }
+            
+            function obj_to_hex(color) {
+                return "#"+color.r.toString(16)
+                          +color.g.toString(16)
+                          +color.b.toString(16);
+            }
+            
+            function showBoundsAlert() {
+                if (withinBounds) {
+                    document.getElementById('boundsAlert').style.display = 'none'; 
+                } else {
+                    document.getElementById('boundsAlert').style.display = 'block'; 
+                }
+                withinBounds = true;
+            }
+            
+            
+            /*
+             * Calculates new result color.
+             */
             function calculate() {
                 
-                //alert(midpointR);
-                resultR = calculateRGB(initialR, midpointR);
-                resultG = calculateRGB(initialG, midpointG);
-                resultB = calculateRGB(initialB, midpointB);
+                result.r = calculateRGB(initial.r, midpoint.r, compromised.r);
+                result.g = calculateRGB(initial.g, midpoint.g, compromised.g);
+                result.b = calculateRGB(initial.b, midpoint.b, compromised.b);
+                showBoundsAlert();
                 
-                //alert(resultR);
+                compromised.r = false;
+                compromised.g = false;
+                compromised.b = false;
+                /*compromised = {
+                    r = false,
+                    g = false,
+                    b = false
+                }*/
                 
-                $("#final-color-block").css("background", "rgb("+resultR+","+resultG+","+resultB+")");
+                
+                $("#resultBlock").css("background", obj_to_RGB(result));
+                document.getElementById("resultText").innerHTML = obj_to_RGB(result) + "<br>" + obj_to_hex(result) + "<br>" + withinBounds + "<br>" + compromised.r + " " + compromised.g + " " + compromised.b;
             }
             
-            function calculateRGB(initialRGB, midpointRGB) {
+            function calculateRGB(initialRGB, midpointRGB, compromisedRGB) {
                 
-                //alert(initialRGB);
-                //alert(midpointRGB);
                 var resultRGB = 0;
-                var resultRGBtemp = Math.abs(midpointRGB-initialRGB);
+                var temp = Math.abs(midpointRGB-initialRGB);
                 
                if (midpointRGB >= initialRGB) {
-                  resultRGBtemp = Math.abs(resultRGBtemp+midpointRGB);
-                  resultRGB = Math.min(resultRGBtemp, 0xFF);
-                  //alert(resultRGB);
+                  temp = Math.abs(temp+midpointRGB);
+                  resultRGB = Math.min(temp, 0xFF);
                }
                else {
-                   resultRGBtemp = Math.abs(resultRGBtemp-midpointRGB);
-                   resultRGB = Math.max(resultRGBtemp, 0x00);
+                   temp = Math.abs(temp-midpointRGB);
+                   resultRGB = Math.max(temp, 0x00);
                }
+               
                   
-               /*if (resultRGBtemp > 0xFF || resultRGBtemp < 0x00) {
+               if (temp > 0xFF || temp < 0x00) {
                   withinBounds = false;
-                  compromised = true;
-               }*/
-               //$("#final-color-block").css("background", "#000");
+                  compromisedRGB = true;
+                  //compromised = true;
+               }
                return resultRGB;
             }
+            
+            
             
             
             
