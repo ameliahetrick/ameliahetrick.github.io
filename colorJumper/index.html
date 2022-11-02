@@ -12,7 +12,7 @@ https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
 
 <head>
 
-<title>ColorJumper WIP</title>
+<title>colorJumper WIP</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/css/colorjoe.css"/>
 <!--<script src="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/dist/colorjoe.js"></script>-->
@@ -27,13 +27,19 @@ https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
 }
     
 body {
-    width: 80%;
-    height: 80%;
-    margin: auto;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    
 }
 
 #main {
-    height: 550px;
+	height: 550px;
+	width:600px;
+    
+    margin: 0 auto;
 }
 
 #titles {
@@ -63,7 +69,6 @@ body {
 #resultBlock {
     width: var(--color-block-height);
     height: var(--color-block-height);
-    background: purple;
     position: relative;
     margin: 8px;
     top: 8px;
@@ -116,14 +121,29 @@ body {
 
 .colorPicker .extras .colorFields {
     position: absolute;
-    bottom: 0;
+    bottom: 50px;
     right: calc(-1 * var(--color-block-height));
     text-transform: uppercase;
+}
+.colorPicker .extras .color {
+    float: left;
+}
+
+.colorPicker .extras .colorFields input {
+    width: 25px;
+    left:0px;
+    margin-left: 0.2em;
+    margin-right: 0.25em;
 }
 
 .colorPicker .extras .hex {
     position: absolute;
-    bottom: 0;
+    bottom: 30px;
+}
+
+.colorPicker .extras .hex input {
+    width: calc(var(--color-block-height) - 8px);
+    text-align:center;
 }
 
 .colorPicker .twod, .colorPicker .oned {
@@ -179,7 +199,7 @@ body {
 <body>
 
     <div id="main">
-        <h1>ColorJumper WIP</h1>
+        <h1>colorJumper WIP</h1>
         <div id="pickerContainer">
             <div id="titles">Initial</div>
             <div id="initialPicker"></div>
@@ -356,6 +376,9 @@ body {
             
             function calculateRGB(initialRGB, midpointRGB) {
                 
+                //initialRGB = initialRGB + 1;
+                //midpointRGB = midpointRGB + 1;
+                
                 var resultRGB = 0;
                 var inBoundsRGB = true;
                 var temp = Math.abs(midpointRGB-initialRGB);
@@ -373,6 +396,10 @@ body {
                if (temp > 0xFF || temp < 0x00) {
                   inBoundsRGB = false;
                }
+               
+               //initialRGB = initialRGB - 1;
+                //midpointRGB = midpointRGB - 1;
+               
                return [resultRGB, inBoundsRGB];
             }
             
