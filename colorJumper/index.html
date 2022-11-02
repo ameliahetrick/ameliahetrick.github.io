@@ -22,8 +22,8 @@ https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
 <style type="text/css">
 
 :root {
-    --colorjoe-height: 450px;
-    --color-block-height: 150px;
+    --color-block-height: 175px;
+    --colorjoe-height: calc(var(--color-block-height) * 2 + 120px);
 }
     
 body {
@@ -37,8 +37,6 @@ body {
 
 #main {
 	height: 550px;
-	width:600px;
-    
     margin: 0 auto;
 }
 
@@ -121,24 +119,26 @@ body {
 
 .colorPicker .extras .colorFields {
     position: absolute;
-    bottom: 50px;
+    bottom: 23px;
     right: calc(-1 * var(--color-block-height));
     text-transform: uppercase;
+    width: var(--color-block-height);
 }
 .colorPicker .extras .color {
     float: left;
 }
 
 .colorPicker .extras .colorFields input {
-    width: 25px;
-    left:0px;
-    margin-left: 0.2em;
-    margin-right: 0.25em;
+    width: calc(var(--color-block-height) / 3 - 26px);
+    left:-3px;
+    //right: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 .colorPicker .extras .hex {
     position: absolute;
-    bottom: 30px;
+    bottom: 0px;
 }
 
 .colorPicker .extras .hex input {
@@ -161,7 +161,7 @@ body {
 
 .colorPicker .oned, .colorPicker .oned .bg {
     height: 20px;
-    width: 150px;
+    width: var(--color-block-height);
     
     position: absolute;
     margin-top: calc(var(--color-block-height) + 13px);
