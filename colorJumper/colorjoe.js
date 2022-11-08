@@ -432,9 +432,10 @@ https://bebraw.github.com/colorjoe - 2020-01-27 */
 	    }
 
 /* colorJumper change: 'utils.Y' -> 'utils.X' */
+/* colorJumper change: '1 - col.alpha()' -> 'col.alpha()' */
 	    return {
 	        change: function(col) {
-	            utils.X(e.pointer, 1 - col.alpha());
+	            utils.X(e.pointer, col.alpha());
 	        }
 	    };
 	}
