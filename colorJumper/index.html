@@ -16,14 +16,15 @@ https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/css/colorjoe.css"/>
 <!--<script src="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/dist/colorjoe.js"></script>-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/ahetric/ahetric.github.io/colorJumper/colorjoe.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/ahetric/ahetric.github.io@master/colorJumper/colorjoe.js"></script>
 
 
 <style type="text/css">
 
 :root {
-    --color-block-height: 175px;
-    --colorjoe-height: calc(var(--color-block-height) * 2 + 120px);
+    --color-block-height: 200px;
+    //--colorjoe-height: calc(var(--color-block-height) * 2 + 120px);
+    --colorjoe-height: calc(var(--color-block-height) * 2 + 149px);
 }
     
 body {
@@ -53,6 +54,36 @@ body {
     background:#efefef;
 }
 
+#checkeredBG {
+    z-index: 0;
+    background-image: linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  
+  margin: 8px;
+  width: var(--color-block-height);
+    height: var(--color-block-height);
+
+    position: absolute;
+    bottom: calc(var(--colorjoe-height) - var(--color-block-height) - 16px);
+}
+
+#checkeredBGresult {
+    z-index: 0;
+    background-image: linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  
+  
+    
+    z-index: 1;
+    width: var(--color-block-height);
+    height: var(--color-block-height);
+    position: relative;
+    margin: 8px;
+    top: 8px;
+}
+
 #resultContainer {
     float:left;
     background:#efefef;
@@ -67,9 +98,7 @@ body {
 #resultBlock {
     width: var(--color-block-height);
     height: var(--color-block-height);
-    position: relative;
-    margin: 8px;
-    top: 8px;
+    position: absolute;
 }
 
 #boundsAlert {
@@ -107,6 +136,7 @@ body {
 }
 
 .colorPicker .extras .currentColor {
+    //z-index: 0;
     width: var(--color-block-height);
     height: var(--color-block-height);
     border: 0px;
@@ -129,9 +159,8 @@ body {
 }
 
 .colorPicker .extras .colorFields input {
-    width: calc(var(--color-block-height) / 3 - 26px);
+    width: calc(var(--color-block-height) / 4 - 26px);
     left:-3px;
-    //right: 3px;
     margin-left: 3px;
     margin-right: 3px;
 }
@@ -146,16 +175,12 @@ body {
     text-align:center;
 }
 
-.colorPicker .twod, .colorPicker .oned {
+.colorPicker .twod {
     margin-top: calc(var(--color-block-height) + 18px);
 }
 
 .colorPicker .twod, .colorPicker .twod .bg {
     width: var(--color-block-height);
-    height: var(--color-block-height);
-}
-
-.colorPicker .oned, .colorPicker .oned .bg {
     height: var(--color-block-height);
 }
 
@@ -191,6 +216,41 @@ body {
     background: linear-gradient(to right,  #ff0000 0%,#ffff00 17%,#00ff00 33%,#00ffff 50%,#0000ff 66%,#ff00ff 83%,#ff0000 100%);
 }
 
+.colorPicker .oned.alpha, .colorPicker .oned.alpha .bg {
+height: 20px;
+    width: var(--color-block-height);
+    
+    position: absolute;
+    //margin-top: calc(var(--color-block-height) + 13px);
+    bottom: 29px;
+    margin-left: 0px;
+}
+
+.colorPicker .oned.alpha .bg {
+    box-shadow:0px 0px 0px 1px #808080 inset;
+}
+
+.colorPicker .oned.alpha .pointer .shape {
+    position: absolute;
+    margin-left: -4px;
+    margin-top: 3px;
+    height: 20px;
+    width:5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    
+    //margin-top: calc(var(--color-block-height) + 11px);
+    bottom: 7px;
+}
+
+.colorPicker .oned.alpha .bg {
+      background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left, right, color-stop(0%,rgba(0,0,0,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(left, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+      background: linear-gradient(to right, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
+}
+
 /* end overriding ColorJoe properties */
 
 </style>
@@ -202,17 +262,23 @@ body {
         <h1>colorJumper WIP</h1>
         <div id="pickerContainer">
             <div id="titles">Initial</div>
-            <div id="initialPicker"></div>
+            <div id="initialPicker">
+                <div id="checkeredBG"></div>
+            </div>
         </div>
         <div id="pickerContainer">
             <div id="titles">Midpoint</div>
-            <div id="midpointPicker"></div>
+            <div id="midpointPicker">
+                <div id="checkeredBG"></div>
+            </div>
         </div>
         <div id="resultContainer">
             <div id="titles">Result</div>
             <div id="resultInnerContainer">
-                <div id="resultBlock">
-                    <div id="boundsAlert">!</div>
+                <div id="checkeredBGresult">
+                    <div id="resultBlock">
+                        <div id="boundsAlert">!</div>
+                    </div>
                 </div>
                 <p id="resultText" style="margin-left:8px;"></p>
             </div>
@@ -226,31 +292,36 @@ body {
             /*var initial = {
                 r: 0x75,
                 g: 0x42,
-                b: 0x42
+                b: 0x42,
+                a: 1
             }*/
             
             var initial = {
                 r: 0x45,
                 g: 0x37,
-                b: 0x37
+                b: 0x37,
+                a: 1
             }
             
             var midpoint = {
                 r: 0xaa,
                 g: 0x61,
-                b: 0x61
+                b: 0x61,
+                a: 1
             }
             
             var result = {
-                r: -1,
-                g: -1,
-                b: -1
+                r: 0,
+                g: 0,
+                b: 0,
+                a: 1
             }
             
             var inBounds = {
                 r: true,
                 g: true,
-                b: true
+                b: true,
+                a: true
             }
             
             
@@ -258,13 +329,15 @@ body {
             colorjoe.rgb("initialPicker", obj_to_RGB(initial), [
                 "currentColor",
                 "hex",
-                ["fields", { space: "RGB", limit: 255, fix: 0 }]
+                "alpha",
+                ["fields", { space: "RGBA", limit: 0, fix: 0 }]
         ]);
         
             initialColorPicker.on("change", function (c) {
                 
-                RGB_to_obj(c.css(), initial);
+                RGB_to_obj(c.cssa(), initial);
                 calculate();
+                
                 
             }).update();
             
@@ -273,15 +346,18 @@ body {
             colorjoe.rgb("midpointPicker", obj_to_RGB(midpoint), [
                 "currentColor",
                 "hex",
-                ["fields", { space: "RGB", limit: 255, fix: 0 }]
+                "alpha",
+                ["fields", { space: "RGBA", limit: 255, fix: 0 }]
         ]);
         
             midpointColorPicker.on("change", function (c) {
                 
-                RGB_to_obj(c.css(), midpoint);
+                RGB_to_obj(c.cssa(), midpoint);
                 calculate();
                 
+                
             }).update();
+            
             
             
             
@@ -300,29 +376,38 @@ body {
              */
             function RGB_to_obj(rgb, color) {
                 var splitString = rgb.split(",");
-                color.r = parseInt(splitString[0].slice(4));
+                color.r = parseInt(splitString[0].slice(5));
                 color.g = parseInt(splitString[1]);
-                color.b = parseInt(splitString[2].slice(0, -1));
+                color.b = parseInt(splitString[2]);
+                color.a = parseFloat(splitString[3].slice(0, -1));
             }
             
             function obj_to_RGB(color) {
-                return "rgb("+color.r+","
+                return "rgba("+color.r+","
                              +color.g+","
-                             +color.b+")";
+                             +color.b+","
+                             +color.a+")";
             }
             
+            //https://stackoverflow.com/a/13240395
             function obj_to_hex(color) {
-                return "#"+color.r.toString(16)
-                          +color.g.toString(16)
-                          +color.b.toString(16);
+                return "#"+("0"+(Number(color.r).toString(16))).slice(-2)
+                          +("0"+(Number(color.g).toString(16))).slice(-2)
+                          +("0"+(Number(color.b).toString(16))).slice(-2)
+                          +("0"+(Number(alpha_0_to_255(color.a)).toString(16))).slice(-2)
             }
+            
+            function alpha_0_to_1(a) {
+                return Math.round(a / 255.0);
+            }
+            
+            function alpha_0_to_255(a) {
+                return Math.round(a * 255.0);
+            }
+            
+            
             
             function showBoundsAlert() {
-                /*if (inBounds.r && inBounds.g && inBounds.b) {
-                    document.getElementById('boundsAlertRed').style.display = 'none'; 
-                } else {
-                    document.getElementById('boundsAlertRed').style.display = 'block'; 
-                }*/
                 
                 $("#boundsAlert").css("display", "none");
                 
@@ -362,49 +447,72 @@ body {
                 [result.r, inBounds.r] = calculateRGB(initial.r, midpoint.r);
                 [result.g, inBounds.g] = calculateRGB(initial.g, midpoint.g);
                 [result.b, inBounds.b] = calculateRGB(initial.b, midpoint.b);
+                
+                [result.a, inBounds.a] = calculateA(initial.a, midpoint.a);
+                
                 showBoundsAlert();
                 
                 
                 $("#resultBlock").css("background", obj_to_RGB(result));
-                document.getElementById("resultText").innerHTML = obj_to_RGB(result) + "<br>" + obj_to_hex(result) + "<br>" + inBounds.r + " " + inBounds.g + " " + inBounds.b;
-                
-                
-                inBounds.r = true;
-                inBounds.g = true;
-                inBounds.b = true;
+                document.getElementById("resultText").innerHTML = obj_to_RGB(result) + "<br>" + obj_to_hex(result) + "<br>" + inBounds.r + " " + inBounds.g + " " + inBounds.b + " " + inBounds.a;
             }
             
             function calculateRGB(initialRGB, midpointRGB) {
-                
-                //initialRGB = initialRGB + 1;
-                //midpointRGB = midpointRGB + 1;
-                
-                var resultRGB = 0;
-                var inBoundsRGB = true;
-                var temp = Math.abs(midpointRGB-initialRGB);
-                
-               if (midpointRGB >= initialRGB) {
-                  temp = Math.abs(temp+midpointRGB);
-                  resultRGB = Math.min(temp, 0xFF);
-               }
-               else {
-                   temp = Math.abs(temp-midpointRGB);
-                   resultRGB = Math.max(temp, 0x00);
+               
+               if (midpointRGB == 128) {
+                   if (initialRGB == 0)
+                    return [255, true];
+                    if (initialRGB == 255)
+                    return [0, true];
                }
                
-                  
-               if (temp > 0xFF || temp < 0x00) {
-                  inBoundsRGB = false;
+               /* If, given two values 'a' and 'c',
+                * you would find the midpoint 'b' as:
+                *
+                *   b = (a+c)/2
+                *
+                * then solving for 'c' given 'a' and 'b' is:
+                *
+                *   c = (2*b) - a
+                */
+               
+               var resultRGB = (2.00 * midpointRGB) - initialRGB;
+               var inBoundsRGB = true;
+               
+               if (resultRGB > 0xFF) {
+                   resultRGB = 0xFF;
+                   inBoundsRGB = false;
+               }
+               else if (resultRGB < 0x00) {
+                   resultRGB = 0x00;
+                   inBoundsRGB = false;
                }
                
-               //initialRGB = initialRGB - 1;
-                //midpointRGB = midpointRGB - 1;
+               //resultRGB = resultRGB.toFixed(2);
                
                return [resultRGB, inBoundsRGB];
             }
             
+            function calculateA(initialA, midpointA) {
+               
+               var resultA = (2.00 * midpointA) - initialA;
+               var inBoundsA = true;
+               
+               if (resultA > 1.00) {
+                   resultA = 1.00;
+                   inBoundsA = false;
+               }
+               else if (resultA < 0.00) {
+                   resultA = 0.00;
+                   inBoundsA = false;
+               }
+               
+               resultA = resultA.toFixed(2);
+               
+               return [resultA, inBoundsA];
+            }
             
-            
+
             
             
             
