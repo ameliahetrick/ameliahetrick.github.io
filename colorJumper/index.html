@@ -21,6 +21,13 @@ convert decimal to hexadecimal:
 convert from range [0,1] to [0,255]:
 	https://stackoverflow.com/a/46575472
 
+css toggle switch with text:
+	https://codepen.io/alvarotrigo/pen/oNoJePo (button 10)
+    https://alvarotrigo.com/blog/toggle-switch-css/
+
+textbox onChange:
+	https://stackoverflow.com/a/50012963
+
 -->
 
 <!DOCTYPE html>
@@ -34,7 +41,7 @@ convert from range [0,1] to [0,255]:
 <!--
 <script src="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/dist/colorjoe.js"></script>
 -->
-<script src="https://cdn.jsdelivr.net/gh/ahetric/ahetric.github.io@master/colorJumper/colorjoe.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ahetric/ahetric.github.io@b96d34559e414227bdbecba172b702cd4aa4924a/colorJumper/colorjoe.js"></script>
 
 
 <style type="text/css">
@@ -70,7 +77,7 @@ body {
     background:#efefef;
 }
 
-#checkeredBG {
+.checkeredBG {
     background-size: 20px 20px;
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
     background-image:
@@ -78,7 +85,9 @@ body {
         linear-gradient(-45deg, #ccc 25%, transparent 25%),
         linear-gradient(45deg, transparent 75%, #ccc 75%),
         linear-gradient(-45deg, transparent 75%, #ccc 75%);
+}
 
+#checkeredBGpickers {
     position: absolute;
     bottom: calc(var(--colorjoe-height) - var(--color-block-height) - 16px);
     width: var(--color-block-height);
@@ -87,14 +96,6 @@ body {
 }
 
 #checkeredBGresult {
-	background-size: 20px 20px;
-	background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-    background-image:
-    	linear-gradient(45deg, #ccc 25%, transparent 25%),
-    	linear-gradient(-45deg, #ccc 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #ccc 75%),
-        linear-gradient(-45deg, transparent 75%, #ccc 75%);
-
 	position: relative;
     top: 8px;
     width: var(--color-block-height);
@@ -169,6 +170,8 @@ body {
     right: calc(-1 * var(--color-block-height));
     text-transform: uppercase;
     width: var(--color-block-height);
+    
+    font-family: "Consolas", monospace;
 }
 
 .colorPicker .extras .color {
@@ -242,9 +245,9 @@ body {
     margin-left: 0px;
 }
 
-.colorPicker .oned.alpha .bg {
+/*.colorPicker .oned.alpha .bg {
     box-shadow:0px 0px 0px 1px #808080 inset;
-}
+}*/
 
 .colorPicker .oned.alpha .pointer .shape {
     position: absolute;
@@ -259,14 +262,271 @@ body {
 }
 
 .colorPicker .oned.alpha .bg {
-	background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left, right, color-stop(0%,rgba(0,0,0,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(left, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
-	background: linear-gradient(to right, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
+	background: -moz-linear-gradient(right, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, right, left, color-stop(0%,rgba(0,0,0,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(right, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(right, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+	background: linear-gradient(to left, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
+}
+
+/* HSL pickers */
+#initialPickerHSL .twod, #initialPickerHSL .twod .bg,
+#midpointPickerHSL .twod, #initialPickerHSL .twod .bg {
+    width: var(--color-block-height);
+    height: var(--color-block-height);
+}
+
+#initialPickerHSL .oned,
+#midpointPickerHSL .oned {
+    height: 20px;
+    width: var(--color-block-height);
+    
+    position: absolute;
+    margin-top:0px;
+    bottom: 95px;
+}
+
+#initialPickerHSL .oned .bg,
+#midpointPickerHSL .oned .bg {
+    margin-top:0px;
+}
+
+#initialPickerHSL .oned .pointer,
+#midpointPickerHSL .oned .pointer {
+    /*position: absolute;
+    margin-top: 3px;
+    height: 20px;
+    width:5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;*/
+    
+    bottom: 213px;
+}
+
+
+#initialPickerHSL .twod .bg1,
+#midpointPickerHSL .twod .bg1 {
+    background: -moz-linear-gradient(left,  #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 66%, #ff00ff 83%, #ff0000 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ff0000), color-stop(17%,#ffff00), color-stop(33%,#00ff00), color-stop(50%,#00ffff), color-stop(66%,#0000ff), color-stop(83%,#ff00ff), color-stop(100%,#ff0000));
+    background: -webkit-linear-gradient(left, #ff0000 0%,#ffff00 17%,#00ff00 33%,#00ffff 50%,#0000ff 66%,#ff00ff 83%,#ff0000 100%);
+    background: -o-linear-gradient(left, #ff0000 0%,#ffff00 17%,#00ff00 33%,#00ffff 50%,#0000ff 66%,#ff00ff 83%,#ff0000 100%);
+    background: linear-gradient(to right, #ff0000 0%,#ffff00 17%,#00ff00 33%,#00ffff 50%,#0000ff 66%,#ff00ff 83%,#ff0000 100%);
+}
+
+#initialPickerHSL .twod .bg2,
+#midpointPickerHSL .twod .bg2 {
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(127,127,127,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(127,127,127,1)));
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(127,127,127,1) 100%);
+    background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(127,127,127,1) 100%);
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(127,127,127,1) 100%);
+}
+
+#initialPickerHSL .oned .bg,
+#midpointPickerHSL .oned .bg {
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%);
+    background: -webkit-gradient(linear, left, right, color-stop(0%,rgba(255,255,255,1)), color-stop(50%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,1)));
+    background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(0,0,0,0),rgba(0,0,0,1) 100%);
+    background: -o-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,1) 100%);
+    background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,1) 100%);
+}
+
+#initialPickerHSL .oned.alpha,
+#midpointPickerHSL .oned.alpha{
+    /*height: 20px;
+    width: var(--color-block-height);
+    
+    position: absolute;*/
+    bottom: 29px;
+    //margin-left: 0px;
+}
+
+#initialPickerHSL .oned.alpha .bg,
+#midpointPickerHSL .oned.alpha .bg {
+	background: -moz-linear-gradient(right, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, right, left, color-stop(0%,rgba(0,0,0,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(right, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(right, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+	background: linear-gradient(to left, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
+}
+
+#initialPickerHSL .oned.alpha .pointer,
+#midpointPickerHSL .oned.alpha .pointer {
+    position: absolute;
+    //margin-top: 3px;
+    /*height: 20px;
+    width:5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;*/
+    
+    bottom: 20px;
 }
 
 /* end overriding ColorJoe properties */
+
+#initialPickerRGB, #midpointPickerRGB {
+	display: block;
+}
+
+#initialPickerHSL, #midpointPickerHSL {
+	display: none;
+}
+
+/* CSS rules are kept repetitive so that you can get CSS rules for each button easily :) */
+
+/* {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-color: #f1f9f9;
+}*/
+
+#app-cover {
+  display: table;
+  width: 600px;
+  margin: 80px auto;
+  counter-reset: button-counter;
+}
+
+.toggle-button-cover {
+  display: table-cell;
+  position: relative;
+  width: 200px;
+  height: 140px;
+  box-sizing: border-box;
+}
+
+.button-cover {
+  height: 100px;
+  margin: 20px;
+  background-color: #fff;
+  box-shadow: 0 10px 20px -8px #c5d6d6;
+  border-radius: 4px;
+}
+
+.button-cover:before {
+  counter-increment: button-counter;
+  content: counter(button-counter);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #d7e3e3;
+  font-size: 12px;
+  line-height: 1;
+  padding: 5px;
+}
+
+.button-cover,
+.knobs,
+.layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.button {
+  position: relative;
+  top: 50%;
+  width: 74px;
+  height: 36px;
+  margin: -20px auto 0 auto;
+  overflow: hidden;
+}
+
+.button.r,
+.button.r .layer {
+  border-radius: 100px;
+}
+
+.button.b2 {
+  border-radius: 2px;
+}
+
+.checkbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.knobs {
+  z-index: 2;
+}
+
+.layer {
+  width: 100%;
+  background-color: #ebf7fc;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+
+/* Button 10 */
+#button-10 .knobs:before,
+#button-10 .knobs:after,
+#button-10 .knobs span {
+  position: absolute;
+  top: 4px;
+  width: 20px;
+  height: 10px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 9px 4px;
+  border-radius: 2px;
+  transition: 0.3s ease all;
+}
+
+#button-10 .knobs:before {
+  content: "";
+  left: 4px;
+  background-color: #03a9f4;
+}
+
+#button-10 .knobs:after {
+  content: "HSL";
+  right: 4px;
+  color: #4e4e4e;
+}
+
+#button-10 .knobs span {
+  display: inline-block;
+  left: 4px;
+  color: #fff;
+  z-index: 1;
+}
+
+#button-10 .checkbox:checked + .knobs span {
+  color: #4e4e4e;
+}
+
+#button-10 .checkbox:checked + .knobs:before {
+  left: 42px;
+  background-color: #f44336;
+}
+
+#button-10 .checkbox:checked + .knobs:after {
+  color: #fff;
+}
+
+#button-10 .checkbox:checked ~ .layer {
+  background-color: #fcebeb;
+}
 
 </style>
 </head>
@@ -277,25 +537,40 @@ body {
 	<h1>colorJumper WIP</h1>
 	<div id="pickerContainer">
 		<div id="titles">Initial</div>
-		<div id="initialPicker">
-			<div id="checkeredBG"></div>
+		<div id="initialPickerRGB">
+			<div id="checkeredBGpickers" class="checkeredBG"></div>
+		</div>
+        <div id="initialPickerHSL">
+			<div id="checkeredBGpickers" class="checkeredBG"></div>
 		</div>
 	</div>
 	<div id="pickerContainer">
 		<div id="titles">Midpoint</div>
-		<div id="midpointPicker">
+		<div id="midpointPickerRGB">
+			<div id="checkeredBG"></div>
+		</div>
+        <div id="midpointPickerHSL">
 			<div id="checkeredBG"></div>
 		</div>
 	</div>
 	<div id="resultContainer">
 		<div id="titles">Result</div>
 		<div id="resultInnerContainer">
-			<div id="checkeredBGresult">
+			<div id="checkeredBGresult" class="checkeredBG">
 				<div id="resultBlock">
 					<div id="boundsAlert">!</div>
 				</div>
 			</div>
 			<p id="resultText" style="margin-left:8px;"></p>
+            
+            <div class="button b2" id="button-10">
+                <input type="checkbox" id="check" class="checkbox"/>
+                <div class="knobs">
+                  <span>RGB</span>
+                </div>
+                <div class="layer"></div>
+            </div>
+
 		</div>
 	</div>
 </div>
@@ -339,15 +614,17 @@ body {
         a: true
 	}
     
-	const initialColorPicker = 
-		colorjoe.rgb("initialPicker", obj_to_RGB(initial), [
+    /* RGB pickers */
+    
+	const initialColorPickerRGB = 
+		colorjoe.rgb("initialPickerRGB", obj_to_RGB(initial), [
 			["fields", { space: "RGBA", limit: 0, fix: 0 }],
 			"currentColor",
 			"alpha",
 			"hex",
 	]);
     
-	initialColorPicker.on("change", function (c) {
+	initialColorPickerRGB.on("change", function (c) {
     
 		RGB_to_obj(c.cssa(), initial);
 		calculate();
@@ -355,15 +632,15 @@ body {
 	}).update();
     
     
-	const midpointColorPicker = 
-		colorjoe.rgb("midpointPicker", obj_to_RGB(midpoint), [
+	const midpointColorPickerRGB = 
+		colorjoe.rgb("midpointPickerRGB", obj_to_RGB(midpoint), [
 			["fields", { space: "RGBA", limit: 255, fix: 0 }],
             "currentColor",
             "alpha",
             "hex"
 	]);
     
-	midpointColorPicker.on("change", function (c) {
+	midpointColorPickerRGB.on("change", function (c) {
     
 		RGB_to_obj(c.cssa(), midpoint);
 		calculate();
@@ -371,6 +648,67 @@ body {
 	}).update();
     
     
+    /* HSL pickers */
+    
+    
+    const initialColorPickerHSL = 
+		colorjoe.hsl("initialPickerHSL", obj_to_RGB(initial), [
+			["fields", { space: "HSLA", limit: 0, fix: 0 }],
+			"currentColor",
+			"alpha",
+			"hex",
+	]);
+    
+	initialColorPickerHSL.on("change", function (c) {
+    
+		RGB_to_obj(c.cssa(), initial);
+		calculate();
+        
+	}).update();
+    
+    
+    const midpointColorPickerHSL = 
+		colorjoe.hsl("midpointPickerHSL", obj_to_RGB(midpoint), [
+			["fields", { space: "HSLA", limit: 0, fix: 0 }],
+			"currentColor",
+			"alpha",
+			"hex",
+	]);
+    
+	midpointColorPickerHSL.on("change", function (c) {
+    
+		RGB_to_obj(c.cssa(), midpoint);
+		calculate();
+        
+	}).update();
+
+
+    const checkbox = document.getElementById('check');
+    
+    checkbox.addEventListener('change', (event) => {
+        if (event.currentTarget.checked) {
+            $("#initialPickerRGB").toggle();
+            $("#initialPickerHSL").toggle();
+            
+            initialColorPickerHSL.set(initialColorPickerRGB.get());
+            
+            $("#midpointPickerRGB").toggle();
+            $("#midpointPickerHSL").toggle();
+            
+            midpointColorPickerHSL.set(midpointColorPickerRGB.get());
+        }
+        else {
+            $("#initialPickerRGB").toggle();
+            $("#initialPickerHSL").toggle();
+            
+            initialColorPickerRGB.set(initialColorPickerHSL.get());
+            
+            $("#midpointPickerRGB").toggle();
+            $("#midpointPickerHSL").toggle();
+            
+            midpointColorPickerRGB.set(midpointColorPickerHSL.get());
+        }
+    })
     
     
 	/* colorJumper functions */
@@ -404,7 +742,7 @@ body {
 		return "#"+("0"+(Number(color.r).toString(16))).slice(-2)
 				  +("0"+(Number(color.g).toString(16))).slice(-2)
                   +("0"+(Number(color.b).toString(16))).slice(-2)
-                  +("0"+(Number(alpha_0_to_255(color.a)).toString(16))).slice(-2)
+                  +("0"+(Number(alpha_0_to_255(color.a)).toString(16))).slice(-2);
 	}
     
 	function alpha_0_to_1(a) {
