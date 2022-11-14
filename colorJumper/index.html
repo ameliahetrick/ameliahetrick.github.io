@@ -332,13 +332,8 @@ body {
 }
 
 #initialPickerHSL .oned.alpha,
-#midpointPickerHSL .oned.alpha{
-    /*height: 20px;
-    width: var(--color-block-height);
-    
-    position: absolute;*/
+#midpointPickerHSL .oned.alpha {
     bottom: 29px;
-    //margin-left: 0px;
 }
 
 #initialPickerHSL .oned.alpha .bg,
@@ -353,12 +348,6 @@ body {
 #initialPickerHSL .oned.alpha .pointer,
 #midpointPickerHSL .oned.alpha .pointer {
     position: absolute;
-    //margin-top: 3px;
-    /*height: 20px;
-    width:5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;*/
-    
     bottom: 20px;
 }
 
@@ -389,42 +378,6 @@ body {
   background-color: #f1f9f9;
 }*/
 
-#app-cover {
-  display: table;
-  width: 600px;
-  margin: 80px auto;
-  counter-reset: button-counter;
-}
-
-.toggle-button-cover {
-  display: table-cell;
-  position: relative;
-  width: 200px;
-  height: 140px;
-  box-sizing: border-box;
-}
-
-.button-cover {
-  height: 100px;
-  margin: 20px;
-  background-color: #fff;
-  box-shadow: 0 10px 20px -8px #c5d6d6;
-  border-radius: 4px;
-}
-
-.button-cover:before {
-  counter-increment: button-counter;
-  content: counter(button-counter);
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  color: #d7e3e3;
-  font-size: 12px;
-  line-height: 1;
-  padding: 5px;
-}
-
-.button-cover,
 .knobs,
 .layer {
   position: absolute;
@@ -490,11 +443,12 @@ body {
   padding: 9px 4px;
   border-radius: 2px;
   transition: 0.3s ease all;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #button-10 .knobs:before {
   content: "";
-  left: 4px;
+  left: 5px;
   background-color: #03a9f4;
 }
 
