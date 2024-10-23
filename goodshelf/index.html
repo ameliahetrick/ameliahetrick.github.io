@@ -91,7 +91,7 @@ this goodreads yearly challenge widget requires specific div id names associated
         --padding-size: 10px;
         --border-size: 1px;
         
-        --sidebar-width: 280px;
+        --sidebar-width: 250px;
         
         --border-style: var(--border-size) solid var(--accent-color);
         --font-size: 12px;
@@ -188,7 +188,7 @@ text-decoration: underline;
         left: 0;
         
         /* size */
-        width: 773px;
+        width: 743px;
         height: 526px;
     }
     
@@ -221,7 +221,7 @@ text-decoration: underline;
         /* size */
         /* (sidebar width) - 2*(padding size) */
         width: calc(var(--sidebar-width) - calc(2*var(--padding-size)));
-        height: 87px;
+        height: 100px;
         
         /* border */
         border: var(--border-style);
@@ -252,6 +252,7 @@ text-decoration: underline;
         font-size:inherit !important;
         text-decoration: underline !important;
         font-style:normal !important;
+        color: var(--accent-color) !important;
     }
     
     
@@ -261,7 +262,8 @@ text-decoration: underline;
      * replace the default styling for the widget
      */
     [id^="gr_challenge_progress_body_"] div[class="challengePic"] {
-        margin-right: var(--padding-size) !important;
+        margin-left: -60px !important;
+        visibility: hidden !important;
     }
     
     
@@ -276,12 +278,13 @@ text-decoration: underline;
      *    background-color: #FFF\">
      */
     [id^="gr_challenge_progress_body_"] div[style*="#382110"] {
-        /* (100% of widget container) - (width of img) - (right margin of img) - (border of progress bar) */
-        width: calc(100% - 51px - var(--padding-size) - calc(2 * var(--border-size))) !important;
+        /* (100% of widget container) - (right margin of img) - (border of progress bar) */
+        width: calc(100% - calc(2 * var(--border-size))) !important;
         margin: 5px 0px 5px 0px !important;
         border: var(--border-style) !important; 
         height: var(--padding-size) !important;
         background-color: #fff !important;
+        margin-top: 10px !important;
         
     }
     
@@ -310,7 +313,10 @@ text-decoration: underline;
      *    sans-serif;font-size:90%\">
      */
     [id^="gr_challenge_progress_body_"] div[style*="font-size:90%"] {
-        visibility: hidden !important;
+        margin-top: 25px !important;
+        position: absolute !important;
+        right: 10px !important;
+        color: var(--text-color) !important;
     }
     
     
@@ -352,7 +358,7 @@ text-decoration: underline;
         /* size */
         /* (sidebar width) - (left padding size) */
         width: calc(var(--sidebar-width) - var(--padding-size));
-        max-height:391px;
+        max-height:378px;
         padding-left:var(--padding-size);
         
         /* border */
@@ -370,7 +376,7 @@ text-decoration: underline;
      */
     #description_inner {
         /* size */
-        max-height: 371px;
+        max-height: 358px;
         padding-right: var(--padding-size);
         
         /* border */
