@@ -86,12 +86,12 @@ this goodreads yearly challenge widget requires specific div id names associated
     :root {
         --background-color: #fff;
         --text-color: #555;
-        --accent-color: #aaa;
+        --accent-color: #999;
         
         --padding-size: 10px;
         --border-size: 1px;
         
-        --sidebar-width: 250px;
+        --sidebar-width: 260px;
         
         --border-style: var(--border-size) solid var(--accent-color);
         --font-size: 10.5px;
@@ -100,11 +100,11 @@ this goodreads yearly challenge widget requires specific div id names associated
         
         --img-ease-in-out: 0.5s ease-in-out;
         
-        --img-default-saturate: saturate(95%);
+        --img-default-saturate: saturate(100%);
         --img-default-contrast: contrast(100%);
         --img-default-opacity: opacity(100%);
         
-        --img-hover-saturate: saturate(100%);
+        --img-hover-saturate: saturate(110%);
         --img-hover-contrast: contrast(100%);
         --img-hover-opacity: opacity(100%);
         
@@ -162,15 +162,15 @@ this goodreads yearly challenge widget requires specific div id names associated
 
 a {
 color: var(--accent-color);
-text-decoration: none;
+text-decoration: underline;
 -moz-transition-duration: var(--text-transition-duration);
 -webkit-transition-duration: var(--text-transition-duration);
 -o-transition-duration: var(--text-transition-duration);
 }
 
 a:hover {
-color: #555;
-text-decoration: none;
+color: var(--text-color);
+text-decoration: underline;
 -moz-transition-duration: var(--text-transition-duration);
 -webkit-transition-duration: var(--text-transition-duration);
 -o-transition-duration: var(--text-transition-duration);
@@ -250,6 +250,8 @@ text-decoration: none;
     [id^="gr_challenge_progress_body_"] a[style*="georgia"] {
         font-family:inherit !important;
         font-size:inherit !important;
+        text-decoration: underline !important;
+        font-style:normal !important;
     }
     
     
@@ -474,7 +476,7 @@ text-decoration: none;
 }  
 .ui-tabs .ui-tabs-nav {
 	margin: 0px;
-	margin-left:-1px;
+	//margin-left:-1px;
 	padding: 10px;
 	padding-left:0px;
 	background:#fff;
@@ -500,7 +502,7 @@ text-decoration: none;
 	border-radius: 0px;
 	border-left:none;
 	background-color:#fff;
-	font-size:10px;
+	//font-size:10px;
 	width:100px;
 	border:var(--border-style);
 	
@@ -611,11 +613,11 @@ background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,23
 .tippy-box[data-theme~="custom"],
 .tippy-box[data-theme~="custom2"] {
     background-color: var(--accent-color);
-    background: var(--accent-color);
-    color: black;
+    color: var(--text-color);
   text-align:center;
   border:var(--border-style);
-  font-size:12px;
+  font-size:13px;
+  border-radius:0px;
 }
 
 .tippy-box[data-theme~="custom"] .tippy-svg-arrow,
@@ -640,8 +642,8 @@ background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,23
             <div id="sidebar">
             
                 <!-- goodreads yearly reading challenge widget -->
-                    <div id="gr_challenge_progress_body_11621">
-                        <script src="https://www.goodreads.com/user_challenges/widget/28021191-lorem-ipsum?challenge_id=11621&v=2"></script>
+                    <div id="gr_challenge_progress_body_11634">
+                        <script src="https://www.goodreads.com/user_challenges/widget/28021191-lorem-ipsum?challenge_id=11634&v=2"></script>
                     </div>
                 <!-- -->
                 
@@ -650,9 +652,9 @@ background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,23
                 <!--<p>
                 <center>-->
                 <div id="links">
-                <a href="/">refresh</a>&emsp;&emsp;
-                <a href="https://www.goodreads.com/user/show/28021191-lorem-ipsum">goodreads</a>&emsp;&emsp;
-                <a href="https://ameliahetrick.github.io/">github</a>
+                <a href="/">REFRESH</a>&emsp;&emsp;
+                <a href="https://www.goodreads.com/user/show/28021191-lorem-ipsum">GOODREADS</a>&emsp;&emsp;
+                <a href="https://ameliahetrick.github.io/">GITHUB</a>
                 </div>
                 <!--</center>
                 </p>-->
@@ -751,8 +753,14 @@ $(document).ready(function() {
     /* make sure tabs navigation links load smoothly */
     $("#bookshelf_outer").removeAttr('style');
     
+    var inactiveBackgroundColor = getComputedStyle(document.documentElement)
+    .getPropertyValue('--background-color');
+    
+    var activeBackgroundColor = getComputedStyle(document.documentElement)
+    .getPropertyValue('--text-color');
+    
     /* when page first loads, override the new tab fade in code below */
-    $("li").first().css('background-color','#555');
+    $("li").first().css('background-color',activeBackgroundColor);
     
     $("#bookshelf_outer").tabs({
     /* fade out the old panel */
@@ -765,14 +773,14 @@ $(document).ready(function() {
         
         /* fade out the old tab */
         ui.oldTab.fadeIn(1000, function(){ 
-            $(this).css('background-color','#fff');
-            $(this).css('color','#555');
+            $(this).css('background-color',inactiveBackgroundColor);
+            $(this).css('color',activeBackgroundColor);
         });
         
         /* fade in the new tab */
         ui.newTab.fadeIn(1000, function(){ 
-            $(this).css('background-color','#555');
-            $(this).css('color','#fff');
+            $(this).css('background-color',activeBackgroundColor);
+            $(this).css('color',inactiveBackgroundColor);
         });
         
         
