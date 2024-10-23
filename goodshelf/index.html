@@ -85,7 +85,8 @@ this goodreads yearly challenge widget requires specific div id names associated
 
     :root {
         --background-color: #fff;
-        --accent-color: #ccc;
+        --text-color: #555;
+        --accent-color: #aaa;
         
         --padding-size: 10px;
         --border-size: 1px;
@@ -95,20 +96,23 @@ this goodreads yearly challenge widget requires specific div id names associated
         --border-style: var(--border-size) solid var(--accent-color);
         --font-size: 10.5px;
         
-        --img-ease-in-out: .5s ease-in-out;
+        --text-transition-duration: 0.5s;
         
-        --img-default-saturate: saturate(90%);
+        --img-ease-in-out: 0.5s ease-in-out;
+        
+        --img-default-saturate: saturate(95%);
         --img-default-contrast: contrast(100%);
-        --img-default-opacity: opacity(75%);
+        --img-default-opacity: opacity(100%);
         
         --img-hover-saturate: saturate(100%);
         --img-hover-contrast: contrast(100%);
-        --img-hover-opacity: opacity(90%);
+        --img-hover-opacity: opacity(100%);
         
         --img-sibling-hover-saturate: saturate(0%);
-        --img-sibling-hover-contrast: contrast(80%);
-        --img-sibling-hover-opacity: opacity(40%);
+        --img-sibling-hover-contrast: contrast(100%);
+        --img-sibling-hover-opacity: opacity(60%);
     }
+
 
     ::-webkit-scrollbar {
         width: var(--padding-size);
@@ -123,24 +127,6 @@ this goodreads yearly challenge widget requires specific div id names associated
         background-color: var(--accent-color);
     }
 
-    /*img:not(.gr_grid_container) {
-        //-webkit-filter: var(--img-default-saturate) var(--img-default-contrast) var(--img-default-opacity);
-        filter: var(--img-default-saturate) var(--img-default-contrast) var(--img-default-opacity);
-        transition: filter var(--img-ease-in-out);
-        -webkit-transition: var(--img-ease-in-out);
-        -moz-transition: var(--img-ease-in-out);
-        -ms-transition: var(--img-ease-in-out);
-        -o-transition: var(--img-ease-in-out);
-    }
-    /*img:hover:not(.gr_grid_container) {
-        //-webkit-filter: var(--img-hover-saturate) var(--img-hover-contrast) var(--img-hover-opacity);
-        filter: var(--img-hover-saturate) var(--img-hover-contrast) var(--img-hover-opacity);
-        transition: filter var(--img-ease-in-out);
-        -webkit-transition: var(--img-ease-in-out);
-        -moz-transition: var(--img-ease-in-out);
-        -ms-transition: var(--img-ease-in-out);
-        -o-transition: var(--img-ease-in-out);
-    }*/
     
     .img_default {
         filter: var(--img-default-saturate) var(--img-default-contrast) var(--img-default-opacity);
@@ -163,19 +149,32 @@ this goodreads yearly challenge widget requires specific div id names associated
         -o-transition: var(--img-ease-in-out);
     }
 
-
-
-
     
-    body {background-color:var(--background-color); color:#9a9a9a; 
-    font-family:roboto,sans-serif; 
-    //font-family: 'Raleway', sans-serif;
-    //font-family: 'Major Mono Display', monospace;
-    font-size: var(--font-size); line-height:150%; letter-spacing:1px; text-align:justify; //text-transform:lowercase;}
+    body {
+    background-color: var(--background-color);
+    color: var(--text-color); 
+    font-family: roboto, sans-serif;
+    font-size: var(--font-size);
+    line-height: 150%;
+    letter-spacing: 1px;
+    text-align: justify;
+    }
 
-a {color:var(--accent-color); text-decoration:none; -moz-transition-duration:0.8s; -webkit-transition-duration:0.8s; -o-transition-duration:0.8s;}
+a {
+color: var(--accent-color);
+text-decoration: none;
+-moz-transition-duration: var(--text-transition-duration);
+-webkit-transition-duration: var(--text-transition-duration);
+-o-transition-duration: var(--text-transition-duration);
+}
 
-a:hover {color:#eee; text-decoration:none; -moz-transition-duration:0.8s; -webkit-transition-duration:0.8s; -o-transition-duration:0.8s;}
+a:hover {
+color: #555;
+text-decoration: none;
+-moz-transition-duration: var(--text-transition-duration);
+-webkit-transition-duration: var(--text-transition-duration);
+-o-transition-duration: var(--text-transition-duration);
+}
 
     /* container for the page content
      */
@@ -190,10 +189,7 @@ a:hover {color:#eee; text-decoration:none; -moz-transition-duration:0.8s; -webki
         
         /* size */
         width: 743px;
-        //width: calc(var(--sidebar-width) + 482);
         height: 526px;
-        
-        //border: var(--padding-size) solid #00ff00;
     }
     
     
@@ -206,14 +202,11 @@ a:hover {color:#eee; text-decoration:none; -moz-transition-duration:0.8s; -webki
         
         /* size */
         /* (sidebar width) + 2*(border size) */
-        #width: calc(var(--sidebar-width) + calc(2*var(--border-size)));
         width: calc(var(--sidebar-width) + calc(2*var(--border-size))+1px);
         height: 524;
         
         /* overflow */
         overflow-y: hidden;
-        
-        //background: red;
     }
     
     
@@ -235,10 +228,6 @@ a:hover {color:#eee; text-decoration:none; -moz-transition-duration:0.8s; -webki
         
         /* text */
         text-align: justify;
-        font-size: calc(0.9 * var(--font-size));
-        //line-height: 125%;
-        
-        //background:yellow;
     }
     
     
@@ -351,8 +340,6 @@ a:hover {color:#eee; text-decoration:none; -moz-transition-duration:0.8s; -webki
         
         /* text */
         text-align: center;
-        
-        //background:green;
     }
     
     
@@ -370,8 +357,6 @@ a:hover {color:#eee; text-decoration:none; -moz-transition-duration:0.8s; -webki
         
         /* text */
         text-align: justify;
-        
-        //background:yellow;
     }
     
     
@@ -391,8 +376,6 @@ a:hover {color:#eee; text-decoration:none; -moz-transition-duration:0.8s; -webki
         
         /* overflow */
         overflow-y: auto;
-        
-        //background:red;
     }
     
     
@@ -414,8 +397,6 @@ a:hover {color:#eee; text-decoration:none; -moz-transition-duration:0.8s; -webki
         
         /* text */
         font-size:var(--padding-size);
-        
-        //background: blue;
     }
     
     
@@ -488,8 +469,7 @@ a:hover {color:#eee; text-decoration:none; -moz-transition-duration:0.8s; -webki
 	border-radius:0px;
 	border-bottom:var(--border-style);
 	
-	//background:yellow;
-	font-family: 'Courier Prime', monospace;
+	//font-family: 'Courier Prime', monospace;
 	
 }  
 .ui-tabs .ui-tabs-nav {
@@ -498,16 +478,13 @@ a:hover {color:#eee; text-decoration:none; -moz-transition-duration:0.8s; -webki
 	padding: 10px;
 	padding-left:0px;
 	background:#fff;
-	border-color:--border-color;
+	border-color:var(--border-color);
 	border-top: none;
-	//border-left:var(--border-style);
 	border-bottom:var(--border-style);
-	//border-bottom:1px solid green;
 	border-radius:0px;
 	margin-top:-46px;
 	z-index:5;
 	
-	//background:green;
 	border-left:1px transparent;
 	border-right:1px transparent;
 }
@@ -518,7 +495,6 @@ a:hover {color:#eee; text-decoration:none; -moz-transition-duration:0.8s; -webki
 	position: relative;
 	top: 0;
 	margin: 0px 0px 0px 10px;
-	//border-bottom-width: 0;
 	padding: 0;
 	white-space: nowrap;
 	border-radius: 0px;
@@ -528,9 +504,7 @@ a:hover {color:#eee; text-decoration:none; -moz-transition-duration:0.8s; -webki
 	width:100px;
 	border:var(--border-style);
 	
-	//background:red;
-	
-	color:#ccc;
+	//color:var(--text-color);
 	
 	//-moz-transition-duration:0.8s; -webkit-transition-duration:0.8s; -o-transition-duration:0.8s;
 	
@@ -563,8 +537,6 @@ color:inherit;
 	
 	width: 100%;
             padding: 0.5em 0em;
-	
-	//background:blue;
 }
 
 .ui-tabs-anchor span {
@@ -575,8 +547,8 @@ color:inherit;
 .ui-tabs .ui-tabs-nav li.ui-tabs-active {
 	margin-bottom: 0px;
 	padding-bottom: 0px;
-	background-color: var(--accent-color);
-	border-color:var(--accent-color);
+	//background-color: var(--text-color);
+	//border-color:var(--text-color);
 	
 	//-moz-transition-duration:0.8s; -webkit-transition-duration:0.8s; -o-transition-duration:0.8s;
 	
@@ -585,7 +557,8 @@ color:inherit;
 
 .ui-tabs .ui-tabs-nav li.ui-tabs-active a {
     //color: #ffffff;
-    color:inherit;
+    //color:inherit;
+    
 }
     
 .ui-tabs .ui-tabs-panel {
@@ -607,11 +580,9 @@ color:inherit;
         height:15px;
         right: 10px;
         bottom: 10px;
-        //font-style: italic;
         line-height:100%;
         font-size: 9px;
         border: var(--border-style);
-        //border-radius: 50%;
         text-align:center;
         background:white;
         text-transform:uppercase;
@@ -632,59 +603,24 @@ background: -webkit-linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgb
 background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
     }
     
-    /*#credit:after {
-    display: block;
-    content: "";
-    width: 2px;
-    height: 2px;
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    border-top: 1px solid blue;
-    border-right: 1px solid blue;
-}*/
 
 
 
 
-
-.tippy-tooltip.custom-theme {
+/*https://stackoverflow.com/a/65703128*/
+.tippy-box[data-theme~="custom"],
+.tippy-box[data-theme~="custom2"] {
     background-color: var(--accent-color);
     background: var(--accent-color);
-    background: rgb(2,0,36);
-//background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(255,0,101,1) 100%);
     color: black;
   text-align:center;
   border:var(--border-style);
-  border-radius:0px;
-  font-size:10px;
-  color:white;
-  //margin-left:var(--border-size);
+  font-size:12px;
 }
 
-.tippy-tooltip.custom-theme .tippy-svg-arrow {
+.tippy-box[data-theme~="custom"] .tippy-svg-arrow,
+.tippy-box[data-theme~="custom2"] .tippy-svg-arrow{
   fill: var(--accent-color);
-  fill: rgb(2,0,36);
-//fill: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(255,0,101,1) 100%);
-  //visibility:hidden;
-  //margin-left:var(--border-size);
-}
-
-.tippy-tooltip.custom2-theme {
-    //background-color: var(--accent-color);
-    //color: black;
-  text-align:center;
-  border:var(--border-style);
-  border-radius:0px;
-  font-size:10px;
-  //color:white;
-  //margin-left:var(--border-size);
-}
-
-.tippy-tooltip.custom2-theme .tippy-svg-arrow {
-  //fill: var(--accent-color);
-  //visibility:hidden;
-  //margin-left:var(--border-size);
 }
 
 
@@ -705,7 +641,6 @@ background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,23
             
                 <!-- goodreads yearly reading challenge widget -->
                     <div id="gr_challenge_progress_body_11621">
-                        <!--<script src="https://www.goodreads.com/user_challenges/widget/19778871-amelia?challenge_id=11621&v=2"></script>-->
                         <script src="https://www.goodreads.com/user_challenges/widget/28021191-lorem-ipsum?challenge_id=11621&v=2"></script>
                     </div>
                 <!-- -->
@@ -717,7 +652,7 @@ background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,23
                 <div id="links">
                 <a href="/">refresh</a>&emsp;&emsp;
                 <a href="https://www.goodreads.com/user/show/28021191-lorem-ipsum">goodreads</a>&emsp;&emsp;
-                <a href="https://ahetric.github.io/">github</a>
+                <a href="https://ameliahetrick.github.io/">github</a>
                 </div>
                 <!--</center>
                 </p>-->
@@ -727,7 +662,7 @@ background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,23
                 <!-- user description -->
                 <div id="description_outer">
                     <div id="description_inner">
-                        the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. the height of text box adjusts according to amount of text. 
+                        The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text.The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text.The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text.The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text.The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text.The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text.The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text.The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text.The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text.
                     </div>
                 </div>
                 <!-- -->
@@ -744,45 +679,46 @@ background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,23
             
         <ul> 
   
-            <li><a href="#tab_1">2020</a></li> 
-            <li><a href="#tab_2">2019</a></li> 
-            <li><a href="#tab_3">2018</a></li> 
-            <li><a href="#tab_4">2017</a></li> 
+            <li><a href="#tab_1">2024</a></li> 
+            <li><a href="#tab_2">TBR</a></li> 
+            <li><a href="#tab_3">List 3</a></li> 
+            <li><a href="#tab_4">More</a></li> 
         </ul> 
   
         <div id='tab_1'> 
              <div class="bookshelf_inner">
                     <div class="gr_grid_container">
                     <div style="display:none"></div>
-                    <script src="https://www.goodreads.com/review/grid_widget/28021191.Lorem's%20bookshelf:%20theme-page-?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=d&shelf=theme-page&sort=date_read&widget_id=1587165947" type="text/javascript" charset="utf-8"></script>
+                    <script src="https://www.goodreads.com/review/grid_widget/28021191.Lorem's%202024%20book%20montage?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=d&shelf=2024&sort=date_read&widget_id=1729477331" type="text/javascript" charset="utf-8"></script>
                     </div>
                 </div>
         </div> 
-  
+        
         <div id='tab_2'> 
              <div class="bookshelf_inner">
                     <div class="gr_grid_container">
-                      <script src="https://www.goodreads.com/review/grid_widget/28021191.Lorem's%20bookshelf:%20theme-page-2?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=d&shelf=theme-page-2&sort=author&widget_id=1599365015" type="text/javascript" charset="utf-8"></script>
+                    <div style="display:none"></div>
+                    <script src="https://www.goodreads.com/review/grid_widget/28021191.Lorem's%20bookshelf:%20theme-page-?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=a&shelf=theme-page&sort=position&widget_id=1587165947" type="text/javascript" charset="utf-8"></script>
                     </div>
                 </div>
         </div> 
   
-  
         <div id='tab_3'> 
-            <div class="bookshelf_inner">
+             <div class="bookshelf_inner">
                     <div class="gr_grid_container">
-                      <script src="https://www.goodreads.com/review/grid_widget/28021191.Lorem's%20bookshelf:%20theme-page-3?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=d&shelf=theme-page-3&sort=title&widget_id=1599365235" type="text/javascript" charset="utf-8"></script>
+                      <script src="https://www.goodreads.com/review/grid_widget/28021191.Lorem's%20bookshelf:%20theme-page-2?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=a&shelf=theme-page-2&sort=position&widget_id=1599365015" type="text/javascript" charset="utf-8"></script>
                     </div>
-                </div>    
+                </div>
         </div> 
+  
   
         <div id='tab_4'> 
             <div class="bookshelf_inner">
                     <div class="gr_grid_container">
-                      <script src="https://www.goodreads.com/review/grid_widget/28021191.Lorem's%20bookshelf:%20theme-page-4?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=d&shelf=theme-page-4&sort=rating&widget_id=1599365313" type="text/javascript" charset="utf-8"></script>
+                      <script src="https://www.goodreads.com/review/grid_widget/28021191.Lorem's%20bookshelf:%20theme-page-3?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=a&shelf=theme-page-3&sort=position&widget_id=1599365235" type="text/javascript" charset="utf-8"></script>
                     </div>
-                </div>
-        </div> 
+                </div>    
+        </div>
   
 
 
@@ -797,7 +733,7 @@ background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,23
     
     
     
-        <a id="credit" href="https://ahetric.github.io/" title="source"><span></span></a>
+        <a id="credit" href="https://ameliahetrick.github.io/" title="source"><span></span></a>
     
     
     
@@ -809,17 +745,14 @@ background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,23
 $(document).ready(function() {
     
     
-    /* make sure the images of the panel (?) have default filter */
+    /* make sure the images of the bookshelf have default filter */
     $('.gr_grid_container img').addClass("img_default");
-    //$('[id^="gr_challenge_progress_body_"] img').addClass("img_default");
-    
-    
     
     /* make sure tabs navigation links load smoothly */
     $("#bookshelf_outer").removeAttr('style');
     
     /* when page first loads, override the new tab fade in code below */
-    $("li").first().css('background-color','#ccc');
+    $("li").first().css('background-color','#555');
     
     $("#bookshelf_outer").tabs({
     /* fade out the old panel */
@@ -833,12 +766,12 @@ $(document).ready(function() {
         /* fade out the old tab */
         ui.oldTab.fadeIn(1000, function(){ 
             $(this).css('background-color','#fff');
-            $(this).css('color','#ccc');
+            $(this).css('color','#555');
         });
         
         /* fade in the new tab */
         ui.newTab.fadeIn(1000, function(){ 
-            $(this).css('background-color','#ccc');
+            $(this).css('background-color','#555');
             $(this).css('color','#fff');
         });
         
@@ -847,7 +780,6 @@ $(document).ready(function() {
     }
     });
     
-    //alert(document.getElementById('test'));
 });
   
 
@@ -857,12 +789,17 @@ $(document).ready(function() {
 
 
 
-<script src="https://unpkg.com/popper.js@1"></script>
-<script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/svg-arrow.css" />
+
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
 <link
   rel="stylesheet"
-  href="https://unpkg.com/tippy.js@5/animations/shift-away.css"
+  href="https://unpkg.com/tippy.js@6/dist/svg-arrow.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/tippy.js@6/animations/shift-away.css"
 />
 
 
@@ -873,22 +810,13 @@ $(document).ready(function() {
 <script>
 
 
-/*$('.gr_grid_book_container img').hover(function() {
-var imgalt = $(this).attr('alt');
-$(this).closest("a").attr('title', imgalt);
-}),*/
-
-//$('a[title]').removeAttr('title');
 $('a[title]').has( "img" ).removeAttr('title');
 
   var imghov = tippy('img[alt]', {
-      //trigger: 'mouseenter',
-      //trigger = 'manual',
     theme: 'custom',
     arrow: tippy.roundArrow,
     zIndex: 9999999999,
     maxWidth: 100,
-    //animation: "fade",
     animation: "shift-away",
     duration: [500,500],
 
@@ -908,7 +836,6 @@ $('a[title]').has( "img" ).removeAttr('title');
     arrow: tippy.roundArrow,
     zIndex: 9999999999,
     maxWidth: 200,
-    //animation: "fade",
     animation: "shift-away",
     duration: 500,
 
@@ -934,27 +861,17 @@ $('a[title]').has( "img" ).removeAttr('title');
   $(function(){
       
       
-      //$('img').attr("crossorigin","anonymous");
       var image = document.createElement('img');
-    //var image = new Image;
-image.crossOrigin="Anonymous"; /* THIS WILL MAKE THE IMAGE CROSS-ORIGIN */
+image.crossOrigin="Anonymous";
 
-//var oldColor = $('.tippy-tooltip.custom-theme').css('background');
-var oldColor = $('.tippy-tooltip.custom-theme').css('backgroundColor');
+var oldColor = $('.tippy-box[data-theme~="custom"]').css('backgroundColor');
       
   var boxes = $('.gr_grid_container img');
   $(boxes).on('mouseenter', function(){
       image.src = $(this).attr('src');
-    //$(boxes).not($(this)).css('filter', 'var(--img-sibling-hover-saturate) var(--img-sibling-hover-contrast) var(--img-hover-opacity)');
     $(boxes).removeClass("img_default");
     $(this).addClass("img_hover");
     $(boxes).not($(this)).addClass("img_sibling_hover");
-    
-    //$(boxes).($(this)).removeClass("img_default");
-    //$(boxes).($(this)).addClass("img_hover");
-    //$(boxes).not($(this)).css('filter', 'var(--img-sibling-hover-contrast)');
-    //$(boxes).not($(this)).css('opacity', 'var(--img-sibling-hover-opacity)');
-    //$($(this)).attr('crossorigin','anonymous');
     
     
     
@@ -965,28 +882,17 @@ var oldColor = $('.tippy-tooltip.custom-theme').css('backgroundColor');
 
     
     
-    
-    
-    //$( "b" ).append( "" + jQuery.type($(this)) );
-    //var rgb = getAverageRGB(document.getElementById('i'));
-    //https://medium.com/@albertogasparin/manipulating-cross-origin-images-with-html-canvas-1e3e8780964c
     image.onload = function () {
         
     var rgbRaw = getAverageRGB(image); //https://stackoverflow.com/a/4070010
     var rgb = 'rgb('+rgbRaw.r+','+rgbRaw.g+','+rgbRaw.b+')';
-    //$('.tippy-tooltip.custom-theme').css('background', rgb);
-    $('.tippy-tooltip.custom-theme').css('backgroundColor', rgb);
-    //$('.tippy-tooltip.custom-theme').css('border-color', rgb);
-    $('.tippy-tooltip.custom-theme .tippy-svg-arrow').css('fill', rgb);
-    //$('body').css('background', rgb);
+    $('.tippy-box[data-theme~="custom"]').css('backgroundColor', rgb);
+    $('.tippy-box[data-theme~="custom"] .tippy-svg-arrow').css('fill', rgb);
    
 
-        $('.tippy-tooltip.custom-theme').each(function() {
-            //$('.tippy-tooltip.custom-theme').not($(this)).css("color", 'black');
-            //$('.tippy-tooltip.custom-theme').not($(this)).css('background', 'white');
+        $('.tippy-box[data-theme~="custom"]').each(function() {
     $(this).css("color", isDark(rgbRaw.r, rgbRaw.g, rgbRaw.b) ? 'black' : 'white');
     
-    //$(this).css('background', rgb);
 });
         
         imghov.show();
@@ -998,7 +904,6 @@ var oldColor = $('.tippy-tooltip.custom-theme').css('backgroundColor');
     //https://stackoverflow.com/a/46470178
     //https://harthur.github.io/brain/
     function isDark( r,g,b ) {
-    //var match = /rgb\((\d+).*?(\d+).*?(\d+)\)/.exec(color);
     return (( r *299 )
          + ( g *587 )
          + ( b *114 ))/1000
@@ -1010,15 +915,10 @@ var oldColor = $('.tippy-tooltip.custom-theme').css('backgroundColor');
     
     
   }).on('mouseleave', function(){
-    //$(boxes).css('filter', 'var(--img-default-saturate) var(--img-default-contrast) var(--img-hover-opacity)');
-    //$(boxes).($(this)).removeClass("img_hover");
     $(boxes).removeClass("img_sibling_hover");
     $(this).removeClass("img_hover");
     $(boxes).addClass("img_default");
-    //$(boxes).css('filter', 'var(--img-default-contrast)');
-    //$(boxes).css('opacity', 'var(--img-default-opacity)');
-    //make colors go back to default
-    $('.tippy-tooltip.custom-theme').css('background', oldColor);
+    $('.tippy-box[data-theme~="custom"]').css('background', oldColor);
     imghov.hide();
   });;
 });
@@ -1026,11 +926,8 @@ var oldColor = $('.tippy-tooltip.custom-theme').css('backgroundColor');
 
 
 
-    /*var rgb = getAverageRGB(document.getElementById('i'));
-    document.body.style.backgroundColor = 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')';*/
 //https://stackoverflow.com/a/2541680
 function getAverageRGB(imgEl) {
-    //$( "b" ).append( "" + jQuery.type( imgEl ) );
     
     var blockSize = 25, // only visit every 5 pixels
         defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
@@ -1072,7 +969,6 @@ function getAverageRGB(imgEl) {
     rgb.b = ~~(rgb.b/count);
     
     return rgb;
-    //return 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')';
     
 }
   
