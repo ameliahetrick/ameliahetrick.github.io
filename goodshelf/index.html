@@ -207,7 +207,6 @@ this goodreads yearly challenge widget requires specific div id names associated
         /* size */
         /* (sidebar width) + 2*(border size) */
         width: calc(var(--sidebar-width) + calc(2*var(--border-size))+1px);
-        //height: 528px;
         
         /* (container height) + 2*(border size) */
         height: calc(var(--container-height) + (2*var(--border-size)));
@@ -223,12 +222,12 @@ this goodreads yearly challenge widget requires specific div id names associated
         
         /* position */
         position: relative;
-        padding: calc(var(--padding-size) - 5px) var(--padding-size) calc(var(--padding-size)) var(--padding-size);
+        padding: var(--padding-size);
         
         /* size */
         /* (sidebar width) - 2*(padding size) */
         width: calc(var(--sidebar-width) - calc(2*var(--padding-size)));
-        height: 100px;
+        height: 92px;
         
         /* border */
         border: var(--border-style);
@@ -251,7 +250,7 @@ this goodreads yearly challenge widget requires specific div id names associated
      * note that the img src given above is for the year 2020
      */
     [id^="gr_challenge_progress_body_"] h3 {
-        margin: 0px 0px 5px 0px !important;
+        margin: 0px 0px 0px 0px !important;
     }
      
     [id^="gr_challenge_progress_body_"] a[style*="georgia"] {
@@ -287,7 +286,7 @@ this goodreads yearly challenge widget requires specific div id names associated
     [id^="gr_challenge_progress_body_"] div[style*="#382110"] {
         /* (100% of widget container) - (right margin of img) - (border of progress bar) */
         width: calc(100% - calc(2 * var(--border-size))) !important;
-        margin: 7.5px 0px 5px 0px !important;
+        margin: 6px 0px 5px 0px !important;
         border: var(--border-style) !important; 
         height: var(--padding-size) !important;
         background-color: var(--background-color) !important;
@@ -318,7 +317,7 @@ this goodreads yearly challenge widget requires specific div id names associated
      *    sans-serif;font-size:90%\">
      */
     [id^="gr_challenge_progress_body_"] div[style*="font-size:90%"] {
-        margin-top: 25px !important;
+        margin-top: 0px !important;
         position: relative !important;
         //right: 10px !important;
         color: var(--text-color) !important;
@@ -348,9 +347,8 @@ this goodreads yearly challenge widget requires specific div id names associated
     #links {
         /* size */
         width:inherit;
-        /* (font size) + 2*(padding size) */
-        height:      calc(var(--font-size) + 2*var(--padding-size));
-        line-height: calc(var(--font-size) + 2*var(--padding-size));
+        height:35px;
+        line-height:35px;
         
         /* text */
         text-align: center;
@@ -362,10 +360,7 @@ this goodreads yearly challenge widget requires specific div id names associated
      */
     #description_outer {
         /* size */
-        /* (sidebar width) - (left padding size) */
-        width: calc(var(--sidebar-width) - var(--padding-size));
-        max-height:377px;
-        padding-left:var(--padding-size);
+        width: var(--sidebar-width);
         
         /* border */
         border:var(--border-style);
@@ -382,7 +377,10 @@ this goodreads yearly challenge widget requires specific div id names associated
      */
     #description_inner {
         /* size */
-        max-height: 357px;
+        /* (container height) - (reading challenge height, affected by 1x padding for progress bar and 2x borders) - (links height) - 3*(padding size) - 4*(border size) */
+        max-height: calc(var(--container-height) - 90px - 35px - (4*var(--padding-size)) - (4*var(--border-size)));
+        
+        padding-left:var(--padding-size);
         padding-right: var(--padding-size);
         
         /* border */
