@@ -96,21 +96,19 @@ this goodreads yearly challenge widget requires specific div id names associated
         --border-style: var(--border-size) solid var(--accent-color);
         --font-size: 12px;
         
-        --text-transition-duration: 0.5s;
-        
-        --img-ease-in-out: 0.5s ease-in-out;
+        --transition-time: 0.5s;
         
         --img-default-saturate: saturate(100%);
         --img-default-contrast: contrast(100%);
         --img-default-opacity: opacity(100%);
         
-        --img-hover-saturate: saturate(110%);
-        --img-hover-contrast: contrast(100%);
+        --img-hover-saturate: saturate(105%);
+        --img-hover-contrast: contrast(105%);
         --img-hover-opacity: opacity(100%);
         
         --img-sibling-hover-saturate: saturate(0%);
-        --img-sibling-hover-contrast: contrast(100%);
-        --img-sibling-hover-opacity: opacity(60%);
+        --img-sibling-hover-contrast: contrast(95%);
+        --img-sibling-hover-opacity: opacity(70%);
     }
 
 
@@ -142,39 +140,39 @@ this goodreads yearly challenge widget requires specific div id names associated
     .img_default,
     .img_hover,
     .img_sibling_hover {
-        transition: filter var(--img-ease-in-out);
-        -webkit-transition: var(--img-ease-in-out);
-        -moz-transition: var(--img-ease-in-out);
-        -ms-transition: var(--img-ease-in-out);
-        -o-transition: var(--img-ease-in-out);
+        transition: filter var(--transition-time) ease-in-out;
+        -webkit-transition: var(--transition-time) ease-in-out;
+        -moz-transition: var(--transition-time) ease-in-out;
+        -ms-transition: var(--transition-time) ease-in-out;
+        -o-transition: var(--transition-time) ease-in-out;
     }
 
     
     body {
-    background-color: var(--background-color);
-    color: var(--text-color); 
-    font-family: roboto, sans-serif;
-    font-size: var(--font-size);
-    line-height: 150%;
-    letter-spacing: 1px;
-    text-align: justify;
+        background-color: var(--background-color);
+        color: var(--text-color); 
+        font-family: roboto, sans-serif;
+        font-size: var(--font-size);
+        line-height: 150%;
+        letter-spacing: 1px;
+        text-align: justify;
     }
 
-a {
-color: var(--accent-color);
-text-decoration: underline;
--moz-transition-duration: var(--text-transition-duration);
--webkit-transition-duration: var(--text-transition-duration);
--o-transition-duration: var(--text-transition-duration);
-}
+    a {
+      color: var(--accent-color);
+      text-decoration: underline;
+      -moz-transition-duration: var(--transition-time);
+      -webkit-transition-duration: var(--transition-time);
+      -o-transition-duration: var(--transition-time);
+    }
 
-a:hover {
-color: var(--text-color);
-text-decoration: underline;
--moz-transition-duration: var(--text-transition-duration);
--webkit-transition-duration: var(--text-transition-duration);
--o-transition-duration: var(--text-transition-duration);
-}
+    a:hover {
+        color: var(--text-color);
+        text-decoration: underline;
+        -moz-transition-duration: var(--transition-time);
+        -webkit-transition-duration: var(--transition-time);
+        -o-transition-duration: var(--transition-time);
+    }
 
     /* container for the page content
      */
@@ -280,12 +278,10 @@ text-decoration: underline;
     [id^="gr_challenge_progress_body_"] div[style*="#382110"] {
         /* (100% of widget container) - (right margin of img) - (border of progress bar) */
         width: calc(100% - calc(2 * var(--border-size))) !important;
-        margin: 5px 0px 5px 0px !important;
+        margin: 7.5px 0px 5px 0px !important;
         border: var(--border-style) !important; 
         height: var(--padding-size) !important;
-        background-color: #fff !important;
-        margin-top: 10px !important;
-        
+        background-color: var(--background-color) !important;
     }
     
     
@@ -318,6 +314,7 @@ text-decoration: underline;
         //right: 10px !important;
         color: var(--text-color) !important;
         text-align: center !important;
+        font-size:100% !important;
     }
     
     
@@ -349,7 +346,6 @@ text-decoration: underline;
         /* text */
         text-align: center;
         position:relative;
-        z-index:10;
     }
     
     
@@ -359,7 +355,7 @@ text-decoration: underline;
         /* size */
         /* (sidebar width) - (left padding size) */
         width: calc(var(--sidebar-width) - var(--padding-size));
-        max-height:378px;
+        max-height:377px;
         padding-left:var(--padding-size);
         
         /* border */
@@ -377,12 +373,12 @@ text-decoration: underline;
      */
     #description_inner {
         /* size */
-        max-height: 358px;
+        max-height: 357px;
         padding-right: var(--padding-size);
         
         /* border */
-        border-top: var(--padding-size) solid #fff;
-        border-bottom: var(--padding-size) solid #fff;
+        border-top: var(--padding-size) solid var(--background-color);
+        border-bottom: var(--padding-size) solid var(--background-color);
         
         /* overflow */
         overflow-y: auto;
@@ -400,7 +396,7 @@ text-decoration: underline;
         
         /* size */
         width: 468px;
-        height: 527px;
+        height: 526px;
         
         /* border */
         border: var(--border-style);
@@ -422,8 +418,8 @@ text-decoration: underline;
         height:calc(526px - calc(2 * var(--padding-size)));
         
         /* border */
-        border-top: var(--padding-size) solid #fff;
-        border-bottom: var(--padding-size) solid #fff;
+        border-top: var(--padding-size) solid var(--background-color);
+        border-bottom: var(--padding-size) solid var(--background-color);
         
         /* overflow */
         overflow-y:scroll;
@@ -473,153 +469,143 @@ text-decoration: underline;
     }
     
     
-   
-.ui-tabs {
-	padding: 0px;
-	border-radius:0px;
-	border-bottom:var(--border-style);
-	
-}  
-.ui-tabs .ui-tabs-nav {
-	margin: 0px;
-	padding: 10px;
-	padding-left:0px;
-	background:#fff;
-	border-color:var(--border-color);
-	border-top: none;
-	border-bottom:var(--border-style);
-	border-radius:0px;
-	margin-top:-49px;
-	z-index:5;
-	
-	border-left:1px transparent;
-	border-right:1px transparent;
-}
-
-.ui-tabs .ui-tabs-nav li {
-	list-style: none;
-	float: left;
-	position: relative;
-	top: 0;
-	margin: 0px 0px 0px 10px;
-	padding: 0;
-	white-space: nowrap;
-	border-radius: 0px;
-	border-left:none;
-	background-color:#fff;
-	//font-size:10px;
-    font-size:11.5px;
-	width:100px;
-	border:var(--border-style);
-    color: var(--accent-color);
-	
-	transition: background 0.5s linear;
-	-webkit-transition: background 0.5s linear;
-  -moz-transition: background 0.5s linear;
-  -ms-transition: background 0.5s linear;
-  -o-transition: background 0.5s linear;
-  
-  outline: none;
-  text-align:center;
-	
-}
-
-.ui-tabs .ui-tabs-nav li a {
-color:inherit;
-
-}
-
-
-
-.ui-tabs .ui-tabs-nav li a:focus { outline: none; }
-
-.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
-	float: left;
-	padding: 5px var(--padding-size);
-	text-decoration: none;
-	
-	width: 100%;
-            padding: 0.5em 0em;
-}
-
-.ui-tabs-anchor span {
-            display: inline-block;
-            padding: 0em 1em;
-        }
-
-.ui-tabs .ui-tabs-nav li.ui-tabs-active {
-	margin-bottom: 0px;
-	padding-bottom: 0px;
-	
-	color:#fff;
-}
-
-.ui-tabs .ui-tabs-nav li.ui-tabs-active a {
-    
-}
-    
-.ui-tabs .ui-tabs-panel {
-	display: block;
-	border-width: 0;
-	padding: 0px;
-	background: none;
-	position:absolute;
-}
-
-
-
     
     
+	/* bookshelf tabs (top)
+     */
+    .ui-tabs {
+        padding: 0px;
+        border-radius:0px;
+        border-bottom:var(--border-style);
+
+    }
     
-    #credit {
+    .ui-tabs .ui-tabs-nav {
+        margin: 0px;
+        padding: var(--padding-size);
+        padding-left:0px;
+        background:var(--background-color);
+        border-color:var(--border-color);
+        border-top: none;
+        border-bottom:var(--border-style);
+        border-radius:0px;
+        margin-top:-49px;
+        z-index:5;
+
+        border-left:1px transparent;
+        border-right:1px transparent;
+    }
+
+    .ui-tabs .ui-tabs-nav li {
+        list-style: none;
+        float: left;
+        position: relative;
+        top: 0;
+        margin: 0px 0px 0px 10px;
+        padding: 0;
+        white-space: nowrap;
+        border-radius: 0px;
+        border-left:none;
+        background-color:var(--background-color);
+        font-size:11.5px;
+        width:100px;
+        border:var(--border-style);
+        color: var(--accent-color);
+
+        transition: background var(--transition-time) linear;
+        -webkit-transition: background var(--transition-time) linear;
+        -moz-transition: background var(--transition-time) linear;
+        -ms-transition: background var(--transition-time) linear;
+        -o-transition: background var(--transition-time) linear;
+
+        outline: none;
+        text-align:center;
+    }
+
+    .ui-tabs .ui-tabs-nav li a {
+    	color:inherit;
+    }
+
+    .ui-tabs .ui-tabs-nav li a:focus { 
+    	outline: none;
+    }
+
+    .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+        float: left;
+        padding: 5px var(--padding-size);
+        text-decoration: none;
+
+        width: 100%;
+        padding: 0.5em 0em;
+    }
+
+	.ui-tabs-anchor span {
+        display: inline-block;
+        padding: 0em 1em;
+    }
+
+    .ui-tabs .ui-tabs-nav li.ui-tabs-active {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+
+        color:var(--background-color);
+    }
+    
+    .ui-tabs .ui-tabs-panel {
+        display: block;
+        border-width: 0;
+        padding: 0px;
+        background: none;
+        position:absolute;
+    }
+
+
+	/* tippy tooltip (on hover)
+     * https://stackoverflow.com/a/65703128
+     */
+    .tippy-box[data-theme~="custom"],
+    .tippy-box[data-theme~="custom2"] {
+        background-color: var(--accent-color);
+        color: var(--background-color);
+        text-align:center;
+        border:var(--border-style);
+        font-size:12px;
+        border-radius:0px;
+        margin: -0.5px;
+    }
+
+    .tippy-box[data-theme~="custom"] .tippy-svg-arrow,
+    .tippy-box[data-theme~="custom2"] .tippy-svg-arrow {
+      	fill: var(--accent-color);
+    }
+
+
+
+	/* credit (bottom right)
+     */
+	#credit {
         position: fixed;
         width:15px;
         height:15px;
         right: 10px;
         bottom: 10px;
-        line-height:100%;
-        font-size: 9px;
         border: var(--border-style);
-        text-align:center;
         background:white;
-        text-transform:uppercase;
-        
     }
     
     #credit span {
-  display: block;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
+        display: block;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+	}
     
     #credit:hover {
         background: rgb(255,236,204);
-background: -moz-linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
-background: -webkit-linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
-background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
+        background: -moz-linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
+        background: -webkit-linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
+        background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
     }
-    
-
-
-
-
-/*https://stackoverflow.com/a/65703128*/
-.tippy-box[data-theme~="custom"],
-.tippy-box[data-theme~="custom2"] {
-    background-color: var(--accent-color);
-    color: var(--background-color);
-  text-align:center;
-  border:var(--border-style);
-  font-size:12px;
-  border-radius:0px;
-}
-
-.tippy-box[data-theme~="custom"] .tippy-svg-arrow,
-.tippy-box[data-theme~="custom2"] .tippy-svg-arrow{
-  fill: var(--accent-color);
-}
-
 
 
 
@@ -631,9 +617,7 @@ background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,23
 <body>
 
     <div id="container">
-        
 
-        
             <div id="sidebar">
             
                 <!-- goodreads yearly reading challenge widget -->
@@ -647,8 +631,8 @@ background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,23
                 <!--<p>
                 <center>-->
                 <div id="links">
-                <a href="/">REFRESH</a>&emsp;&emsp;
-                <a href="https://www.goodreads.com/user/show/28021191-lorem-ipsum">GOODREADS</a>&emsp;&emsp;
+                <a href="/">REFRESH</a>&emsp;&nbsp;&emsp;
+                <a href="https://www.goodreads.com/user/show/28021191-lorem-ipsum">GOODREADS</a>&emsp;&nbsp;&emsp;
                 <a href="https://ameliahetrick.github.io/">GITHUB</a>
                 </div>
                 <!--</center>
@@ -663,16 +647,13 @@ background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,23
                     </div>
                 </div>
                 <!-- -->
-
-
-
             
             </div> <!-- end <div id="sidebar"> -->
             
+            
+            
+            
             <div id="bookshelf_outer" style="display: none;">
-            
-            
-            
             
         <ul> 
   
