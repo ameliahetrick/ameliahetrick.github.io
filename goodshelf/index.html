@@ -96,8 +96,11 @@ this goodreads yearly challenge widget requires specific div id names associated
         --border-style: var(--border-size) solid var(--accent-color);
         --font-size: 12px;
         
-        /* 3*(height of books) + 4*(padding size) + 6*(border size) */
-        --container-height: calc((3*160px) + (4*var(--padding-size)) + (6*var(--border-size)));
+        --book-height:160px;
+        --book-width:100px;
+        
+        /* 3*(book height) + 4*(padding size) + 6*(border size) */
+        --container-height: calc((3*var(--book-height)) + (4*var(--padding-size)) + (6*var(--border-size)));
         
         --ui-tab-pad: 25px;
         
@@ -192,6 +195,9 @@ this goodreads yearly challenge widget requires specific div id names associated
         
         /* size */
         width: 743px;
+        
+        /* (sidebar width) + 4*(book width) + 8*(padding size) + 13*(border size) */
+        width:calc(var(--sidebar-width) + (4*var(--book-width)) + 8*var(--padding-size) + 13*var(--border-size));
         //height: 526px;
         height: var(--container-height);
     }
@@ -227,7 +233,8 @@ this goodreads yearly challenge widget requires specific div id names associated
         /* size */
         /* (sidebar width) - 2*(padding size) */
         width: calc(var(--sidebar-width) - calc(2*var(--padding-size)));
-        height: 92px;
+        //height: 92px;
+        height: calc(90px + 2*var(--border-size));
         
         /* border */
         border: var(--border-style);
@@ -377,7 +384,7 @@ this goodreads yearly challenge widget requires specific div id names associated
      */
     #description_inner {
         /* size */
-        /* (container height) - (reading challenge height, affected by 1x padding for progress bar and 2x borders) - (links height) - 3*(padding size) - 4*(border size) */
+        /* (container height) - (reading challenge height, affected by 1x padding for progress bar and 2x borders) - (links height) - 3*(padding size) - 2*(border size) */
         max-height: calc(var(--container-height) - 90px - 35px - (4*var(--padding-size)) - (4*var(--border-size)));
         
         padding-left:var(--padding-size);
@@ -402,7 +409,9 @@ this goodreads yearly challenge widget requires specific div id names associated
         float:left;
         
         /* size */
-        width: 468px;
+        //width: 468px;
+        /* 4*(book width) + 6*(padding size) + 8*(border size) */
+        width:calc((4*var(--book-width)) + 6*var(--padding-size) + 8*var(--border-size));
         //height: 526px;
         height: var(--container-height);
         
@@ -444,7 +453,9 @@ this goodreads yearly challenge widget requires specific div id names associated
         margin-top: calc(-1 * var(--padding-size));
         
         /* size */
-        width:448px;
+        //width:448px;
+        /* 4*(book width) + 4*(padding size) + 8*(border size) */
+        width:calc((4*var(--book-width)) + 4*var(--padding-size) + 8*var(--border-size));
     }
 
 
@@ -458,8 +469,8 @@ this goodreads yearly challenge widget requires specific div id names associated
         padding: var(--padding-size) calc(var(--padding-size) + 2*var(--border-size)) 2px 0px;
         
         /* size */
-        width: 100px;
-        height: 160px;
+        width: var(--book-width);
+        height: var(--book-height);
         
         /* overflow */
         overflow: hidden;
@@ -545,7 +556,7 @@ this goodreads yearly challenge widget requires specific div id names associated
 
     .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
         float: left;
-        padding: calc(0.5*var(--padding-size)) var(--padding-size);
+        //padding: calc(0.5*var(--padding-size)) var(--padding-size);
         text-decoration: none;
 
         width: 100%;
@@ -603,7 +614,12 @@ this goodreads yearly challenge widget requires specific div id names associated
         right: 10px;
         bottom: 10px;
         border: var(--border-style);
-        background:white;
+        background:var(--accent-color);
+        
+        /*text-decoration: underline;
+        -moz-transition-duration: var(--transition-time);
+        -webkit-transition-duration: var(--transition-time);
+        -o-transition-duration: var(--transition-time);*/
     }
     
     #credit span {
@@ -618,6 +634,10 @@ this goodreads yearly challenge widget requires specific div id names associated
         background: -moz-linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
         background: -webkit-linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
         background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
+        
+        /*-moz-transition-duration: var(--transition-time);
+        -webkit-transition-duration: var(--transition-time);
+        -o-transition-duration: var(--transition-time);*/
     }
 
 
