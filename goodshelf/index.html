@@ -503,27 +503,35 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         border: var(--border-style);
         border-radius: 0px;
         text-align: center;
-
-        transition: background var(--transition-time) linear;
-        -webkit-transition: background var(--transition-time) linear;
-        -moz-transition: background var(--transition-time) linear;
-        -ms-transition: background var(--transition-time) linear;
-        -o-transition: background var(--transition-time) linear;
+        
+        transition: background-color var(--transition-time) ease-in-out;
+        -webkit-transition: background-color var(--transition-time) ease-in-out;
+        -moz-transition: background-color var(--transition-time) ease-in-out;
+        -ms-transition: background-color var(--transition-time) ease-in-out;
+        -o-transition: background-color var(--transition-time) ease-in-out;
+    }
+    
+    .ui-tabs .ui-tabs-nav li:hover {
+        background-color: var(--accent-color);
+    }
+    
+    .ui-tabs .ui-tabs-nav li.active {
+        background-color: var(--accent-color);
     }
 
     .ui-tabs .ui-tabs-nav li a {
     	color: inherit;
+        overflow: auto;
+        
+        transition: color var(--transition-time) ease-in-out;
+        -webkit-transition: color var(--transition-time) ease-in-out;
+        -moz-transition: color var(--transition-time) ease-in-out;
+        -ms-transition: color var(--transition-time) ease-in-out;
+        -o-transition: color var(--transition-time) ease-in-out;
     }
     
     .ui-tabs .ui-tabs-nav li a:hover { 
-    	background-color: var(--accent-color);
         color: var(--background-color);
-        
-        /*transition: background var(--transition-time) linear;
-        -webkit-transition: background var(--transition-time) linear;
-        -moz-transition: background var(--transition-time) linear;
-        -ms-transition: background var(--transition-time) linear;
-        -o-transition: background var(--transition-time) linear;*/
     }
 
     .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
@@ -532,6 +540,12 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
 
         width: 100%;
         padding: calc(0.5*var(--padding-size)) 0px;
+    }
+    
+    .ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor,
+	.ui-tabs .ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor,
+	.ui-tabs .ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor {
+        cursor: pointer;
     }
 
     .ui-tabs .ui-tabs-nav li.ui-tabs-active {
@@ -643,9 +657,9 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         <ul> 
   
             <li><a href="#tab_1">2024</a></li> 
-            <li><a href="#tab_2">TBR</a></li> 
-            <li><a href="#tab_3">List 3</a></li> 
-            <li><a href="#tab_4">More</a></li> 
+            <li><a href="#tab_2">TO READ #1</a></li> 
+            <li><a href="#tab_3">TO READ #2</a></li> 
+            <li><a href="#tab_4">TO READ #3</a></li> 
         </ul> 
   
         <div id='tab_1'> 
@@ -718,26 +732,26 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
             .getPropertyValue('--accent-color');
 
             /* when page first loads, override the new tab fade in code below */
-            $('li').first().css('background-color', activeBackgroundColor);
+            $('li').first().addClass('active');
 
             $('#bookshelf_outer').tabs({
             /* fade out the old panel */
-            hide: 1000,
+            hide: 750,
             beforeActivate: function(event, ui) {
                 /* fade in the new panel */
-                ui.newPanel.css('zIndex', 1).fadeIn(1000, function() {
+                ui.newPanel.css('zIndex', 1).fadeIn(750, function() {
                     $(this).css('zIndex', '');
                 });
 
                 /* fade out the old tab */
-                ui.oldTab.fadeIn(1000, function() { 
-                    $(this).css('background-color', inactiveBackgroundColor);
+                ui.oldTab.fadeIn(750, function() {
+                    $(this).removeClass('active');
                     $(this).css('color', activeBackgroundColor);
                 });
 
                 /* fade in the new tab */
-                ui.newTab.fadeIn(1000, function() { 
-                    $(this).css('background-color', activeBackgroundColor);
+                ui.newTab.fadeIn(750, function() {
+                    $(this).addClass('active');
                     $(this).css('color', inactiveBackgroundColor);
                 });
 
