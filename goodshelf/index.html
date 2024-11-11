@@ -170,7 +170,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         font-size: var(--font-size);
         line-height: 150%;
         letter-spacing: 1px;
-        text-align: justify;
+        text-align: center;
     }
 
     a {
@@ -214,7 +214,6 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         margin: 0px var(--padding-size) 0px 0px;
         
         /* size */
-        //width: calc(var(--sidebar-width) + calc(2*var(--border-size))+1px);
         width: calc(var(--sidebar-width) + (2*var(--border-size)));
         height: calc(var(--container-height) + (2*var(--border-size)));
         
@@ -230,15 +229,11 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         padding: var(--padding-size);
         
         /* size */
-        //width: calc(var(--sidebar-width) - calc(2*var(--padding-size)));
         width: calc(var(--sidebar-width) - (2*var(--padding-size)));
         height: calc(90px + 2*var(--border-size));
         
         /* border */
         border: var(--border-style);
-        
-        /* text */
-        text-align: center;
     }
     
     
@@ -257,7 +252,9 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
      *    href=\"[x]\">
      */
     [id^="gr_challenge_progress_body_"] h3 {
-        margin: 0px !important;
+    	margin: calc((-2/3)*var(--font-size)) 0px 0px 0px !important;
+        
+        line-height: 2;
     }
      
     [id^="gr_challenge_progress_body_"] a[style*="georgia"] {
@@ -318,6 +315,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
      */
     [id^="gr_challenge_progress_body_"] div[style*="#D7D2C4"] {
         background-color: var(--accent-color) !important;
+        height: calc(var(--padding-size) + 2*var(--border-size));
     }
     
     
@@ -361,7 +359,6 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         
         /* text */
         line-height: 35px;
-        text-align: center;
     }
     
     
@@ -502,7 +499,6 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         width: var(--book-width);
         border: var(--border-style);
         border-radius: 0px;
-        text-align: center;
         
         transition: background-color var(--transition-time) ease-in-out;
         -webkit-transition: background-color var(--transition-time) ease-in-out;
@@ -575,7 +571,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         border: var(--border-style);
         border-radius: 0px;
         font-size: 12px;
-        text-align: center;
+        overflow-wrap: break-word;
     }
 
     .tippy-box[data-theme~="custom"] .tippy-svg-arrow,
@@ -614,98 +610,91 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     /* */
 
 
-
-
 </style>
-
-
 </head>
+
 <body>
 
     <div id="container">
 
-            <div id="sidebar">
+        <div id="sidebar">
             
-                <!-- goodreads yearly reading challenge widget -->
-                    <div id="gr_challenge_progress_body_11634">
-                        <script src="https://www.goodreads.com/user_challenges/widget/28021191?challenge_id=11634&v=2"></script>
-                    </div>
-                <!-- -->
+            <!-- goodreads yearly reading challenge widget -->
+            <div id="gr_challenge_progress_body_11634">
+                <script src="https://www.goodreads.com/user_challenges/widget/28021191?challenge_id=11634&v=2"></script>
+            </div>
+            <!-- -->
                 
-                <!-- user links -->
-                <div id="links">
+            <!-- user links -->
+            <div id="links">
                 <a href="/">REFRESH</a>&emsp;&nbsp;&emsp;
                 <a href="https://www.goodreads.com/user/show/28021191-lorem-ipsum">GOODREADS</a>&emsp;&nbsp;&emsp;
                 <a href="https://ameliahetrick.github.io/">GITHUB</a>
-                </div>
-                <!-- -->
+            </div>
+            <!-- -->
                 
-                <!-- user description -->
-                <div id="description_outer">
-                    <div id="description_inner">
-                        The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text. The height of text box adjusts according to amount of text.
-                    </div>
+            <!-- user description -->
+            <div id="description_outer">
+                <div id="description_inner">
+                    Interested in reading classics, literary fiction, bildungsromane, psychological realism, gothic horror, and <a href="https://www.pulitzer.org/prize-winners-by-category/219">Pulitzer Prize for Fiction</a> winners.
+                    <br><br>
+                    Favorite author: Shirley Jackson
                 </div>
-                <!-- -->
+            </div>
+            <!-- -->
             
-            </div> <!-- end <div id="sidebar"> -->
+        </div> <!-- end <div id="sidebar"> -->
             
             
             
-            <div id="bookshelf_outer" style="display: none;">
+        <div id="bookshelf_outer" style="display: none;">
             
-        <ul> 
-  
-            <li><a href="#tab_1">2024</a></li> 
-            <li><a href="#tab_2">TO READ #1</a></li> 
-            <li><a href="#tab_3">TO READ #2</a></li> 
-            <li><a href="#tab_4">TO READ #3</a></li> 
-        </ul> 
-  
-        <div id='tab_1'> 
-             <div class="bookshelf_inner">
-                    <div class="gr_grid_container">
-                    <div style="display:none"></div>
-                    <script src="https://www.goodreads.com/review/grid_widget/28021191.2024%20book%20montage?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=d&shelf=2024&sort=date_read&widget_id=1729477331" type="text/javascript" charset="utf-8"></script>
-                    </div>
-                </div>
-        </div> 
-        
-        <div id='tab_2'> 
-             <div class="bookshelf_inner">
-                    <div class="gr_grid_container">
-                    <div style="display:none"></div>
-                    <script src="https://www.goodreads.com/review/grid_widget/28021191.bookshelf:%20theme-page-?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=a&shelf=theme-page&sort=position&widget_id=1587165947" type="text/javascript" charset="utf-8"></script>
-                    </div>
-                </div>
-        </div> 
-  
-        <div id='tab_3'> 
-             <div class="bookshelf_inner">
-                    <div class="gr_grid_container">
-                      <script src="https://www.goodreads.com/review/grid_widget/28021191.bookshelf:%20theme-page-2?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=a&shelf=theme-page-2&sort=position&widget_id=1599365015" type="text/javascript" charset="utf-8"></script>
-                    </div>
-                </div>
-        </div> 
-  
-  
-        <div id='tab_4'> 
-            <div class="bookshelf_inner">
-                    <div class="gr_grid_container">
-                      <script src="https://www.goodreads.com/review/grid_widget/28021191.bookshelf:%20theme-page-3?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=a&shelf=theme-page-3&sort=position&widget_id=1599365235" type="text/javascript" charset="utf-8"></script>
-                    </div>
-                </div>    
-        </div>
-            
-            </div> <!-- end <div class="bookshelf_outer"> -->
+            <ul>
+                <li><a href="#tab_1">2024</a></li>
+                <li><a href="#tab_2">TO READ #1</a></li>
+                <li><a href="#tab_3">TO READ #2</a></li>
+                <li><a href="#tab_4">TO READ #3</a></li>
+            </ul>
 
+            <div id='tab_1'> 
+				<div class="bookshelf_inner">
+					<div class="gr_grid_container">
+						<script src="https://www.goodreads.com/review/grid_widget/28021191?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=d&shelf=2024&sort=date_read&widget_id=1729477331" type="text/javascript" charset="utf-8"></script>
+					</div>
+				</div>
+            </div> 
+
+            <div id='tab_2'> 
+				<div class="bookshelf_inner">
+					<div class="gr_grid_container">
+						<script src="https://www.goodreads.com/review/grid_widget/28021191?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=a&shelf=theme-page&sort=position&widget_id=1587165947" type="text/javascript" charset="utf-8"></script>
+					</div>
+				</div>
+            </div> 
+
+            <div id='tab_3'> 
+				<div class="bookshelf_inner">
+					<div class="gr_grid_container">
+						<script src="https://www.goodreads.com/review/grid_widget/28021191?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=a&shelf=theme-page-2&sort=position&widget_id=1599365015" type="text/javascript" charset="utf-8"></script>
+					</div>
+				</div>
+            </div> 
+
+
+            <div id='tab_4'> 
+				<div class="bookshelf_inner">
+					<div class="gr_grid_container">
+						<script src="https://www.goodreads.com/review/grid_widget/28021191?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=a&shelf=theme-page-3&sort=position&widget_id=1599365235" type="text/javascript" charset="utf-8"></script>
+					</div>
+				</div>    
+            </div>
+            
+        </div> <!-- end <div class="bookshelf_outer"> -->
         
     </div> <!-- end <div id="container"> -->
     
     
-    
-    
-        <a id="credit" href="https://ameliahetrick.github.io/" title="source"><span></span></a>
+    <a id="credit" href="https://ameliahetrick.github.io/" title="source"><span></span></a>
     
     
     
