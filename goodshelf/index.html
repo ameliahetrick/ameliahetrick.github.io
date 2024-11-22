@@ -129,6 +129,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     .fakeScroll__track {
         width: var(--padding-size);
         right: calc(-1*var(--padding-size));
+        bottom: calc(-1*var(--border-size));
     }
     
     .fakeScroll__bar {
@@ -426,16 +427,13 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
      * used for jquery ui tab panels
      */
     .bookshelf_inner {
-        /* position */
-        padding-left: var(--padding-size);
-        
         /* size */
         height: calc(var(--container-height) - 2*var(--padding-size));
         
         /* border */
-        border-top: var(--padding-size) solid var(--background-color);
-        border-bottom: var(--padding-size) solid var(--background-color);
-        outline: var(--border-style);
+        padding-top: var(--padding-size);
+        padding-bottom: var(--padding-size);
+        border-right: var(--border-style);
         
         /* overflow */
         overflow-y: scroll;
@@ -448,6 +446,8 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     .gr_grid_container {
         /* position */
         margin-top: calc(-1 * var(--padding-size));
+        margin-left: calc(0.5 * var(--padding-size));
+        margin-right: calc(0.5 * var(--padding-size));
         
         /* size */
         width: calc((4*var(--book-width)) + 4*var(--padding-size) + 8*var(--border-size));
@@ -722,13 +722,13 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
 
 		/* fakeScroll
 	     */
-        var myScrollbar_1 = document.querySelector('#scroll_1').fakeScroll({})
+        var myScrollbar_1 = document.querySelector('#scroll_1').fakeScroll({track: "smooth"})
         
-        var myScrollbar_2 = document.querySelector('#scroll_2').fakeScroll({})
+        var myScrollbar_2 = document.querySelector('#scroll_2').fakeScroll({track: "smooth"})
         
-        var myScrollbar_3 = document.querySelector('#scroll_3').fakeScroll({})
+        var myScrollbar_3 = document.querySelector('#scroll_3').fakeScroll({track: "smooth"})
         
-        var myScrollbar_4 = document.querySelector('#scroll_4').fakeScroll({})
+        var myScrollbar_4 = document.querySelector('#scroll_4').fakeScroll({track: "smooth"})
         
         
         /* tabs
