@@ -79,6 +79,12 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 
 
+<!-- fakescroll scrollbar -->
+<link href="https://cdn.jsdelivr.net/npm/@yaireo/fakescroll@2.5.1/fakescroll.min.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/@yaireo/fakescroll@2.5.1/fakescroll.min.js"></script>
+
+
 <style type="text/css">
 
 
@@ -116,23 +122,32 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         
         --transition-time: 0.5s;
     }
-
-
-	/* webkit scrollbar
+    
+    
+    /* fakeScroll
      */
-    ::-webkit-scrollbar {
+    .fakeScroll__track {
         width: var(--padding-size);
-        height: var(--padding-size);
+        right: calc(-1*var(--padding-size));
     }
     
-    ::-webkit-scrollbar-track {
-        border-left: var(--border-style);
+    .fakeScroll__bar {
+        background: var(--accent-color);
+        border-radius: 0px;
+    }
+    .fakeScroll__bar:hover {
+        background: var(--accent-color);
+        cursor: default;
     }
     
-    ::-webkit-scrollbar-thumb {
-        background-color: var(--accent-color);
+    .fakeScroll__bar.fakeScroll--grabbed {
+        background: var(--accent-color);
+        cursor: default;
     }
-    /* */
+    
+    body.fakeScroll--grabbed {
+        cursor: default;
+    }
 
     
     /* image filters on books
@@ -420,6 +435,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         /* border */
         border-top: var(--padding-size) solid var(--background-color);
         border-bottom: var(--padding-size) solid var(--background-color);
+        outline: var(--border-style);
         
         /* overflow */
         overflow-y: scroll;
@@ -657,7 +673,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
             </ul>
 
             <div id='tab_1'> 
-				<div class="bookshelf_inner">
+				<div id="scroll_1" class="bookshelf_inner">
 					<div class="gr_grid_container">
 						<script src="https://www.goodreads.com/review/grid_widget/28021191?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=d&shelf=2024&sort=date_read&widget_id=1729477331" type="text/javascript" charset="utf-8"></script>
 					</div>
@@ -665,7 +681,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
             </div> 
 
             <div id='tab_2'> 
-				<div class="bookshelf_inner">
+				<div id="scroll_2" class="bookshelf_inner">
 					<div class="gr_grid_container">
 						<script src="https://www.goodreads.com/review/grid_widget/28021191?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=a&shelf=theme-page&sort=position&widget_id=1587165947" type="text/javascript" charset="utf-8"></script>
 					</div>
@@ -673,7 +689,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
             </div> 
 
             <div id='tab_3'> 
-				<div class="bookshelf_inner">
+				<div id="scroll_3" class="bookshelf_inner">
 					<div class="gr_grid_container">
 						<script src="https://www.goodreads.com/review/grid_widget/28021191?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=a&shelf=theme-page-2&sort=position&widget_id=1599365015" type="text/javascript" charset="utf-8"></script>
 					</div>
@@ -682,7 +698,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
 
 
             <div id='tab_4'> 
-				<div class="bookshelf_inner">
+				<div id="scroll_4" class="bookshelf_inner">
 					<div class="gr_grid_container">
 						<script src="https://www.goodreads.com/review/grid_widget/28021191?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=a&shelf=theme-page-3&sort=position&widget_id=1599365235" type="text/javascript" charset="utf-8"></script>
 					</div>
@@ -703,6 +719,18 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     
     
         <script>
+
+		/* fakeScroll
+	     */
+        var myScrollbar_1 = document.querySelector('#scroll_1').fakeScroll({})
+        
+        var myScrollbar_2 = document.querySelector('#scroll_2').fakeScroll({})
+        
+        var myScrollbar_3 = document.querySelector('#scroll_3').fakeScroll({})
+        
+        var myScrollbar_4 = document.querySelector('#scroll_4').fakeScroll({})
+        
+        
         /* tabs
          */
         $(document).ready(function() {
