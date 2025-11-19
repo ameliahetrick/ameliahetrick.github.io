@@ -1,11 +1,11 @@
 <!--
 
-colorJumper by ahetric:
-	https://ahetric.github.io/colorJumper/
+colorJumper by ameliahetrick:
+	https://ameliahetrick.github.io/colorJumper/
 
 -- RESOURCES --
 
-color picker:
+color picker: "colorjoe - The Scaleable Color Picker"
 	https://github.com/bebraw/colorjoe/
 	http://bebraw.github.io/colorjoe/
 	https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
@@ -36,12 +36,16 @@ textbox onChange:
 <head>
 
 <title>colorJumper WIP</title>
+
+<!-- jQuery v3.5.1 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- colorjoe v4.1.1 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/css/colorjoe.css"/>
 <!--
 <script src="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/dist/colorjoe.js"></script>
 -->
-<script src="https://cdn.jsdelivr.net/gh/ahetric/ahetric.github.io@b96d34559e414227bdbecba172b702cd4aa4924a/colorJumper/colorjoe.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@b96d34559e414227bdbecba172b702cd4aa4924a/colorJumper/colorjoe.js"></script>
 
 
 <style type="text/css">
@@ -133,7 +137,7 @@ body {
     color: white;
 }
 
-/* begin overriding ColorJoe properties */
+/* start overriding ColorJoe properties */
 
 .colorPicker {
     background: #fff;
@@ -533,133 +537,106 @@ body {
 <script type="text/javascript">
 	$(document).ready(function () {
     
+    
+    /* SET STARTUP VARIABLES */
+    
+    
+    /* initial color visble on page startup */
 	var initial = {
-		r: 0x75,
-		g: 0x42,
-		b: 0x42,
-		a: 1
+		r: 255, g:   0, b:   0, a: 1.00
 	}
     
-	/*var initial = {
-		r: 0x45,
-		g: 0x37,
-		b: 0x37,
-		a: 1
-	}*/
-    
+    /* midpoint color visble on page startup */
 	var midpoint = {
-		r: 0xaa,
-        g: 0x61,
-        b: 0x61,
-        a: 1
+		r: 155, g:   0, b:   0, a: 1.00
 	}
     
+    /* result color placeholder on startup */
 	var result = {
-		r: 0,
-        g: 0,
-        b: 0,
-        a: 1
+		r:   0, g:   0, b:   0, a: 1.00
 	}
     
+    /* whether the fields of the result color are "in bounds" (0-255) */
 	var inBounds = {
-    	r: true,
-        g: true,
-        b: true,
-        a: true
+    	r: true, g: true, b: true, a: true
 	}
     
-    /* RGB pickers */
     
+    /* SET UP RGB PICKERS */
+    
+    
+    /* initial RGB picker */
 	const initialColorPickerRGB = 
 		colorjoe.rgb("initialPickerRGB", obj_to_RGB(initial), [
 			["fields", { space: "RGBA", limit: 0, fix: 0 }],
-			"currentColor",
-			"alpha",
-			"hex",
+			"currentColor", "alpha", "hex",
 	]);
     
 	initialColorPickerRGB.on("change", function (c) {
-    
 		RGB_to_obj(c.cssa(), initial);
 		calculate();
-        
 	}).update();
     
     
+    /* midpoint RGB picker */
 	const midpointColorPickerRGB = 
 		colorjoe.rgb("midpointPickerRGB", obj_to_RGB(midpoint), [
 			["fields", { space: "RGBA", limit: 255, fix: 0 }],
-            "currentColor",
-            "alpha",
-            "hex"
+            "currentColor", "alpha", "hex"
 	]);
     
 	midpointColorPickerRGB.on("change", function (c) {
-    
 		RGB_to_obj(c.cssa(), midpoint);
 		calculate();
-        
 	}).update();
     
     
-    /* HSL pickers */
+    /* SET UP HSL PICKERS */
     
     
+    /* initial HSL picker */
     const initialColorPickerHSL = 
 		colorjoe.hsl("initialPickerHSL", obj_to_RGB(initial), [
 			["fields", { space: "HSLA", limit: 0, fix: 0 }],
-			"currentColor",
-			"alpha",
-			"hex",
+			"currentColor", "alpha", "hex",
 	]);
     
 	initialColorPickerHSL.on("change", function (c) {
-    
 		RGB_to_obj(c.cssa(), initial);
 		calculate();
-        
 	}).update();
     
     
+    /* midpoint HSL picker */
     const midpointColorPickerHSL = 
 		colorjoe.hsl("midpointPickerHSL", obj_to_RGB(midpoint), [
 			["fields", { space: "HSLA", limit: 0, fix: 0 }],
-			"currentColor",
-			"alpha",
-			"hex",
+			"currentColor", "alpha", "hex",
 	]);
     
 	midpointColorPickerHSL.on("change", function (c) {
-    
 		RGB_to_obj(c.cssa(), midpoint);
 		calculate();
-        
 	}).update();
-
-
+    
+    
+    /* TOGGLE BETWEEN RGB AND HSL COLOR SPACES */
+    
+    
     const checkbox = document.getElementById('check');
     
     checkbox.addEventListener('change', (event) => {
+    	$("#initialPickerRGB").toggle();
+    	$("#initialPickerHSL").toggle();
+    	$("#midpointPickerRGB").toggle();
+    	$("#midpointPickerHSL").toggle();
+    
         if (event.currentTarget.checked) {
-            $("#initialPickerRGB").toggle();
-            $("#initialPickerHSL").toggle();
-            
             initialColorPickerHSL.set(initialColorPickerRGB.get());
-            
-            $("#midpointPickerRGB").toggle();
-            $("#midpointPickerHSL").toggle();
-            
             midpointColorPickerHSL.set(midpointColorPickerRGB.get());
         }
         else {
-            $("#initialPickerRGB").toggle();
-            $("#initialPickerHSL").toggle();
-            
             initialColorPickerRGB.set(initialColorPickerHSL.get());
-            
-            $("#midpointPickerRGB").toggle();
-            $("#midpointPickerHSL").toggle();
-            
             midpointColorPickerRGB.set(midpointColorPickerHSL.get());
         }
     })
@@ -762,6 +739,7 @@ body {
             inBounds.a;
 	}
     
+    
 	/* calculateRGBA(initialRGB, midpointRGB, isAlpha)
 	 *
      * params:
@@ -769,28 +747,24 @@ body {
      * midpointRGB: the midpoint R, G, B (or A) value
      * isAlpha: whether the input is A or not
      *
-     * If, given two values 'L' and 'R',
-     * you would find the midpoint 'M' as:
-     *
-     *   M = (L+R)/2
-     *
-     * so solving for 'R' given 'L' and 'M' is:
-     *
-     *   R = (2*M) - L
+     * Returns [# resultRGB, boolean inBoundsRGB]
      */
 	function calculateRGBA(initialRGB, midpointRGB, isAlpha) {
     
-		/* The lower and upper bounds for each range.
+		/* Set the lower and upper bounds for each range.
          *
-         * Range for R,G,B: [0,255]
-         * Range for     A: [0,1]
+         * Range for R,G,B: [0, 255]
+         * Range for A: [0.0, 1.0]
          */
-		var lowerBound = 0x00;
-        var upperBound = 0xFF;
+		var lowerBound = 0;
+        var upperBound = 255;
         if (isAlpha)
-        	upperBound = 0x01;
-            
-		// Handle edge cases when midpoint is gray
+        	upperBound = 1.0;
+        
+        
+		/* Handle edge case where midpoint is gray and
+         * initial is a lower or upper bound.
+         */
         if (midpointRGB == 128) {
         	if (initialRGB == lowerBound)
             	return [upperBound, true];
@@ -798,22 +772,47 @@ body {
             	return [lowerBound, true];
 		}
         
-		var resultRGB = (2.00 * midpointRGB) - initialRGB;
+
+		/* Set up result variables.
+         */
+        var resultRGB = 0;
         var inBoundsRGB = true;
         
-		// If result is out of bounds, set result to appropriate boundary
-        if (resultRGB > upperBound) {
-			resultRGB = upperBound;
-			inBoundsRGB = false;
-		}
-		else if (resultRGB < lowerBound) {
+        
+        /* If midpoint is greater than initial, then result is
+         * (initial + midpoint) ADDED to midpoint.
+         */
+        if (initialRGB < midpointRGB) {
+        	resultRGB = midpointRGB + (initialRGB + midpointRGB);
+        }
+        /* If midpoint is less than or equal to initial, then
+         * result is (initial - midpoint) SUBTRACTED from midpoint.
+         */
+        else {
+        	resultRGB = midpointRGB - (initialRGB - midpointRGB);
+        }
+        
+        
+        /* Handle case where result is out of bounds. Set result
+         * to lowest or highest bound (0 or 255 for RGB; 0.0 or 1.0
+         * for alpha).
+         */
+        if (resultRGB < lowerBound) {
 			resultRGB = lowerBound;
 			inBoundsRGB = false;
 		}
+		else if (resultRGB > upperBound) {
+			resultRGB = upperBound;
+			inBoundsRGB = false;
+		}
         
+        
+        /* If input value is alpha, set result to 2 decimal places.
+         */
 		if (isAlpha)
 			resultRGB = resultRGB.toFixed(2);
-            
+        
+        
 		return [resultRGB, inBoundsRGB];
 	}
     
