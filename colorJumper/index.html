@@ -35,7 +35,7 @@ textbox onChange:
 
 <head>
 
-<title>colorJumper WIP</title>
+<title>colorJumper</title>
 
 <!-- jQuery v3.5.1 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
@@ -70,10 +70,12 @@ body {
 
 #titles {
 	position: relative;
-    top: 0;
+    top: 10px;
     text-transform: uppercase;
-    font-family: arial;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 #pickerContainer {
@@ -365,22 +367,10 @@ body {
 	display: none;
 }
 
-/* CSS rules are kept repetitive so that you can get CSS rules for each button easily :) */
 
-/* {
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
 
-*:focus {
-  outline: none;
-}
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  background-color: #f1f9f9;
-}*/
+/* COLOR SPACE CHECKBOX */
 
 .knobs,
 .layer {
@@ -393,23 +383,14 @@ body {
 
 .button {
   position: relative;
-  top: 50%;
-  width: 74px;
-  height: 36px;
-  margin: -20px auto 0 auto;
+  top: -15px;
+  width: 80px;
+  height: 40px;
+  margin: 0 auto 0 auto;
   overflow: hidden;
 }
 
-.button.r,
-.button.r .layer {
-  border-radius: 100px;
-}
-
-.button.b2 {
-  border-radius: 2px;
-}
-
-.checkbox {
+.colorSpaceCheckbox {
   position: relative;
   width: 100%;
   height: 100%;
@@ -426,7 +407,7 @@ body {
 
 .layer {
   width: 100%;
-  background-color: #ebf7fc;
+  background-color: #ffc0c0; //light red bg
   transition: 0.3s ease all;
   z-index: 1;
 }
@@ -437,15 +418,15 @@ body {
 #button-10 .knobs:after,
 #button-10 .knobs span {
   position: absolute;
-  top: 4px;
-  width: 20px;
+  top: 6px;
+  width: 25px;
   height: 10px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
   text-align: center;
   line-height: 1;
+  color: #fff;
   padding: 9px 4px;
-  border-radius: 2px;
   transition: 0.3s ease all;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -453,7 +434,7 @@ body {
 #button-10 .knobs:before {
   content: "";
   left: 5px;
-  background-color: #03a9f4;
+  background-color: #ff4949; //red
 }
 
 #button-10 .knobs:after {
@@ -465,25 +446,24 @@ body {
 #button-10 .knobs span {
   display: inline-block;
   left: 4px;
-  color: #fff;
   z-index: 1;
 }
 
-#button-10 .checkbox:checked + .knobs span {
-  color: #4e4e4e;
-}
-
-#button-10 .checkbox:checked + .knobs:before {
+#button-10 .colorSpaceCheckbox:checked + .knobs:before {
   left: 42px;
-  background-color: #f44336;
+  background-color: #498fff; //blue
 }
 
-#button-10 .checkbox:checked + .knobs:after {
+#button-10 .colorSpaceCheckbox:checked + .knobs:after {
   color: #fff;
 }
 
-#button-10 .checkbox:checked ~ .layer {
-  background-color: #fcebeb;
+#button-10 .colorSpaceCheckbox:checked + .knobs span {
+  color: #4e4e4e;
+}
+
+#button-10 .colorSpaceCheckbox:checked ~ .layer {
+  background-color: #c0e0ff; //light blue bg
 }
 
 </style>
@@ -492,7 +472,19 @@ body {
 <body>
 
 <div id="main">
-	<h1>colorJumper WIP</h1>
+	<!-- Page title -->
+	<h1><center>colorJumper</center></h1>
+    
+    <!-- Toggle between RGB and HSL color spaces -->
+    <div class="button b2" id="button-10">
+		<input type="checkbox" id="check" class="colorSpaceCheckbox"/>
+		<div class="knobs">
+			<span>RGB</span>
+		</div>
+		<div class="layer"></div>
+	</div>
+    
+    <!-- Initial color picker -->
 	<div id="pickerContainer">
 		<div id="titles">Initial</div>
 		<div id="initialPickerRGB">
@@ -502,15 +494,19 @@ body {
 			<div id="checkeredBGpickers" class="checkeredBG"></div>
 		</div>
 	</div>
+    
+    <!-- Midpoint color picker -->
 	<div id="pickerContainer">
 		<div id="titles">Midpoint</div>
 		<div id="midpointPickerRGB">
-			<div id="checkeredBG"></div>
+			<div id="checkeredBGpickers" class="checkeredBG"></div>
 		</div>
         <div id="midpointPickerHSL">
-			<div id="checkeredBG"></div>
+			<div id="checkeredBGpickers" class="checkeredBG"></div>
 		</div>
 	</div>
+    
+    <!-- Result container -->
 	<div id="resultContainer">
 		<div id="titles">Result</div>
 		<div id="resultInnerContainer">
@@ -520,14 +516,7 @@ body {
 				</div>
 			</div>
 			<p id="resultText" style="margin-left:8px;"></p>
-            
-            <div class="button b2" id="button-10">
-                <input type="checkbox" id="check" class="checkbox"/>
-                <div class="knobs">
-                  <span>RGB</span>
-                </div>
-                <div class="layer"></div>
-            </div>
+            <br>
 
 		</div>
 	</div>
@@ -623,9 +612,9 @@ body {
     /* TOGGLE BETWEEN RGB AND HSL COLOR SPACES */
     
     
-    const checkbox = document.getElementById('check');
+    const colorSpaceCheckbox = document.getElementById('check');
     
-    checkbox.addEventListener('change', (event) => {
+    colorSpaceCheckbox.addEventListener('change', (event) => {
     	$("#initialPickerRGB").toggle();
     	$("#initialPickerHSL").toggle();
     	$("#midpointPickerRGB").toggle();
@@ -717,8 +706,9 @@ body {
 		}
 	}
     
-	/*
-     * Calculates new result color.
+	/* calculate()
+     *
+     * Calculates and displays new result color.
      */
 	function calculate() {
     
@@ -732,6 +722,7 @@ body {
         $("#resultBlock").css("background", obj_to_RGB(result));
 		document.getElementById("resultText").innerHTML =
 			obj_to_RGB(result) + "<br>" + 
+            "[HSL value]<br>" + 
             obj_to_hex(result) + "<br>" + 
             inBounds.r + " " + 
             inBounds.g + " " + 
