@@ -51,7 +51,7 @@ textbox onChange:
 <style type="text/css">
 
 :root {
-    --color-block-height: 200px;
+    --color-block-height: 190px;
     --colorjoe-height: calc(var(--color-block-height) * 2 + 149px);
 }
 
@@ -64,8 +64,8 @@ body {
 }
 
 #main {
-	height: 550px;
-	margin: 0 auto;
+	height: 540px;
+	margin: -20px auto 0 auto;
 }
 
 #titles {
@@ -156,7 +156,7 @@ body {
     margin:inherit;
     margin-left: 8px;
     position: absolute;
-    bottom: 0;
+    top: -2px;
 }
 
 .colorPicker .extras .currentColor {
@@ -167,17 +167,17 @@ body {
     border-radius: 0em;
 
     position: absolute;
-    bottom: calc(var(--colorjoe-height) - var(--color-block-height) - 18px);
+    top: 0;
 }
 
 .colorPicker .extras .colorFields {
     position: absolute;
-    bottom: 23px;
     right: calc(-1 * var(--color-block-height));
     text-transform: uppercase;
     width: var(--color-block-height);
     
     font-family: "Consolas", monospace;
+    top: 450px;
 }
 
 .colorPicker .extras .color {
@@ -185,7 +185,7 @@ body {
 }
 
 .colorPicker .extras .colorFields input {
-    width: calc(var(--color-block-height) / 4 - 26px);
+    width: calc(var(--color-block-height) / 4 - 23px);
     left:-3px;
     margin-left: 3px;
     margin-right: 3px;
@@ -193,7 +193,7 @@ body {
 
 .colorPicker .extras .hex {
     position: absolute;
-    bottom: 0px;
+    top: 490px;
 }
 
 .colorPicker .extras .hex input {
@@ -247,8 +247,9 @@ body {
     width: var(--color-block-height);
     
     position: absolute;
-    bottom: 29px;
     margin-left: 0px;
+    
+    top: 10px;
 }
 
 /*.colorPicker .oned.alpha .bg {
@@ -264,7 +265,7 @@ body {
     -moz-border-radius: 5px;
     border-radius: 5px;
     
-    bottom: 7px;
+    top: 208px;
 }
 
 .colorPicker .oned.alpha .bg {
@@ -274,6 +275,12 @@ body {
 	background: -o-linear-gradient(right, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
 	background: linear-gradient(to left, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
 }
+
+
+
+
+
+
 
 /* HSL pickers */
 #initialPickerHSL .twod, #initialPickerHSL .twod .bg,
@@ -288,8 +295,7 @@ body {
     width: var(--color-block-height);
     
     position: absolute;
-    margin-top:0px;
-    bottom: 95px;
+    top: 203px;
 }
 
 #initialPickerHSL .oned .bg,
@@ -299,14 +305,7 @@ body {
 
 #initialPickerHSL .oned .pointer,
 #midpointPickerHSL .oned .pointer {
-    /*position: absolute;
-    margin-top: 3px;
-    height: 20px;
-    width:5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;*/
-    
-    bottom: 213px;
+    top: -203px;
 }
 
 
@@ -339,7 +338,7 @@ body {
 
 #initialPickerHSL .oned.alpha,
 #midpointPickerHSL .oned.alpha {
-    bottom: 29px;
+    top: 213px;
 }
 
 #initialPickerHSL .oned.alpha .bg,
@@ -354,7 +353,6 @@ body {
 #initialPickerHSL .oned.alpha .pointer,
 #midpointPickerHSL .oned.alpha .pointer {
     position: absolute;
-    bottom: 20px;
 }
 
 /* end overriding ColorJoe properties */
