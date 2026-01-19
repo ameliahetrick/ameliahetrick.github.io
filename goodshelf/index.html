@@ -238,18 +238,37 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     }
     
     
-    /* GOODREADS yearly reading challenge widget */
-    [id^="gr_challenge_progress_body_"] {
-        /* position */
+    /* container for yearly reading challenge */
+    #yearly {
+    	/* position */
         position: relative;
         padding: var(--padding-size);
-        
+    
         /* size */
         width: calc(var(--sidebar-width) - (2*var(--padding-size)));
         height: calc(95px + 2*var(--border-size));
         
         /* border */
         border: var(--border-style);
+    }
+    
+    
+    /* GOODREADS yearly reading challenge widget */
+    [id^="gr_challenge_progress_body_"] {
+        /* position */
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        
+        /* size */
+        width: calc(var(--sidebar-width) - (6*var(--padding-size)));
+        height: inherit;
+        
+        /* border */
+        //border: var(--border-style);
     }
     
     
@@ -637,8 +656,10 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         <div id="sidebar">
             
             <!-- goodreads yearly reading challenge widget -->
-            <div id="gr_challenge_progress_body_11680">
-                <script src="https://www.goodreads.com/user_challenges/widget/28021191?challenge_id=11680&v=2"></script>
+            <div id="yearly">
+                <div id="gr_challenge_progress_body_11680">
+                    <script src="https://www.goodreads.com/user_challenges/widget/28021191?challenge_id=11680&v=2"></script>
+                </div>
             </div>
              
                 
@@ -708,7 +729,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     </div> <!-- end <div id="container"> -->
     
     
-    <a id="credit" href="https://ameliahetrick.github.io/" title="source"><span></span></a>
+    <a id="credit" href="https://ameliahetrick.github.io/" title="src"><span></span></a>
     
     
     
