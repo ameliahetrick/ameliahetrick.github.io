@@ -1,11 +1,11 @@
 <!--
 
-colorJumper by ahetric:
-	https://ahetric.github.io/colorJumper/
+colorJumper by ameliahetrick:
+	https://ameliahetrick.github.io/colorJumper/
 
 -- RESOURCES --
 
-color picker:
+color picker: "colorjoe - The Scaleable Color Picker"
 	https://github.com/bebraw/colorjoe/
 	http://bebraw.github.io/colorjoe/
 	https://blog.logrocket.com/color-picker-libraries-to-use-in-2021/
@@ -35,19 +35,23 @@ textbox onChange:
 
 <head>
 
-<title>colorJumper WIP</title>
+<title>colorJumper</title>
+
+<!-- jQuery v3.5.1 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- colorjoe v4.1.1 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/css/colorjoe.css"/>
 <!--
 <script src="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/dist/colorjoe.js"></script>
 -->
-<script src="https://cdn.jsdelivr.net/gh/ahetric/ahetric.github.io@b96d34559e414227bdbecba172b702cd4aa4924a/colorJumper/colorjoe.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@b96d34559e414227bdbecba172b702cd4aa4924a/colorJumper/colorjoe.js"></script>
 
 
 <style type="text/css">
 
 :root {
-    --color-block-height: 200px;
+    --color-block-height: 190px;
     --colorjoe-height: calc(var(--color-block-height) * 2 + 149px);
 }
 
@@ -60,16 +64,18 @@ body {
 }
 
 #main {
-	height: 550px;
-	margin: 0 auto;
+	height: 540px;
+	margin: -20px auto 0 auto;
 }
 
 #titles {
 	position: relative;
-    top: 0;
+    top: 10px;
     text-transform: uppercase;
-    font-family: arial;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 #pickerContainer {
@@ -133,7 +139,7 @@ body {
     color: white;
 }
 
-/* begin overriding ColorJoe properties */
+/* start overriding ColorJoe properties */
 
 .colorPicker {
     background: #fff;
@@ -150,7 +156,7 @@ body {
     margin:inherit;
     margin-left: 8px;
     position: absolute;
-    bottom: 0;
+    top: -2px;
 }
 
 .colorPicker .extras .currentColor {
@@ -161,17 +167,17 @@ body {
     border-radius: 0em;
 
     position: absolute;
-    bottom: calc(var(--colorjoe-height) - var(--color-block-height) - 18px);
+    top: 0;
 }
 
 .colorPicker .extras .colorFields {
     position: absolute;
-    bottom: 23px;
     right: calc(-1 * var(--color-block-height));
     text-transform: uppercase;
     width: var(--color-block-height);
     
     font-family: "Consolas", monospace;
+    top: 450px;
 }
 
 .colorPicker .extras .color {
@@ -179,7 +185,7 @@ body {
 }
 
 .colorPicker .extras .colorFields input {
-    width: calc(var(--color-block-height) / 4 - 26px);
+    width: calc(var(--color-block-height) / 4 - 23px);
     left:-3px;
     margin-left: 3px;
     margin-right: 3px;
@@ -187,7 +193,7 @@ body {
 
 .colorPicker .extras .hex {
     position: absolute;
-    bottom: 0px;
+    top: 490px;
 }
 
 .colorPicker .extras .hex input {
@@ -241,8 +247,9 @@ body {
     width: var(--color-block-height);
     
     position: absolute;
-    bottom: 29px;
     margin-left: 0px;
+    
+    top: 10px;
 }
 
 /*.colorPicker .oned.alpha .bg {
@@ -258,7 +265,7 @@ body {
     -moz-border-radius: 5px;
     border-radius: 5px;
     
-    bottom: 7px;
+    top: 208px;
 }
 
 .colorPicker .oned.alpha .bg {
@@ -268,6 +275,12 @@ body {
 	background: -o-linear-gradient(right, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
 	background: linear-gradient(to left, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
 }
+
+
+
+
+
+
 
 /* HSL pickers */
 #initialPickerHSL .twod, #initialPickerHSL .twod .bg,
@@ -282,8 +295,7 @@ body {
     width: var(--color-block-height);
     
     position: absolute;
-    margin-top:0px;
-    bottom: 95px;
+    top: 203px;
 }
 
 #initialPickerHSL .oned .bg,
@@ -293,14 +305,7 @@ body {
 
 #initialPickerHSL .oned .pointer,
 #midpointPickerHSL .oned .pointer {
-    /*position: absolute;
-    margin-top: 3px;
-    height: 20px;
-    width:5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;*/
-    
-    bottom: 213px;
+    top: -203px;
 }
 
 
@@ -333,7 +338,7 @@ body {
 
 #initialPickerHSL .oned.alpha,
 #midpointPickerHSL .oned.alpha {
-    bottom: 29px;
+    top: 213px;
 }
 
 #initialPickerHSL .oned.alpha .bg,
@@ -348,7 +353,6 @@ body {
 #initialPickerHSL .oned.alpha .pointer,
 #midpointPickerHSL .oned.alpha .pointer {
     position: absolute;
-    bottom: 20px;
 }
 
 /* end overriding ColorJoe properties */
@@ -361,22 +365,10 @@ body {
 	display: none;
 }
 
-/* CSS rules are kept repetitive so that you can get CSS rules for each button easily :) */
 
-/* {
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
 
-*:focus {
-  outline: none;
-}
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  background-color: #f1f9f9;
-}*/
+/* COLOR SPACE CHECKBOX */
 
 .knobs,
 .layer {
@@ -389,23 +381,14 @@ body {
 
 .button {
   position: relative;
-  top: 50%;
-  width: 74px;
-  height: 36px;
-  margin: -20px auto 0 auto;
+  top: -15px;
+  width: 80px;
+  height: 40px;
+  margin: 0 auto 0 auto;
   overflow: hidden;
 }
 
-.button.r,
-.button.r .layer {
-  border-radius: 100px;
-}
-
-.button.b2 {
-  border-radius: 2px;
-}
-
-.checkbox {
+.colorSpaceCheckbox {
   position: relative;
   width: 100%;
   height: 100%;
@@ -422,7 +405,7 @@ body {
 
 .layer {
   width: 100%;
-  background-color: #ebf7fc;
+  background-color: #ffc0c0; //light red bg
   transition: 0.3s ease all;
   z-index: 1;
 }
@@ -433,15 +416,15 @@ body {
 #button-10 .knobs:after,
 #button-10 .knobs span {
   position: absolute;
-  top: 4px;
-  width: 20px;
+  top: 6px;
+  width: 25px;
   height: 10px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
   text-align: center;
   line-height: 1;
+  color: #fff;
   padding: 9px 4px;
-  border-radius: 2px;
   transition: 0.3s ease all;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -449,7 +432,7 @@ body {
 #button-10 .knobs:before {
   content: "";
   left: 5px;
-  background-color: #03a9f4;
+  background-color: #ff4949; //red
 }
 
 #button-10 .knobs:after {
@@ -461,25 +444,24 @@ body {
 #button-10 .knobs span {
   display: inline-block;
   left: 4px;
-  color: #fff;
   z-index: 1;
 }
 
-#button-10 .checkbox:checked + .knobs span {
-  color: #4e4e4e;
-}
-
-#button-10 .checkbox:checked + .knobs:before {
+#button-10 .colorSpaceCheckbox:checked + .knobs:before {
   left: 42px;
-  background-color: #f44336;
+  background-color: #498fff; //blue
 }
 
-#button-10 .checkbox:checked + .knobs:after {
+#button-10 .colorSpaceCheckbox:checked + .knobs:after {
   color: #fff;
 }
 
-#button-10 .checkbox:checked ~ .layer {
-  background-color: #fcebeb;
+#button-10 .colorSpaceCheckbox:checked + .knobs span {
+  color: #4e4e4e;
+}
+
+#button-10 .colorSpaceCheckbox:checked ~ .layer {
+  background-color: #c0e0ff; //light blue bg
 }
 
 </style>
@@ -488,7 +470,19 @@ body {
 <body>
 
 <div id="main">
-	<h1>colorJumper WIP</h1>
+	<!-- Page title -->
+	<h1><center>colorJumper</center></h1>
+    
+    <!-- Toggle between RGB and HSL color spaces -->
+    <div class="button b2" id="button-10">
+		<input type="checkbox" id="check" class="colorSpaceCheckbox"/>
+		<div class="knobs">
+			<span>RGB</span>
+		</div>
+		<div class="layer"></div>
+	</div>
+    
+    <!-- Initial color picker -->
 	<div id="pickerContainer">
 		<div id="titles">Initial</div>
 		<div id="initialPickerRGB">
@@ -498,15 +492,19 @@ body {
 			<div id="checkeredBGpickers" class="checkeredBG"></div>
 		</div>
 	</div>
+    
+    <!-- Midpoint color picker -->
 	<div id="pickerContainer">
 		<div id="titles">Midpoint</div>
 		<div id="midpointPickerRGB">
-			<div id="checkeredBG"></div>
+			<div id="checkeredBGpickers" class="checkeredBG"></div>
 		</div>
         <div id="midpointPickerHSL">
-			<div id="checkeredBG"></div>
+			<div id="checkeredBGpickers" class="checkeredBG"></div>
 		</div>
 	</div>
+    
+    <!-- Result container -->
 	<div id="resultContainer">
 		<div id="titles">Result</div>
 		<div id="resultInnerContainer">
@@ -516,14 +514,7 @@ body {
 				</div>
 			</div>
 			<p id="resultText" style="margin-left:8px;"></p>
-            
-            <div class="button b2" id="button-10">
-                <input type="checkbox" id="check" class="checkbox"/>
-                <div class="knobs">
-                  <span>RGB</span>
-                </div>
-                <div class="layer"></div>
-            </div>
+            <br>
 
 		</div>
 	</div>
@@ -533,133 +524,106 @@ body {
 <script type="text/javascript">
 	$(document).ready(function () {
     
+    
+    /* SET STARTUP VARIABLES */
+    
+    
+    /* initial color visble on page startup */
 	var initial = {
-		r: 0x75,
-		g: 0x42,
-		b: 0x42,
-		a: 1
+		r: 255, g:   0, b:   0, a: 1.00
 	}
     
-	/*var initial = {
-		r: 0x45,
-		g: 0x37,
-		b: 0x37,
-		a: 1
-	}*/
-    
+    /* midpoint color visble on page startup */
 	var midpoint = {
-		r: 0xaa,
-        g: 0x61,
-        b: 0x61,
-        a: 1
+		r: 155, g:   0, b:   0, a: 1.00
 	}
     
+    /* result color placeholder on startup */
 	var result = {
-		r: 0,
-        g: 0,
-        b: 0,
-        a: 1
+		r:   0, g:   0, b:   0, a: 1.00
 	}
     
+    /* whether the fields of the result color are "in bounds" (0-255) */
 	var inBounds = {
-    	r: true,
-        g: true,
-        b: true,
-        a: true
+    	r: true, g: true, b: true, a: true
 	}
     
-    /* RGB pickers */
     
+    /* SET UP RGB PICKERS */
+    
+    
+    /* initial RGB picker */
 	const initialColorPickerRGB = 
 		colorjoe.rgb("initialPickerRGB", obj_to_RGB(initial), [
 			["fields", { space: "RGBA", limit: 0, fix: 0 }],
-			"currentColor",
-			"alpha",
-			"hex",
+			"currentColor", "alpha", "hex",
 	]);
     
 	initialColorPickerRGB.on("change", function (c) {
-    
 		RGB_to_obj(c.cssa(), initial);
 		calculate();
-        
 	}).update();
     
     
+    /* midpoint RGB picker */
 	const midpointColorPickerRGB = 
 		colorjoe.rgb("midpointPickerRGB", obj_to_RGB(midpoint), [
 			["fields", { space: "RGBA", limit: 255, fix: 0 }],
-            "currentColor",
-            "alpha",
-            "hex"
+            "currentColor", "alpha", "hex"
 	]);
     
 	midpointColorPickerRGB.on("change", function (c) {
-    
 		RGB_to_obj(c.cssa(), midpoint);
 		calculate();
-        
 	}).update();
     
     
-    /* HSL pickers */
+    /* SET UP HSL PICKERS */
     
     
+    /* initial HSL picker */
     const initialColorPickerHSL = 
 		colorjoe.hsl("initialPickerHSL", obj_to_RGB(initial), [
 			["fields", { space: "HSLA", limit: 0, fix: 0 }],
-			"currentColor",
-			"alpha",
-			"hex",
+			"currentColor", "alpha", "hex",
 	]);
     
 	initialColorPickerHSL.on("change", function (c) {
-    
 		RGB_to_obj(c.cssa(), initial);
 		calculate();
-        
 	}).update();
     
     
+    /* midpoint HSL picker */
     const midpointColorPickerHSL = 
 		colorjoe.hsl("midpointPickerHSL", obj_to_RGB(midpoint), [
 			["fields", { space: "HSLA", limit: 0, fix: 0 }],
-			"currentColor",
-			"alpha",
-			"hex",
+			"currentColor", "alpha", "hex",
 	]);
     
 	midpointColorPickerHSL.on("change", function (c) {
-    
 		RGB_to_obj(c.cssa(), midpoint);
 		calculate();
-        
 	}).update();
-
-
-    const checkbox = document.getElementById('check');
     
-    checkbox.addEventListener('change', (event) => {
+    
+    /* TOGGLE BETWEEN RGB AND HSL COLOR SPACES */
+    
+    
+    const colorSpaceCheckbox = document.getElementById('check');
+    
+    colorSpaceCheckbox.addEventListener('change', (event) => {
+    	$("#initialPickerRGB").toggle();
+    	$("#initialPickerHSL").toggle();
+    	$("#midpointPickerRGB").toggle();
+    	$("#midpointPickerHSL").toggle();
+    
         if (event.currentTarget.checked) {
-            $("#initialPickerRGB").toggle();
-            $("#initialPickerHSL").toggle();
-            
             initialColorPickerHSL.set(initialColorPickerRGB.get());
-            
-            $("#midpointPickerRGB").toggle();
-            $("#midpointPickerHSL").toggle();
-            
             midpointColorPickerHSL.set(midpointColorPickerRGB.get());
         }
         else {
-            $("#initialPickerRGB").toggle();
-            $("#initialPickerHSL").toggle();
-            
             initialColorPickerRGB.set(initialColorPickerHSL.get());
-            
-            $("#midpointPickerRGB").toggle();
-            $("#midpointPickerHSL").toggle();
-            
             midpointColorPickerRGB.set(midpointColorPickerHSL.get());
         }
     })
@@ -740,8 +704,9 @@ body {
 		}
 	}
     
-	/*
-     * Calculates new result color.
+	/* calculate()
+     *
+     * Calculates and displays new result color.
      */
 	function calculate() {
     
@@ -755,12 +720,14 @@ body {
         $("#resultBlock").css("background", obj_to_RGB(result));
 		document.getElementById("resultText").innerHTML =
 			obj_to_RGB(result) + "<br>" + 
+            "[HSL value]<br>" + 
             obj_to_hex(result) + "<br>" + 
             inBounds.r + " " + 
             inBounds.g + " " + 
             inBounds.b + " " + 
             inBounds.a;
 	}
+    
     
 	/* calculateRGBA(initialRGB, midpointRGB, isAlpha)
 	 *
@@ -769,28 +736,24 @@ body {
      * midpointRGB: the midpoint R, G, B (or A) value
      * isAlpha: whether the input is A or not
      *
-     * If, given two values 'L' and 'R',
-     * you would find the midpoint 'M' as:
-     *
-     *   M = (L+R)/2
-     *
-     * so solving for 'R' given 'L' and 'M' is:
-     *
-     *   R = (2*M) - L
+     * Returns [# resultRGB, boolean inBoundsRGB]
      */
 	function calculateRGBA(initialRGB, midpointRGB, isAlpha) {
     
-		/* The lower and upper bounds for each range.
+		/* Set the lower and upper bounds for each range.
          *
-         * Range for R,G,B: [0,255]
-         * Range for     A: [0,1]
+         * Range for R,G,B: [0, 255]
+         * Range for A: [0.0, 1.0]
          */
-		var lowerBound = 0x00;
-        var upperBound = 0xFF;
+		var lowerBound = 0;
+        var upperBound = 255;
         if (isAlpha)
-        	upperBound = 0x01;
-            
-		// Handle edge cases when midpoint is gray
+        	upperBound = 1.0;
+        
+        
+		/* Handle edge case where midpoint is gray and
+         * initial is a lower or upper bound.
+         */
         if (midpointRGB == 128) {
         	if (initialRGB == lowerBound)
             	return [upperBound, true];
@@ -798,22 +761,47 @@ body {
             	return [lowerBound, true];
 		}
         
-		var resultRGB = (2.00 * midpointRGB) - initialRGB;
+
+		/* Set up result variables.
+         */
+        var resultRGB = 0;
         var inBoundsRGB = true;
         
-		// If result is out of bounds, set result to appropriate boundary
-        if (resultRGB > upperBound) {
-			resultRGB = upperBound;
-			inBoundsRGB = false;
-		}
-		else if (resultRGB < lowerBound) {
+        
+        /* If midpoint is greater than initial, then result is
+         * (initial + midpoint) ADDED to midpoint.
+         */
+        if (initialRGB < midpointRGB) {
+        	resultRGB = midpointRGB + (initialRGB + midpointRGB);
+        }
+        /* If midpoint is less than or equal to initial, then
+         * result is (initial - midpoint) SUBTRACTED from midpoint.
+         */
+        else {
+        	resultRGB = midpointRGB - (initialRGB - midpointRGB);
+        }
+        
+        
+        /* Handle case where result is out of bounds. Set result
+         * to lowest or highest bound (0 or 255 for RGB; 0.0 or 1.0
+         * for alpha).
+         */
+        if (resultRGB < lowerBound) {
 			resultRGB = lowerBound;
 			inBoundsRGB = false;
 		}
+		else if (resultRGB > upperBound) {
+			resultRGB = upperBound;
+			inBoundsRGB = false;
+		}
         
+        
+        /* If input value is alpha, set result to 2 decimal places.
+         */
 		if (isAlpha)
 			resultRGB = resultRGB.toFixed(2);
-            
+        
+        
 		return [resultRGB, inBoundsRGB];
 	}
     
