@@ -23,7 +23,7 @@
         this.events.binding.call(this, this.DOM)
 
         // run "moveBar" once
-        this.events.callbacks.onScrollResize.bind(this)
+        setTimeout(this.events.callbacks.onScrollResize.bind(this))
     }
 
     FakeScroll.prototype = {
@@ -93,6 +93,7 @@
 
             binding(DOM){
                 this.events.on.call(this, DOM.scrollContent, 'scroll', 'onScrollResize')
+                           .on.call(this, DOM.scope, '', 'onScrollResize')
                            .on.call(this, DOM.bar, 'mousedown', 'onBarMouseDown')
                            .on.call(this, window, 'resize', 'onScrollResize')
 
