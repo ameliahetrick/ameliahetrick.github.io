@@ -93,7 +93,7 @@
 
             binding(DOM){
                 this.events.on.call(this, DOM.scrollContent, 'scroll', 'onScrollResize')
-                           .on.call(this, DOM.scope, 'DOMContentLoaded', 'onLoadPage')
+                           .on.call(this, DOM.scope, 'load', 'onScrollResize')
                            .on.call(this, DOM.bar, 'mousedown', 'onBarMouseDown')
                            .on.call(this, window, 'resize', 'onScrollResize')
 
@@ -112,14 +112,6 @@
             },
 
             callbacks : {
-
-
-                onLoadPage(){
-                    this.moveBar.call(this);
-                    this.DOM.scope.classList.toggle('fakeScroll--hasBar', this.state.ratio < 1)
-                },
-
-
                 onScrollResize(){
                     this.moveBar.call(this);
                     this.DOM.scope.classList.toggle('fakeScroll--hasBar', this.state.ratio < 1)
