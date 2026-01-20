@@ -53,6 +53,7 @@
             targetElm.insertAdjacentHTML('afterbegin', scopeHTML);
 
             DOM.scope = targetElm;
+            DOM.scope.classList.toggle('fakeScroll--hasBar', 0 < 1);
             DOM.scrollWrap = targetElm.firstElementChild;
             DOM.scrollContent = DOM.scrollWrap.firstElementChild;
             DOM.scrollContent.appendChild(fragment);
