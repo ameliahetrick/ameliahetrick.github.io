@@ -53,7 +53,6 @@
             targetElm.insertAdjacentHTML('afterbegin', scopeHTML);
 
             DOM.scope = targetElm;
-            DOM.scope.classList.toggle('fakeScroll--hasBar', 0 < 1);
             DOM.scrollWrap = targetElm.firstElementChild;
             DOM.scrollContent = DOM.scrollWrap.firstElementChild;
             DOM.scrollContent.appendChild(fragment);
@@ -97,7 +96,7 @@
                            .on.call(this, DOM.scope, 'mouseenter', 'onScrollResize')
                            .on.call(this, DOM.bar, 'mousedown', 'onBarMouseDown')
                            .on.call(this, window, 'resize', 'onScrollResize')
-                this.DOM.scope.classList.toggle('fakeScroll--hasBar', 0 < 1)
+                DOM.scope.classList.toggle('fakeScroll--hasBar')
 
                 if( this.settings.track )
                     this.events.on.call(this, DOM.track, 'click', 'onTrackClick')
