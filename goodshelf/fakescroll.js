@@ -93,7 +93,7 @@
 
             binding(DOM){
                 this.events.on.call(this, DOM.scrollContent, 'scroll', 'onScrollResize')
-                           .on.call(this, DOM.scope, 'load', 'onScrollResize')
+                           .on.call(this, DOM.scope, 'mousemove', 'onScrollResize')
                            .on.call(this, DOM.bar, 'mousedown', 'onBarMouseDown')
                            .on.call(this, window, 'resize', 'onScrollResize')
 
