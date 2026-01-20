@@ -96,7 +96,7 @@
                            .on.call(this, DOM.scope, 'mouseenter', 'onScrollResize')
                            .on.call(this, DOM.bar, 'mousedown', 'onBarMouseDown')
                            .on.call(this, window, 'resize', 'onScrollResize')
-                this.DOM.scope.classList.toggle('fakeScroll--hasBar', this.state.ratio < 1)
+                this.DOM.scope.classList.toggle('fakeScroll--hasBar', 0 < 1)
 
                 if( this.settings.track )
                     this.events.on.call(this, DOM.track, 'click', 'onTrackClick')
