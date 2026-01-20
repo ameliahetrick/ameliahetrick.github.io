@@ -11,6 +11,8 @@
   }(this, function(){
     raf = window.requestAnimationFrame || function(cb) { return window.setTimeout(cb, 1000 / 60) };
 
+    document.addEventListener('DOMContentLoaded', onScrollResize);
+
     function FakeScroll(targetElm, settings){
         if( !targetElm ) return;
 
