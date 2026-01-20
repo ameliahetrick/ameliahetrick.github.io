@@ -95,8 +95,8 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         --accent-color: #888;
         --font-size: 12px;
         
-        --book-height: 160px;
-        --book-width: 100px;
+        --book-height: 150px; /* og: 160px */
+        --book-width: 94px; /* og: 100px */
         
         --sidebar-width: 250px;
         --ui-tab-pad: 25px;
@@ -212,7 +212,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         /* position */
         position: absolute;
         margin: auto;
-        top: 0;
+        top: calc((1 * (var(--ui-tab-pad)) + var(--padding-size) + 3*var(--border-size)));
         right: 0;
         bottom: 0;
         left: 0;
@@ -665,8 +665,8 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
                 
             <!-- user links -->
             <div id="links">
-                <a href="/goodshelf">REFRESH</a>&emsp;&nbsp;&emsp;
-                <a href="https://www.goodreads.com/user/show/28021191-lorem-ipsum">GOODREADS</a>&emsp;&nbsp;&emsp;
+                <a href="/goodshelf">REFRESH</a>&emsp;&nbsp;
+                <a href="https://www.goodreads.com/user/show/28021191-lorem-ipsum">GOODREADS</a>&emsp;&nbsp;
                 <a href="https://ameliahetrick.github.io/">GITHUB</a>
             </div>
             
