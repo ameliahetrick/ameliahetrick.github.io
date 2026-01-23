@@ -53,7 +53,6 @@
             targetElm.insertAdjacentHTML('afterbegin', scopeHTML);
 
             DOM.scope = targetElm;
-            DOM.scope.classList.add('fakeScroll--hasBar')
             DOM.scrollWrap = targetElm.firstElementChild;
             DOM.scrollContent = DOM.scrollWrap.firstElementChild;
             DOM.scrollContent.appendChild(fragment);
@@ -115,7 +114,7 @@
             callbacks : {
                 onScrollResize(){
                     this.moveBar.call(this);
-                    this.DOM.scope.classList.toggle('fakeScroll--hasBar', this.state.ratio < 1)
+                    this.DOM.scope.classList.add('fakeScroll--hasBar')
 
                     // debounce - get track bounds
                     clearTimeout(this.listeners.timeout__resize);
