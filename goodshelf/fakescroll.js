@@ -61,6 +61,7 @@
             DOM.bar = DOM.track.firstElementChild;
 
             DOM.scope.classList.add("fakeScroll");
+            DOM.scope.classList.add("fakeScroll--hasBar");
 
             return DOM;
         },
