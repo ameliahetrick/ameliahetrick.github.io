@@ -91,12 +91,15 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
 	/* root variables */
     :root {
         --background-color: #fff;
+        --background-boxes-color: #fff;
         --text-color: #444;
+        --link-color: #888;
+        --link-hover-color: #bbb;
         --accent-color: #888;
         --font-size: 12px;
         
         --book-height: 150px; /* og: 160px */
-        --book-width: 94px; /* og: 100px */
+        --book-width: 94px; /* og: 100px, match custom tippy tooltip maxWidth in script */
         
         --sidebar-width: 250px;
         --ui-tab-pad: 25px;
@@ -130,6 +133,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         width: var(--padding-size);
         right: calc(-1*var(--padding-size));
         bottom: calc(-1*var(--border-size));
+        //background: var(--background-color);
     }
     
     .fakeScroll__bar {
@@ -191,7 +195,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     }
 
     a {
-        color: var(--accent-color);
+        color: var(--link-color);
         text-decoration: underline;
         -moz-transition-duration: var(--transition-time);
         -webkit-transition-duration: var(--transition-time);
@@ -199,7 +203,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     }
 
     a:hover {
-        color: var(--text-color);
+        color: var(--link-hover-color);
         text-decoration: underline;
         -moz-transition-duration: var(--transition-time);
         -webkit-transition-duration: var(--transition-time);
@@ -251,6 +255,9 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         
         /* border */
         border: var(--border-style);
+        
+        /* color */
+        background-color: var(--background-boxes-color);
     }
     
     
@@ -297,13 +304,14 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         text-decoration: underline !important;
         font-family: inherit !important;
         font-style: normal !important;
-        font-size: inherit !important;
+        //font-size: inherit !important;
+        font-size: 13px !important;
         
-        color: var(--accent-color);
+        color: var(--link-color);
     }
     
     [id^="gr_challenge_progress_body_"] a:hover {
-        color: var(--text-color);
+        color: var(--link-hover-color);
         -moz-transition-duration: var(--transition-time);
         -webkit-transition-duration: var(--transition-time);
         -o-transition-duration: var(--transition-time);
@@ -401,7 +409,11 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     
     /* outer container for description */
     #description_outer {
+    	/* border */
         border: var(--border-style);
+        
+        /* color */
+        background-color: var(--background-boxes-color);
     }
     
     
@@ -415,10 +427,8 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         /* (container height) - (reading challenge height) - (links height) - 4*(padding size) - 4*(border size) */
         max-height: calc(var(--container-height) - 95px - 42px - (4*var(--padding-size)) - (4*var(--border-size)));
         
-        /* border */
-        border-top: var(--padding-size) solid var(--background-color);
-        border-bottom: var(--padding-size) solid var(--background-color);
-        padding: 0px var(--padding-size) 0px var(--padding-size);
+        /* padding */
+        padding: var(--padding-size);
         
         /* overflow */
         overflow-y: auto;
@@ -440,6 +450,9 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         
         /* border */
         border: var(--border-style);
+        
+        /* color */
+        background-color: var(--background-boxes-color);
     }
     
     
@@ -530,7 +543,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
 
     .ui-tabs .ui-tabs-nav li {
         margin: 0px 0px 0px var(--padding-size);
-        background-color: var(--background-color);
+        background-color: var(--background-boxes-color);
         color: var(--accent-color);
         height: var(--ui-tab-pad);
         width: var(--book-width);
@@ -810,7 +823,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
             theme: 'custom',
             arrow: tippy.roundArrow,
             zIndex: 9999999999,
-            maxWidth: 100,
+            maxWidth: 94, /* should match --book-width var */
             animation: 'shift-away',
             duration: [500,500],
 
