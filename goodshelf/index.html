@@ -48,6 +48,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
 
 
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Goodshelf</title>
     <link rel="shortcut icon" href="{Favicon}">
@@ -90,12 +91,14 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
 
 	/* root variables */
     :root {
+    	/* monochromatic color scheme
+          https://www.color-hex.com/color/746965 */
         --background-color: #fff;
         --background-boxes-color: #fff;
-        --text-color: #444;
-        --link-color: #888;
-        --link-hover-color: #bbb;
-        --accent-color: #888;
+        --text-color: #4b4441;
+        --link-color: #827571;
+        --link-hover-color: #beb6b4;
+        --accent-color: #827571;
         --font-size: 12px;
         
         --book-height: 150px; /* og: 160px */
@@ -192,6 +195,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         letter-spacing: 1px;
         text-align: center;
         overflow: hidden;
+        hyphens: auto;
     }
 
     a {
@@ -615,13 +619,14 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
      */
     .tippy-box[data-theme~="custom"],
     .tippy-box[data-theme~="custom2"] {
-    	margin: -0.5px;
+    	//margin: -0.5px;
         background-color: var(--accent-color);
         color: var(--background-color);
         border: var(--border-style);
         border-radius: 0px;
         font-size: 12px;
         overflow-wrap: break-word;
+        hyphens: auto;
     }
 
     .tippy-box[data-theme~="custom"] .tippy-svg-arrow,
@@ -688,7 +693,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
             <!-- user description -->
             <div id="description_outer">
                 <div id="description_inner">
-                    Interested in reading<br><b>classics</b> and <b>literary fiction</b>, especially <u>psychological realism</u>, <u>bildungsromane</u>, <u>absurdism</u>,<br>and the <u>female gothic</u>.
+                    Interested in reading<br><b>classics</b> and <b>literary fiction</b>, especially <u>psychological realism</u>, <u>bildungsroman</u>, <u>absurdism</u>,<br>and the <u>female gothic</u>.
                 </div>
             </div>
             
@@ -708,7 +713,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
             <div id='tab_1'> 
 				<div id="scroll_1" class="bookshelf_inner">
 					<div class="gr_grid_container">
-                        <script src="https://www.goodreads.com/review/grid_widget/28021191?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=d&shelf=2026&sort=position&widget_id=1768855998" type="text/javascript" charset="utf-8"></script>
+                        <script src="https://www.goodreads.com/review/grid_widget/28021191?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=d&shelf=2026&sort=position&widget_id=1768855998" type="text/javascript" charset="utf-8" ></script>
 					</div>
 				</div>
             </div> 
@@ -823,7 +828,12 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
             theme: 'custom',
             arrow: tippy.roundArrow,
             zIndex: 9999999999,
-            maxWidth: 94, /* should match --book-width var */
+            /* maxWidth calculation
+             * (--bookWidth) + (--padding-size*2) + (--border-size)
+             * (94) + (10*2) + (2)
+             * 116
+             */
+            maxWidth: 116,
             animation: 'shift-away',
             duration: [500,500],
 
