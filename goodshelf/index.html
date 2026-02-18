@@ -1,48 +1,55 @@
 <!--
 
-links that helped me understand things
-
-    css
-https://www.w3.org/TR/CSS21/selector.html%23id-selectors
-
-    CSS multiple attribute values
-https://www.w3.org/TR/selectors-4/#attribute-substrings
-https://blog.teamtreehouse.com/css3-substring-matching-attribute-selectors
-http://www.css3.info/preview/attribute-selectors/
-https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors
-https://css-tricks.com/multiple-attribute-values/
-
-    centering things vertically
-https://css-tricks.com/centering-css-complete-guide/#vertical-inline
-https://www.w3schools.com/howto/howto_css_center-vertical.asp
-
-    webkit scrollbar
-https://css-tricks.com/custom-scrollbars-in-webkit/
+Goodshelf by ameliahetrick:
+	https://ameliahetrick.github.io/goodshelf/
 
 
-    hover grayscale img
-http://www.codeblocq.com/2016/08/Turn-an-image-to-Black-and-White-on-hover-with-CSS/
-https://css-tricks.com/almanac/properties/f/filter/
+-- RESOURCES --
 
-    css selectors
-https://www.w3schools.com/cssref/css_selectors.asp
+FakeScroll (scrollbar):
+	https://github.com/yairEO/fakescroll
+    http://yaireo.github.io/fakescroll
 
-    tabs
-https://api.jqueryui.com/tabs/
-https://jqueryui.com/tabs/#default
-http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css
-http://keith-wood.name/uiTabs.html#tabs-min
-https://stackoverflow.com/a/51054217
+jQuery UI (tabs):
+	https://jqueryui.com/
+    https://jqueryui.com/tabs/#default
+    https://api.jqueryui.com/tabs/
 
-    make all div of tab link clickable
-https://forum.jquery.com/topic/vertical-tabs-entirely-clickable#14737000005362369
-
-    jquery ui tabs load immediately (dont show up as li and resize first)
-https://stackoverflow.com/a/39106847
+Tippy (tooltips):
+	https://github.com/atomiks/tippyjs
+	https://atomiks.github.io/tippyjs/
 
 
-    tooltips
-https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-tutorial-on-how-to
+-- REFERENCES --
+
+CSS | center div vertically:
+	https://www.w3schools.com/howto/howto_css_center-vertical.asp
+
+CSS | (substring matching) attribute selectors:
+	https://www.w3schools.com/cssref/css_selectors.asp
+	https://www.w3.org/TR/selectors-4/#attribute-substrings
+	https://blog.teamtreehouse.com/css3-substring-matching-attribute-selectors
+	http://www.css3.info/preview/attribute-selectors/
+	https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors
+	https://css-tricks.com/multiple-attribute-values/
+
+CSS | filters on images:
+	https://css-tricks.com/almanac/properties/f/filter/
+
+jQuery UI | make tabs load immediately:
+	https://stackoverflow.com/a/39106847
+
+jQuery UI | make entire tab clickable:
+	https://forum.jquery.com/portal/en/community/topic/vertical-tabs-entirely-clickable#14737000005362369
+
+jQuery UI | crossfade tab content:
+	https://stackoverflow.com/a/51054217
+    
+jQuery UI | tab CSS/design inspiration:
+	http://keith-wood.name/uiTabs.html#tabs-min
+
+Tippy | create custom themes with CSS
+	https://stackoverflow.com/a/65703128
 
 -->
 
@@ -50,49 +57,44 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- metadata -->
+    <meta name="author" content="Amelia Hetrick">
+    <meta name="description" content="Goodshelf | Goodreads Bookshelf">
     <title>Goodshelf</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script type="text/javascript" src="js/jquery.color.js"></script>
     
-    <!-- tippy tooltip -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <!-- -->
+    
+    
+    <!-- FakeScroll (scrollbar) -->
+    <script src="https://cdn.jsdelivr.net/npm/@yaireo/fakescroll@2.5.1/fakescroll.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/fakescroll@2.5.1/fakescroll.min.css">
+    <!-- -->
+    
+    
+    <!-- jQuery UI (tabs) -->
+    <script src="https://code.jquery.com/jquery-1.12.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- -->
+    
+    
+    <!-- Tippy (tooltip) -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/svg-arrow.css"/>
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css"/>
-  
-  
-
-  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
-  
-  
-<link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
-
-
-<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
-
-
-<!-- fakescroll scrollbar -->
-<link href="https://cdn.jsdelivr.net/npm/@yaireo/fakescroll@2.5.1/fakescroll.min.css" rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/@yaireo/fakescroll@2.5.1/fakescroll.min.js"></script>
-
-
+    <!-- -->
+    
+    
 <style type="text/css">
-
 
 	/* root variables */
     :root {
     	/* monochromatic color scheme
-          https://www.color-hex.com/color/746965 */
+         * https://www.color-hex.com/color/746965 */
         --background-color: #fff;
         --background-boxes-color: #fff;
         --text-color: #4b4441;
@@ -101,8 +103,10 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         --accent-color: #827571;
         --font-size: 12px;
         
-        --book-height: 150px; /* og: 160px */
-        --book-width: 94px; /* og: 100px, match custom tippy tooltip maxWidth in script */
+        /* og height: 160px */
+        --book-height: 150px;
+        /* og width: 100px, match to Tippy custom theme tippyImgAlt maxWidth in script */
+        --book-width: 94px;
         
         --sidebar-width: 250px;
         --ui-tab-pad: 25px;
@@ -128,37 +132,9 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         
         --transition-time: 0.5s;
     }
-    
-    
-    /* fakeScroll
-     */
-    .fakeScroll__track {
-        width: var(--padding-size);
-        right: calc(-1*var(--padding-size));
-        bottom: calc(-1*var(--border-size));
-        //background: var(--background-color);
-    }
-    
-    .fakeScroll__bar {
-        background: var(--accent-color);
-        border-radius: 0px;
-    }
-    .fakeScroll__bar:hover {
-        background: var(--accent-color);
-        cursor: default;
-    }
-    
-    .fakeScroll__bar.fakeScroll--grabbed {
-        background: var(--accent-color);
-        cursor: default;
-    }
-    
-    body.fakeScroll--grabbed {
-        cursor: default;
-    }
 
     
-    /* image filters on books
+    /* image filters on book covers
      */
     .img_default {
         filter: var(--img-default-saturate) var(--img-default-contrast) var(--img-default-opacity);
@@ -215,12 +191,12 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     /* */
     
 
-    /* container for the page content */
+    /* container for page content */
     #container {
         /* position */
         position: absolute;
         margin: auto;
-        top: calc((1 * (var(--ui-tab-pad)) + var(--padding-size) + 3*var(--border-size)));
+        top: calc(var(--ui-tab-pad) + var(--padding-size));
         right: 0;
         bottom: 0;
         left: 0;
@@ -246,8 +222,8 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     }
     
     
-    /* container for yearly reading challenge */
-    #yearly {
+    /* container for reading challenge (left, top) */
+    #gr_challenge_outer {
     	/* position */
         position: relative;
         padding: var(--padding-size);
@@ -278,7 +254,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         width: calc(var(--sidebar-width) - (6*var(--padding-size)));
         height: inherit;
         
-        /* border */
+        /* border (enable only for editing purposes) */
         //border: var(--border-style);
     }
     
@@ -302,17 +278,14 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         
         line-height: 2;
     }
-     
     [id^="gr_challenge_progress_body_"] a[style*="georgia"] {
         text-decoration: underline !important;
         font-family: inherit !important;
         font-style: normal !important;
-        //font-size: inherit !important;
         font-size: 13px !important;
         
         color: var(--link-color);
     }
-    
     [id^="gr_challenge_progress_body_"] a:hover {
         color: var(--link-hover-color);
         -moz-transition-duration: var(--transition-time);
@@ -351,7 +324,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     }
     
     
-     /* GOODREADS yearly reading challenge widget
+    /* GOODREADS yearly reading challenge widget
      * -> progress bar fill
      *
      * replace the default styling for the widget
@@ -396,7 +369,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     }
     
     
-    /* links */
+    /* links (left, middle) */
     #links {
     	/* position */
         position: relative;
@@ -410,7 +383,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     }
     
     
-    /* outer container for description */
+    /* outer container for description (left, bottom) */
     #description_outer {
     	/* border */
         border: var(--border-style);
@@ -420,7 +393,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     }
     
     
-    /* inner container for description
+    /* inner container for description (left, bottom)
      *
      * allows for dynamic height (will become scrollable
      * if maximum height is reached)
@@ -524,9 +497,69 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     }
     
     
+    /* credit (bottom right)
+     */
+	#credit {
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        width: 15px;
+        height: 15px;
+        border: var(--border-style);
+        background: var(--accent-color);
+        z-index: 100;
+        
+        transition: background var(--transition-time) ease-in-out;
+        -webkit-transition: background var(--transition-time) ease-in-out;
+        -moz-transition: background var(--transition-time) ease-in-out;
+        -ms-transition: background var(--transition-time) ease-in-out;
+        -o-transition: background var(--transition-time) ease-in-out;
+    }
+    
+    #credit span {
+        display: block;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+	}
+    
+    #credit:hover {
+        background: var(--link-hover-color);
+    }
+    /* */
     
     
-	/* bookshelf tabs (top)
+    
+    
+    /* FakeScroll (scrollbar)
+     */
+    .fakeScroll__track {
+        width: var(--padding-size);
+        right: calc(-1*var(--padding-size));
+        bottom: calc(-1*var(--border-size));
+    }
+    
+    .fakeScroll__bar {
+        background: var(--accent-color);
+        border-radius: 0px;
+    }
+    .fakeScroll__bar:hover {
+        background: var(--accent-color);
+        cursor: default;
+    }
+    
+    .fakeScroll__bar.fakeScroll--grabbed {
+        background: var(--accent-color);
+        cursor: default;
+    }
+    
+    body.fakeScroll--grabbed {
+        cursor: default;
+    }
+    /* */
+    
+    
+	/* jQuery UI (tabs)
      */
     .ui-tabs {
         padding: 0px;
@@ -613,12 +646,11 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     /* */
 
 
-	/* tippy tooltip (on hover)
-     * https://stackoverflow.com/a/65703128
+	/* Tippy (tooltip)
      */
-    .tippy-box[data-theme~="custom"],
-    .tippy-box[data-theme~="custom2"] {
-    	//margin: -0.5px;
+    .tippy-box[data-theme~="tippyImgAlt"],
+    .tippy-box[data-theme~="tippyLinkTitle"] {
+    	//margin: -0.5px; /* enable if tippyImgAlt maxWdith = --book-width */
         background-color: var(--accent-color);
         color: var(--background-color);
         border: var(--border-style);
@@ -628,44 +660,11 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         hyphens: auto;
     }
 
-    .tippy-box[data-theme~="custom"] .tippy-svg-arrow,
-    .tippy-box[data-theme~="custom2"] .tippy-svg-arrow {
+    .tippy-box[data-theme~="tippyImgAlt"] .tippy-svg-arrow,
+    .tippy-box[data-theme~="tippyLinkTitle"] .tippy-svg-arrow {
       	fill: var(--accent-color);
     }
     /* */
-
-
-
-	/* credit (bottom right)
-     */
-	#credit {
-        position: fixed;
-        right: 10px;
-        bottom: 10px;
-        width: 15px;
-        height: 15px;
-        border: var(--border-style);
-        background: var(--accent-color);
-        
-        transition: background var(--transition-time) ease-in-out;
-        -webkit-transition: background var(--transition-time) ease-in-out;
-        -moz-transition: background var(--transition-time) ease-in-out;
-        -ms-transition: background var(--transition-time) ease-in-out;
-        -o-transition: background var(--transition-time) ease-in-out;
-    }
-    
-    #credit span {
-        display: block;
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-	}
-    
-    #credit:hover {
-        background: var(--link-hover-color);
-    }
-    /* */
-
 
 </style>
 </head>
@@ -676,15 +675,15 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
 
         <div id="sidebar">
             
-            <!-- goodreads yearly reading challenge widget -->
-            <div id="yearly">
+            <!-- goodreads reading challenge widget -->
+            <div id="gr_challenge_outer">
                 <div id="gr_challenge_progress_body_11680">
                     <script src="https://www.goodreads.com/user_challenges/widget/28021191?challenge_id=11680&v=2"></script>
                 </div>
             </div>
              
                 
-            <!-- user links -->
+            <!-- links -->
             <div id="links">
                 <a href="/goodshelf">REFRESH</a>&emsp;&nbsp;
                 <a href="https://www.goodreads.com/user/show/28021191-lorem-ipsum">GOODREADS</a>&emsp;&nbsp;
@@ -692,7 +691,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
             </div>
             
                 
-            <!-- user description -->
+            <!-- description -->
             <div id="description_outer">
                 <div id="description_inner">
                     Interested in reading<br><b>classics</b> and <b>literary fiction</b>,<br> especially <u>psychological realism</u>,<br> <u>bildungsroman</u>, <u>absurdism</u>,<br>and the <u>female gothic</u>.
@@ -751,16 +750,11 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     
     
     <a id="credit" href="https://ameliahetrick.github.io/" title="src"></a>
-    
-    
-    
-    
-    
-    
-    
-        <script>
 
-		/* fakeScroll
+
+<script>
+
+		/* FakeScroll (scrollbar)
 	     */
         var myScrollbar_1 = document.querySelector('#scroll_1').fakeScroll({track: "smooth"})
         
@@ -771,14 +765,17 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         var myScrollbar_4 = document.querySelector('#scroll_4').fakeScroll({track: "smooth"})
         
         
-        /* tabs
+        /* jQuery UI (tabs)
          */
         $(document).ready(function() {
-            /* make sure the images of the bookshelf have default filter */
+            /* make sure images of bookshelf have default filter */
             $('.gr_grid_container img').addClass('img_default');
 
-            /* make sure tabs navigation links load smoothly */
+            /* make sure tab navigation links load smoothly */
             $('#bookshelf_outer').removeAttr('style');
+            
+            /* set first tab as active */
+            $('li').first().addClass('active');
 
             /* get background color */
             var inactiveBackgroundColor = getComputedStyle(document.documentElement)
@@ -787,26 +784,26 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
             /* get accent color */
             var activeBackgroundColor = getComputedStyle(document.documentElement)
             .getPropertyValue('--accent-color');
-
-            /* when page first loads, override the new tab fade in code below */
-            $('li').first().addClass('active');
-
+            
+            
+            /* crossfade tab content
+             */
             $('#bookshelf_outer').tabs({
-            /* fade out the old panel */
+            /* fade out old panel */
             hide: 750,
             beforeActivate: function(event, ui) {
-                /* fade in the new panel */
+                /* fade in new panel */
                 ui.newPanel.css('zIndex', 1).fadeIn(750, function() {
                     $(this).css('zIndex', '');
                 });
 
-                /* fade out the old tab */
+                /* fade out old tab */
                 ui.oldTab.fadeIn(750, function() {
                     $(this).removeClass('active');
                     $(this).css('color', activeBackgroundColor);
                 });
 
-                /* fade in the new tab */
+                /* fade in new tab */
                 ui.newTab.fadeIn(750, function() {
                     $(this).addClass('active');
                     $(this).css('color', inactiveBackgroundColor);
@@ -817,17 +814,15 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
 
         });
         /* */
-  
-
-
-
-		/* tippy tooltip
+        
+        
+		/* Tippy (tooltip)
          */
         $('a[title]').has('img').removeAttr('title');
 
 		/* tooltip for images with alt text */
         var imghov = tippy('img[alt]', {
-            theme: 'custom',
+            theme: 'tippyImgAlt',
             arrow: tippy.roundArrow,
             zIndex: 9999999999,
             /* maxWidth calculation
@@ -846,13 +841,13 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
             },
 
             onUntrigger(instance) {
-                instance.setProps({theme: 'custom2'});
+                instance.setProps({theme: 'tippyLinkTitle'});
             },
         });
 
 		/* tooltip for links with titles */
         tippy('a[title]', {
-            theme: 'custom2',
+            theme: 'tippyLinkTitle',
             arrow: tippy.roundArrow,
             zIndex: 9999999999,
             maxWidth: 165,
@@ -867,6 +862,8 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         });
   
 
+
+
 		/* when user hovers over image, take average color of
          * image and set as tooltip background color 
          *
@@ -878,7 +875,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
             var image = document.createElement('img');
             image.crossOrigin = 'Anonymous';
 
-            //var oldColor = $('.tippy-box[data-theme~="custom"]').css('backgroundColor');
+            //var oldColor = $('.tippy-box[data-theme~="tippyImgAlt"]').css('backgroundColor');
 
             var boxes = $('.gr_grid_container img');
 
@@ -891,10 +888,10 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
                 image.onload = function() {
                     var rgbRaw = getAverageRGB(image);
                     var rgb = 'rgb(' + rgbRaw.r + ',' + rgbRaw.g + ',' + rgbRaw.b + ')';
-                    $('.tippy-box[data-theme~="custom"]').css('backgroundColor', rgb);
-                    $('.tippy-box[data-theme~="custom"] .tippy-svg-arrow').css('fill', rgb);
+                    $('.tippy-box[data-theme~="tippyImgAlt"]').css('backgroundColor', rgb);
+                    $('.tippy-box[data-theme~="tippyImgAlt"] .tippy-svg-arrow').css('fill', rgb);
 
-                    $('.tippy-box[data-theme~="custom"]').each(function() {
+                    $('.tippy-box[data-theme~="tippyImgAlt"]').each(function() {
                         $(this).css('color', isDark(rgbRaw.r, rgbRaw.g, rgbRaw.b) ? 'black' : 'white');
                     });
 
@@ -920,7 +917,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
                 $(boxes).removeClass('img_sibling_hover');
                 $(this).removeClass('img_hover');
                 $(boxes).addClass('img_default');
-                /*$('.tippy-box[data-theme~="custom"]').css('background', oldColor);*/
+                /*$('.tippy-box[data-theme~="tippyImgAlt"]').css('background', oldColor);*/
                 imghov.hide();
             });;
         });
