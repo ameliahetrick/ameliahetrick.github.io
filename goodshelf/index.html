@@ -51,7 +51,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
 <html lang="en">
 <head>
     <title>Goodshelf</title>
-    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -195,7 +195,6 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         letter-spacing: 1px;
         text-align: center;
         overflow: hidden;
-        hyphens: auto;
     }
 
     a {
@@ -647,6 +646,12 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
         height: 15px;
         border: var(--border-style);
         background: var(--accent-color);
+        
+        transition: background var(--transition-time) ease-in-out;
+        -webkit-transition: background var(--transition-time) ease-in-out;
+        -moz-transition: background var(--transition-time) ease-in-out;
+        -ms-transition: background var(--transition-time) ease-in-out;
+        -o-transition: background var(--transition-time) ease-in-out;
     }
     
     #credit span {
@@ -657,10 +662,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
 	}
     
     #credit:hover {
-        background: rgb(255,236,204);
-        background: -moz-linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
-        background: -webkit-linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
-        background: linear-gradient(to bottom right, rgba(255,236,204,1) 0%, rgba(255,236,204,1) 20%, rgba(255,216,217,1) 100%);
+        background: var(--link-hover-color);
     }
     /* */
 
@@ -693,7 +695,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
             <!-- user description -->
             <div id="description_outer">
                 <div id="description_inner">
-                    Interested in reading<br><b>classics</b> and <b>literary fiction</b>, especially <u>psychological realism</u>, <u>bildungsroman</u>, <u>absurdism</u>,<br>and the <u>female gothic</u>.
+                    Interested in reading<br><b>classics</b> and <b>literary fiction</b>,<br> especially <u>psychological realism</u>,<br> <u>bildungsroman</u>, <u>absurdism</u>,<br>and the <u>female gothic</u>.
                 </div>
             </div>
             
@@ -748,7 +750,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
     </div> <!-- end <div id="container"> -->
     
     
-    <a id="credit" href="https://ameliahetrick.github.io/" title="src"><span></span></a>
+    <a id="credit" href="https://ameliahetrick.github.io/" title="src"></a>
     
     
     
@@ -829,7 +831,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
             arrow: tippy.roundArrow,
             zIndex: 9999999999,
             /* maxWidth calculation
-             * (--bookWidth) + (--padding-size*2) + (--border-size)
+             * (--bookWidth) + (--padding-size*2) + (--border-size*2)
              * (94) + (10*2) + (2)
              * 116
              */
@@ -853,7 +855,7 @@ https://silbrigthemes.tumblr.com/post/190447242880/tutorial-tippyjs-tooltips-a-t
             theme: 'custom2',
             arrow: tippy.roundArrow,
             zIndex: 9999999999,
-            maxWidth: 200,
+            maxWidth: 165,
             animation: 'shift-away',
             duration: 500,
 
