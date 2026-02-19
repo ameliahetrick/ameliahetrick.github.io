@@ -9,4 +9,4 @@
 - color mixers: ( :red_square: **red**, :blue_square: **blue** ) &rarr; :purple_square: **purple**
 - colorJumper: ( :red_square: **red**, :purple_square: **purple** ) &rarr; :blue_square: **blue**
 
-&emsp;&emsp;(Deprecated) [colorJumper coded in Java](https://github.com/ameliahetrick/colorJumper)
+<sub>(Deprecated) [colorJumper coded in Java](https://github.com/ameliahetrick/colorJumper)</sub>
