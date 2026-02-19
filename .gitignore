@@ -1,0 +1,2 @@
+# remove existing .DS_Store files: https://stackoverflow.com/a/107921
+.DS_Store

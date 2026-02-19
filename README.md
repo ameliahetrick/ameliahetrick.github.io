@@ -1,7 +1,12 @@
-## ameliahetrick
+
+## Amelia Hetrick
 
 ### Personal Projects
 
-[Color Jumper](https://github.com/ameliahetrick/colorJumper) - A Java program that takes two colors - an _initial color_ and a _midpoint color_ - and returns a _result_ such that the _initial color_ and _result_ are equidistant to the _midpoint color_.
+**[Goodshelf](https://ameliahetrick.github.io/projects/goodshelf) \| Goodreads bookshelf** - visual reading log of recent years; imports data from [Goodreads](https://www.goodreads.com) widgets (*grid* & *reading challenge*).
 
-[Goodshelf](https://ameliahetrick.github.io/goodshelf/) (preview only, still a work in progress) - An HTML page that displays books from a user's [Goodreads](https://www.goodreads.com/) Grid Widget.
+**[colorJumper](https://ameliahetrick.github.io/projects/colorJumper) \| Inspired by color mixers** - takes two input colors *initial*  and *midpoint*; returns *result* such that *initial* and *result* are equidistant to *midpoint*.
+- color mixers: ( :red_square: **red**, :blue_square: **blue** ) &rarr; :purple_square: **purple**
+- colorJumper: ( :red_square: **red**, :purple_square: **purple** ) &rarr; :blue_square: **blue**
+
+<sup>(Deprecated) [colorJumper coded in Java](https://github.com/ameliahetrick/colorJumper)</sup>
