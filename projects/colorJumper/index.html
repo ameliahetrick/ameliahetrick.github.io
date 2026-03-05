@@ -531,12 +531,12 @@ body {
     
     /* initial color visble on page startup */
 	var initial = {
-		r: 255, g:   0, b:   0, a: 1.00
+		r: 211, g:  55, b:  32, a: 1.00
 	}
     
     /* midpoint color visble on page startup */
 	var midpoint = {
-		r: 155, g:   0, b:   0, a: 1.00
+		r: 126, g:  59, b: 137, a: 1.00
 	}
     
     /* result color placeholder on startup */
@@ -733,9 +733,9 @@ body {
 	/* calculateRGBA(initialRGB, midpointRGB, isAlpha)
 	 *
      * params:
-     * initialRGB:  the initial  R, G, B (or A) value
-     * midpointRGB: the midpoint R, G, B (or A) value
-     * isAlpha: whether the input is A or not
+     *   initialRGB:  the initial  R, G, B (or A) value
+     *   midpointRGB: the midpoint R, G, B (or A) value
+     *   isAlpha: whether the input is A or not
      *
      * Returns [# resultRGB, boolean inBoundsRGB]
      */
@@ -764,22 +764,26 @@ body {
         
 
 		/* Set up result variables.
+         *
+         * If midpoint is equal to initial, then
+         * result is (initial or) midpoint.
          */
-        var resultRGB = 0;
+        var resultRGB = midpointRGB;
         var inBoundsRGB = true;
         
         
         /* If midpoint is greater than initial, then result is
-         * (initial + midpoint) ADDED to midpoint.
+         * (initial + midpoint).
          */
         if (initialRGB < midpointRGB) {
-        	resultRGB = midpointRGB + (initialRGB + midpointRGB);
+        	resultRGB = initialRGB + midpointRGB;
         }
         /* If midpoint is less than or equal to initial, then
          * result is (initial - midpoint) SUBTRACTED from midpoint.
          */
-        else {
-        	resultRGB = midpointRGB - (initialRGB - midpointRGB);
+        else if (initialRGB > midpointRGB) {
+        	//resultRGB = Math.abs(midpointRGB - (initialRGB - midpointRGB));
+            resultRGB = midpointRGB - (initialRGB - midpointRGB);
         }
         
         
