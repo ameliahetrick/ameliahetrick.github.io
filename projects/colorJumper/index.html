@@ -1,7 +1,7 @@
 <!--
 
 colorJumper by ameliahetrick:
-	https://ameliahetrick.github.io/colorJumper/
+	https://ameliahetrick.github.io/projects/colorJumper/
 
 -- RESOURCES --
 
@@ -53,7 +53,7 @@ textbox onChange:
 
 :root {
     --color-block-height: 190px;
-    --colorjoe-height: calc(var(--color-block-height) * 2 + 149px);
+    --colorjoe-height: calc(var(--color-block-height) * 2 + 180px);
 }
 
 body {
@@ -175,10 +175,11 @@ body {
     position: absolute;
     right: calc(-1 * var(--color-block-height));
     text-transform: uppercase;
-    width: var(--color-block-height);
+    width: 100px;
     
     font-family: "Consolas", monospace;
     top: 450px;
+    left:0px;
 }
 
 .colorPicker .extras .color {
@@ -186,7 +187,7 @@ body {
 }
 
 .colorPicker .extras .colorFields input {
-    width: calc(var(--color-block-height) / 4 - 23px);
+    width: 40px;
     left:-3px;
     margin-left: 3px;
     margin-right: 3px;
@@ -194,11 +195,12 @@ body {
 
 .colorPicker .extras .hex {
     position: absolute;
-    top: 490px;
+    top: 487.5px;
+    left: 82px;
 }
 
 .colorPicker .extras .hex input {
-    width: calc(var(--color-block-height) - 8px);
+    width: 80px;
     text-align:center;
 }
 
