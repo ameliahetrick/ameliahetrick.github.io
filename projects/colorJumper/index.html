@@ -55,7 +55,7 @@ textbox onChange:
     --color-block-height: 190px;
     --padding-size: 10px;
     
-    --colorjoe-height: calc(var(--color-block-height) * 2 + 180px);
+    --colorjoe-height: calc(2*var(--color-block-height) + 180px);
 }
 
 body {
@@ -68,7 +68,6 @@ body {
 
 h1 {
 	font-size:16px;
-    //line-height:400%;
     margin-top: 20px;
 }
 
@@ -82,13 +81,19 @@ h1 {
     height: 100%;
     width:200px;
     float: left;
-    //z-index:-100;
 }
 
 #main {
-	height: 540px;
-	//margin: -20px auto 0 auto;
-    margin-left:200px;
+	position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left:200px;
+
+	height: calc(1*var(--colorjoe-height) + 39px);
+    width: calc(3*var(--color-block-height) + 110px);
+    border: 1px solid #000;
 }
 
 #titles {
@@ -135,7 +140,7 @@ h1 {
 #resultContainer {
     float: left;
     background: #efefef;
-    height: calc(var(--colorjoe-height) + 42px);
+    height: calc(var(--colorjoe-height) + 39px);
 }
 
 #resultInnerContainer {
