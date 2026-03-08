@@ -49,13 +49,35 @@ textbox onChange:
 <script src="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@b96d34559e414227bdbecba172b702cd4aa4924a/colorJumper/colorjoe.js"></script>
 
 
+<!-- Tippy (tooltip) -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/svg-arrow.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css"/>
+    <!-- -->
+
+
 <style type="text/css">
 
 :root {
     --color-block-height: 190px;
-    --padding-size: 10px;
-    
     --colorjoe-height: calc(2*var(--color-block-height) + 180px);
+    
+    --background-color: #fff;
+    --text-color: #4b4441;
+    --link-color: #827571;
+    --link-hover-color: #beb6b4;
+    --accent-color: #827571;
+    --font-size: 12px;
+        
+    --sidebar-width: 200px;
+        
+    --padding-size: 10px;
+    --border-size: 1px;
+        
+    --border-style: var(--border-size) solid var(--accent-color);
+        
+    --transition-time: 0.5s;
 }
 
 body {
@@ -79,7 +101,7 @@ h1 {
     float:left;
     background: #ddd;
     height: 100%;
-    width:200px;
+    width:var(--sidebar-width);
     float: left;
 }
 
@@ -89,11 +111,13 @@ h1 {
     top: 0;
     right: 0;
     bottom: 0;
-    left:200px;
+    left:var(--sidebar-width);
 
 	height: calc(1*var(--colorjoe-height) + 39px);
     width: calc(3*var(--color-block-height) + 110px);
-    border: 1px solid #000;
+    border: 1px solid #999;
+    
+    background:#efefef;
 }
 
 #titles {
@@ -398,6 +422,40 @@ h1 {
 
 
 
+/* credit (bottom right)
+     */
+	#credit {
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        width: 15px;
+        height: 15px;
+        border: var(--border-style);
+        background: var(--accent-color);
+        z-index: 100;
+        
+        transition: background var(--transition-time) ease-in-out;
+        -webkit-transition: background var(--transition-time) ease-in-out;
+        -moz-transition: background var(--transition-time) ease-in-out;
+        -ms-transition: background var(--transition-time) ease-in-out;
+        -o-transition: background var(--transition-time) ease-in-out;
+    }
+    
+    #credit span {
+        display: block;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+	}
+    
+    #credit:hover {
+        background: var(--link-hover-color);
+    }
+    /* */
+
+
+
+
 /* COLOR SPACE CHECKBOX */
 
 .knobs,
@@ -449,7 +507,7 @@ h1 {
   top: 6px;
   width: 25px;
   height: 10px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
   text-align: center;
   line-height: 1;
@@ -494,6 +552,32 @@ h1 {
   background-color: #c0e0ff; //light blue bg
 }
 
+
+	/* Tippy (tooltip)
+     */
+    .tippy-box[data-theme~="tippyLinkTitle"] {
+    	//margin: -0.5px; /* enable if tippyImgAlt maxWdith = --book-width */
+        background-color: var(--accent-color);
+        color: var(--background-color);
+        border: var(--border-style);
+        border-radius: 0px;
+        font-size: 12px;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        
+        font-family: roboto, sans-serif;
+        font-size: var(--font-size);
+        line-height: 150%;
+        letter-spacing: 1px;
+    }
+
+    .tippy-box[data-theme~="tippyLinkTitle"] .tippy-svg-arrow {
+      	fill: var(--accent-color);
+    }
+    /* */
+
+
+
 </style>
 </head>
 
@@ -504,6 +588,8 @@ h1 {
 	<center>
     <h1>colorJumper</h1>
     Inspired by color mixers
+    <br><br>
+    <a href="https://ameliahetrick.github.io/">GITHUB</a>
     </center>
     <br><br>
     
@@ -555,6 +641,8 @@ h1 {
 		</div>
 	</div>
 </div>
+
+<a id="credit" href="https://ameliahetrick.github.io/" title="src"></a>
 
 
 <script type="text/javascript">
@@ -846,6 +934,30 @@ h1 {
 	}
     
 	});
+    
+    
+    
+    
+    
+    
+    
+    /* Tippy (tooltip)
+         */
+        /* tooltip for links with titles */
+        tippy('a[title]', {
+            theme: 'tippyLinkTitle',
+            arrow: tippy.roundArrow,
+            zIndex: 9999999999,
+            maxWidth: 165,
+            animation: 'shift-away',
+            duration: 500,
+
+            content(reference) {
+                const title = reference.getAttribute('title');
+                reference.removeAttribute('title');
+                return title;
+            },
+        });
     
 </script>
 
