@@ -53,6 +53,8 @@ textbox onChange:
 
 :root {
     --color-block-height: 190px;
+    --padding-size: 10px;
+    
     --colorjoe-height: calc(var(--color-block-height) * 2 + 180px);
 }
 
@@ -64,9 +66,29 @@ body {
 	justify-content: center;
 }
 
+h1 {
+	font-size:16px;
+    //line-height:400%;
+    margin-top: 20px;
+}
+
+#sidebar {
+	position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    float:left;
+    background: #ddd;
+    height: 100%;
+    width:200px;
+    float: left;
+    //z-index:-100;
+}
+
 #main {
 	height: 540px;
-	margin: -20px auto 0 auto;
+	//margin: -20px auto 0 auto;
+    margin-left:200px;
 }
 
 #titles {
@@ -472,9 +494,13 @@ body {
 
 <body>
 
-<div id="main">
-	<!-- Page title -->
-	<h1><center>colorJumper</center></h1>
+    <div id="sidebar">
+    <!-- Page title -->
+	<center>
+    <h1>colorJumper</h1>
+    Inspired by color mixers
+    </center>
+    <br><br>
     
     <!-- Toggle between RGB and HSL color spaces -->
     <div class="button b2" id="button-10">
@@ -484,8 +510,10 @@ body {
 		</div>
 		<div class="layer"></div>
 	</div>
-    
-    <!-- Initial color picker -->
+    </div>
+
+<div id="main">
+	<!-- Initial color picker -->
 	<div id="pickerContainer">
 		<div id="titles">Initial</div>
 		<div id="initialPickerRGB">
