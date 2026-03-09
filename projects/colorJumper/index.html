@@ -98,6 +98,7 @@ h1 {
     height: 100%;
     width:var(--sidebar-width);
     float: left;
+    border-right: 1px solid #999;
 }
 
 #main {
@@ -593,12 +594,12 @@ h1 {
     
     /* initial color visble on page startup */
 	var initial = {
-		r: 211, g:  55, b:  32, a: 1.00
+		r: 255, g:   0, b:   0, a: 1.00
 	}
     
     /* midpoint color visble on page startup */
 	var midpoint = {
-		r: 126, g:  59, b: 137, a: 1.00
+		r: 128, g:   0, b: 128, a: 1.00
 	}
     
     /* result color placeholder on startup */
@@ -830,10 +831,10 @@ h1 {
         
         
         /* If midpoint is greater than initial, then result is
-         * (initial + midpoint).
+         * (midpoint - initial) ADDED to midpoint.
          */
         if (initialRGB < midpointRGB) {
-        	resultRGB = initialRGB + midpointRGB;
+        	resultRGB = midpointRGB + (midpointRGB - initialRGB);
         }
         /* If midpoint is less than or equal to initial, then
          * result is (initial - midpoint) SUBTRACTED from midpoint.
