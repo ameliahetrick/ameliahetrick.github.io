@@ -38,6 +38,11 @@ textbox onChange:
 <title>colorJumper</title>
 <link rel="icon" type="image/x-icon" href="../../favicon.ico">
 
+
+<!-- github.io stylesheet -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io/projects/style.css"/>
+
+
 <!-- jQuery v3.5.1 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 
@@ -60,24 +65,14 @@ textbox onChange:
 <style type="text/css">
 
 :root {
-    --color-block-height: 190px;
-    --colorjoe-height: calc(2*var(--color-block-height) + 180px);
-    
-    --background-color: #fff;
-    --text-color: #4b4441;
-    --link-color: #827571;
-    --link-hover-color: #beb6b4;
-    --accent-color: #827571;
-    --font-size: 12px;
+    --color-block-height: 160px;
+    --colorjoe-height: calc(2*var(--color-block-height) + 185px);
         
-    --sidebar-width: 200px;
+    --sidebar-width: 250px;
         
     --padding-size: 10px;
-    --border-size: 1px;
-        
-    --border-style: var(--border-size) solid var(--accent-color);
-        
-    --transition-time: 0.5s;
+    
+    --font-size: 16px;
 }
 
 body {
@@ -89,7 +84,7 @@ body {
 }
 
 h1 {
-	font-size:16px;
+	font-size: 16px;
     margin-top: 20px;
 }
 
@@ -113,11 +108,11 @@ h1 {
     bottom: 0;
     left:var(--sidebar-width);
 
-	height: calc(1*var(--colorjoe-height) + 39px);
-    width: calc(3*var(--color-block-height) + 110px);
+	height: calc(1*var(--colorjoe-height) + 44px);
+    width: calc(3*var(--color-block-height) + 108px);
     border: 1px solid #999;
     
-    background:#efefef;
+    //background:#efefef;
 }
 
 #titles {
@@ -164,12 +159,14 @@ h1 {
 #resultContainer {
     float: left;
     background: #efefef;
-    height: calc(var(--colorjoe-height) + 39px);
+    height: calc(var(--colorjoe-height) + 44px);
 }
 
 #resultInnerContainer {
     margin: 10px;
     background: white;
+    font-size: 12px;
+    line-height: 1.5;
 }
 
 #resultBlock {
@@ -229,7 +226,7 @@ h1 {
     width: 100px;
     
     font-family: "Consolas", monospace;
-    top: 450px;
+    top: 385px;
     left:0px;
 }
 
@@ -246,8 +243,8 @@ h1 {
 
 .colorPicker .extras .hex {
     position: absolute;
-    top: 487.5px;
-    left: 82px;
+    top: 427.5px;
+    left: 70px;
 }
 
 .colorPicker .extras .hex input {
@@ -319,7 +316,7 @@ h1 {
     -moz-border-radius: 5px;
     border-radius: 5px;
     
-    top: 208px;
+    top: 178px;
 }
 
 .colorPicker .oned.alpha .bg {
@@ -349,7 +346,7 @@ h1 {
     width: var(--color-block-height);
     
     position: absolute;
-    top: 203px;
+    top: 173px;
 }
 
 #initialPickerHSL .oned .bg,
@@ -359,7 +356,7 @@ h1 {
 
 #initialPickerHSL .oned .pointer,
 #midpointPickerHSL .oned .pointer {
-    top: -203px;
+    top: -173px;
 }
 
 
@@ -392,7 +389,7 @@ h1 {
 
 #initialPickerHSL .oned.alpha,
 #midpointPickerHSL .oned.alpha {
-    top: 213px;
+    top: 183px;
 }
 
 #initialPickerHSL .oned.alpha .bg,
@@ -418,40 +415,6 @@ h1 {
 #initialPickerHSL, #midpointPickerHSL {
 	display: none;
 }
-
-
-
-
-/* credit (bottom right)
-     */
-	#credit {
-        position: fixed;
-        right: 10px;
-        bottom: 10px;
-        width: 15px;
-        height: 15px;
-        border: var(--border-style);
-        background: var(--accent-color);
-        z-index: 100;
-        
-        transition: background var(--transition-time) ease-in-out;
-        -webkit-transition: background var(--transition-time) ease-in-out;
-        -moz-transition: background var(--transition-time) ease-in-out;
-        -ms-transition: background var(--transition-time) ease-in-out;
-        -o-transition: background var(--transition-time) ease-in-out;
-    }
-    
-    #credit span {
-        display: block;
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-	}
-    
-    #credit:hover {
-        background: var(--link-hover-color);
-    }
-    /* */
 
 
 
@@ -551,32 +514,7 @@ h1 {
 #button-10 .colorSpaceCheckbox:checked ~ .layer {
   background-color: #c0e0ff; //light blue bg
 }
-
-
-	/* Tippy (tooltip)
-     */
-    .tippy-box[data-theme~="tippyLinkTitle"] {
-    	//margin: -0.5px; /* enable if tippyImgAlt maxWdith = --book-width */
-        background-color: var(--accent-color);
-        color: var(--background-color);
-        border: var(--border-style);
-        border-radius: 0px;
-        font-size: 12px;
-        overflow-wrap: break-word;
-        hyphens: auto;
-        
-        font-family: roboto, sans-serif;
-        font-size: var(--font-size);
-        line-height: 150%;
-        letter-spacing: 1px;
-    }
-
-    .tippy-box[data-theme~="tippyLinkTitle"] .tippy-svg-arrow {
-      	fill: var(--accent-color);
-    }
-    /* */
-
-
+    
 
 </style>
 </head>
@@ -635,6 +573,7 @@ h1 {
 					<div id="boundsAlert">!</div>
 				</div>
 			</div>
+            <br>
 			<p id="resultText" style="margin-left:8px;"></p>
             <br>
 
@@ -844,12 +783,7 @@ h1 {
         $("#resultBlock").css("background", obj_to_RGB(result));
 		document.getElementById("resultText").innerHTML =
 			obj_to_RGB(result) + "<br>" + 
-            "[HSL value]<br>" + 
-            obj_to_hex(result) + "<br>" + 
-            inBounds.r + " " + 
-            inBounds.g + " " + 
-            inBounds.b + " " + 
-            inBounds.a;
+            obj_to_hex(result);
 	}
     
     
