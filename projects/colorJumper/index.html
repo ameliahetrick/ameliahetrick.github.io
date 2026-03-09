@@ -419,6 +419,17 @@ h1 {
 
 
 
+input[type=text], select {
+  border: var(--border-style);
+  background: #eee;
+  font-family: roboto, sans-serif;
+  line-height: 125%;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+
+
 
 /* COLOR SPACE CHECKBOX */
 
@@ -619,8 +630,8 @@ h1 {
     /* initial RGB picker */
 	const initialColorPickerRGB = 
 		colorjoe.rgb("initialPickerRGB", obj_to_RGB(initial), [
-			["fields", { space: "RGBA", limit: 0, fix: 0 }],
-			"currentColor", "alpha", "hex",
+			["fields", { space: "RGBA", limit: 255, fix: 0 }],
+			"currentColor", "alpha", ["hex", {label: ''}]
 	]);
     
 	initialColorPickerRGB.on("change", function (c) {
@@ -633,7 +644,7 @@ h1 {
 	const midpointColorPickerRGB = 
 		colorjoe.rgb("midpointPickerRGB", obj_to_RGB(midpoint), [
 			["fields", { space: "RGBA", limit: 255, fix: 0 }],
-            "currentColor", "alpha", "hex"
+            "currentColor", "alpha", ["hex", {label: ''}]
 	]);
     
 	midpointColorPickerRGB.on("change", function (c) {
@@ -648,8 +659,8 @@ h1 {
     /* initial HSL picker */
     const initialColorPickerHSL = 
 		colorjoe.hsl("initialPickerHSL", obj_to_RGB(initial), [
-			["fields", { space: "HSLA", limit: 0, fix: 0 }],
-			"currentColor", "alpha", "hex",
+			["fields", { space: "HSLA", limit: 255, fix: 0 }],
+			"currentColor", "alpha", ["hex", {label: ''}]
 	]);
     
 	initialColorPickerHSL.on("change", function (c) {
@@ -661,8 +672,8 @@ h1 {
     /* midpoint HSL picker */
     const midpointColorPickerHSL = 
 		colorjoe.hsl("midpointPickerHSL", obj_to_RGB(midpoint), [
-			["fields", { space: "HSLA", limit: 0, fix: 0 }],
-			"currentColor", "alpha", "hex",
+			["fields", { space: "HSLA", limit: 255, fix: 0 }],
+			"currentColor", "alpha", ["hex", {label: ''}]
 	]);
     
 	midpointColorPickerHSL.on("change", function (c) {
@@ -714,9 +725,9 @@ h1 {
 	}
     
 	function obj_to_RGB(color) {
-    	return "rgba("+color.r+","
-        			  +color.g+","
-                      +color.b+","
+    	return "rgba("+color.r+", "
+        			  +color.g+", "
+                      +color.b+", "
                       +color.a+")";
 	}
     
