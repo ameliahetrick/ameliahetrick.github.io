@@ -1,0 +1,113 @@
+/*
+ * github.io stylesheet by ameliahetrick:
+ *   https://ameliahetrick.github.io/
+ *
+ *
+ * -- RESOURCES --
+ *
+ * Tippy (tooltip):
+ *   https://github.com/atomiks/tippyjs
+ *   https://atomiks.github.io/tippyjs/
+ */
+
+    /* root variables
+     */
+    :root {
+        --background-color: #fff;
+        --text-color: #4b4441;
+        --link-color: #827571;
+        --link-hover-color: #beb6b4;
+        --accent-color: #827571;
+        
+        --font-size: 12px;
+        
+        --border-size: 1px;
+        --border-style: var(--border-size) solid var(--accent-color);
+        
+        --transition-time: 0.5s;
+    }
+    
+    
+    /* body and links
+     */
+    body {
+        background-color: var(--background-color);
+        color: var(--text-color); 
+        font-family: roboto, sans-serif;
+        font-size: var(--font-size);
+        line-height: 150%;
+        letter-spacing: 1px;
+        text-align: center;
+        overflow: hidden;
+    }
+    
+    a {
+        color: var(--link-color);
+        text-decoration: underline;
+        transition-duration: var(--transition-time);
+        -webkit-transition-duration: var(--transition-time);
+        -moz-transition-duration: var(--transition-time);
+        -ms-transition-duration: var(--transition-time);
+        -o-transition-duration: var(--transition-time);
+    }
+
+    a:hover {
+        color: var(--link-hover-color);
+        text-decoration: underline;
+        transition-duration: var(--transition-time);
+        -webkit-transition-duration: var(--transition-time);
+        -moz-transition-duration: var(--transition-time);
+        -ms-transition-duration: var(--transition-time);
+        -o-transition-duration: var(--transition-time);
+    }
+    /* */
+    
+    
+    /* credit (bottom right)
+     */
+    #credit {
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        width: 15px;
+        height: 15px;
+        border: var(--border-style);
+        background: var(--accent-color);
+        z-index: 100;
+        
+        transition: background var(--transition-time) ease-in-out;
+        -webkit-transition: background var(--transition-time) ease-in-out;
+        -moz-transition: background var(--transition-time) ease-in-out;
+        -ms-transition: background var(--transition-time) ease-in-out;
+        -o-transition: background var(--transition-time) ease-in-out;
+    }
+    
+    #credit span {
+        display: block;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+	}
+    
+    #credit:hover {
+        background: var(--link-hover-color);
+    }
+    /* */
+    
+    
+    /* Tippy (tooltip) | need for credit
+     */
+    .tippy-box[data-theme~="tippyLinkTitle"] {
+        background-color: var(--accent-color);
+        color: var(--background-color);
+        border: var(--border-style);
+        border-radius: 0px;
+        font-size: 12px;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .tippy-box[data-theme~="tippyLinkTitle"] .tippy-svg-arrow {
+      	fill: var(--accent-color);
+    }
+    /* */
