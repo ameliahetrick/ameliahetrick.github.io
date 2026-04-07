@@ -14,7 +14,7 @@ by **ameliahetrick**
 - Demo: http://yaireo.github.io/fakescroll <br>
 
 **jQuery UI** (tabs): <br>
-- Code/Demo: https://jqueryui.com/tabs/#default <br>
+- Demo/Code: https://jqueryui.com/tabs/#default <br>
 - Docs: https://api.jqueryui.com/tabs/ <br>
 
 **Tippy.js** (tooltips): <br>
@@ -31,7 +31,7 @@ https://stackoverflow.com/a/68333967
 CSS | center div vertically:
 https://www.w3schools.com/howto/howto_css_center-vertical.asp
 
-CSS | (substring matching) attribute selectors:
+CSS | Goodreads | (substring matching) attribute selectors:
 https://www.w3schools.com/cssref/css_selectors.asp
 https://www.w3.org/TR/selectors-4/#attribute-substrings
 https://blog.teamtreehouse.com/css3-substring-matching-attribute-selectors
@@ -39,23 +39,23 @@ http://www.css3.info/preview/attribute-selectors/
 https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors
 https://css-tricks.com/multiple-attribute-values/
 
-CSS | filters on images:
+CSS | Goodreads | filters on images:
 https://css-tricks.com/almanac/properties/f/filter/
 
-jQuery UI | make tabs load immediately:
-https://stackoverflow.com/a/39106847
-
-jQuery UI | make entire tab clickable:
+CSS | jQuery UI | make entire tab clickable:
 https://forum.jquery.com/portal/en/community/topic/vertical-tabs-entirely-clickable#14737000005362369
 
-jQuery UI | crossfade tab content:
-https://stackoverflow.com/a/51054217
-    
-jQuery UI | tab CSS/design inspiration:
-http://keith-wood.name/uiTabs.html#tabs-min
+JavaScript | jQuery UI | make tabs load immediately:
+https://stackoverflow.com/a/39106847
 
-Tippy | create custom themes with CSS
+JavaScript | jQuery UI | crossfade tab content:
+https://stackoverflow.com/a/51054217
+
+JavaScript | Tippy | create custom themes with CSS
 https://stackoverflow.com/a/65703128
+
+inspo | tab design inspiration:
+http://keith-wood.name/uiTabs.html#tabs-min
 
 ---
 ### TO-DO LIST
