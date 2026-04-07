@@ -1,0 +1,126 @@
+/*
+ * Goodshelf "gr_custom" stylesheet by ameliahetrick:
+ *   https://ameliahetrick.github.io/projects/goodshelf
+ *
+ *
+ * -- RESOURCES --
+ *
+ * Goodreads Custom Widget:
+ *   https://www.goodreads.com/user/edit > Widgets
+ */
+
+    /* GOODREADS custom widget
+     * -> outer container of the widget
+     */
+    [class^="gr_custom_container_"] {
+    /* position */
+        margin-top: calc(0.5 * var(--padding-size));
+        margin-left: calc(0.5 * var(--padding-size));
+        margin-right: calc(-1 * var(--padding-size));
+    }
+    
+    /* GOODREADS custom widget
+     * -> header of the widget
+     */
+    [class^="gr_custom_header_"] {
+        /* visibility */
+        display: none;
+    }
+    
+    /* GOODREADS custom widget
+     * -> inner containers of the widget
+     */
+    [class^="gr_custom_each_container_"] {
+    	/* position */
+        float: left;
+        margin-right: var(--padding-size);
+        margin-top: calc(0.5*var(--padding-size));
+        
+        /* padding */
+        padding-right: var(--padding-size);
+        padding-bottom: calc(0.5*var(--padding-size));
+        
+        /* size */
+        width: calc(2*var(--book-width) + 3*var(--border-size));
+        height: calc(var(--book-height) + 1*var(--border-size));
+        
+        /* border */
+        border-right: var(--border-style);
+        border-bottom: var(--border-style);
+        
+        /* overflow */
+        overflow: scroll !important;
+    }
+    
+    /* GOODREADS custom widget
+     * -> inner book containers of the widget
+     */
+    [class^="gr_custom_book_container_"] {
+    	/* position */
+        float: left;
+        margin-right: 10px;
+        
+        /* size */
+        height: calc(var(--book-height) - 1*var(--border-size));
+        width: var(--book-width);
+        
+        /* overflow */
+        overflow: hidden;
+        
+        /* border */
+        border: var(--border-style);
+    }
+    
+    /* GOODREADS custom widget
+     * -> inner book images of the widget
+     */
+    [class^="gr_custom_book_container_"] img {
+        /* size */
+        width: 100%; 
+        height: 100%;
+    }
+    
+    /* GOODREADS custom widget
+     * -> title, author, review
+     */
+    [class^="gr_custom_title_"],
+    [class^="gr_custom_author_"],
+    [class^="gr_custom_review_"] {
+        margin-left: calc((1*var(--book-width)) + 1*var(--padding-size) + 2*var(--border-size));
+
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        font-size: 10px;
+    }
+    [class^="gr_custom_author_"],
+    [class^="gr_custom_review_"] {
+        margin-top: 10px;
+    }
+    [class^="gr_custom_review_"] {
+        display: none;
+    }
+    [class^="gr_custom_title_"] a,
+    [class^="gr_custom_author_"] a {
+        color: var(--link-color);
+        transition-duration: var(--transition-time);
+        -webkit-transition-duration: var(--transition-time);
+        -moz-transition-duration: var(--transition-time);
+        -ms-transition-duration: var(--transition-time);
+        -o-transition-duration: var(--transition-time);
+    }
+    [class^="gr_custom_title_"] a:hover,
+    [class^="gr_custom_author_"] a:hover {
+        color: var(--link-hover-color);
+        transition-duration: var(--transition-time);
+        -webkit-transition-duration: var(--transition-time);
+        -moz-transition-duration: var(--transition-time);
+        -ms-transition-duration: var(--transition-time);
+        -o-transition-duration: var(--transition-time);
+    }
+    
+    /* GOODREADS custom widget
+     * -> logo at bottom of widget
+     */
+    [class^="gr_custom_container_"] a[href="https://www.goodreads.com/"] {
+        display: none;
+    }
