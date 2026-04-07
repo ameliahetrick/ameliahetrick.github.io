@@ -7,16 +7,16 @@ https://ameliahetrick.github.io/pages/goodshelf/
 ### RESOURCES
 
 Goodreads widgets (*reading challenge*, *grid*, *custom*): <br>
-https://www.goodreads.com/user/edit > Widgets <br><br>
+https://www.goodreads.com/user/edit > Widgets <br>
 
 FakeScroll (scrollbar): <br>
 https://github.com/yairEO/fakescroll <br>
-http://yaireo.github.io/fakescroll <br><br>
+http://yaireo.github.io/fakescroll <br>
 
 jQuery UI (tabs): <br>
 https://jqueryui.com/ <br>
 https://jqueryui.com/tabs/#default <br>
-https://api.jqueryui.com/tabs/ <br><br>
+https://api.jqueryui.com/tabs/ <br>
 
 Tippy (tooltips): <br>
 https://github.com/atomiks/tippyjs <br>
