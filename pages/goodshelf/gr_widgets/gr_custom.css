@@ -16,21 +16,21 @@
 /* inner containers */
 [class^="gr_custom_each_container_"] {
 	float: left;
-    margin-top: calc(0.5*var(--padding-size));
+	margin-top: calc(0.5*var(--padding-size));
 	margin-right: var(--padding-size);
 	padding-right: var(--padding-size);
-	padding-bottom: calc(0.5*var(--padding-size));
+	padding-bottom: calc(0.5*var(--padding-size) + var(--border-size));
 	width: calc(2*var(--book-width) + 3*var(--border-size));
-	height: calc(var(--book-height) + 1*var(--border-size));
+	height: var(--book-height);
 	border-right: var(--border-style);
 	border-bottom: var(--border-style);
-	overflow: scroll;
+	overflow: hidden;
 }
 
 /* inner book containers */
 [class^="gr_custom_book_container_"] {
 	float: left;
-	height: calc(var(--book-height) - 1*var(--border-size));
+	height: calc(var(--book-height));
 	width: var(--book-width);
 	border: var(--border-style);
 }
