@@ -1,26 +1,28 @@
 
+
 ## Goodshelf | Goodreads bookshelf
-by **ameliahetrick** <br>
-https://ameliahetrick.github.io/pages/goodshelf/
+https://ameliahetrick.github.io/pages/goodshelf/ <br>
+by **ameliahetrick**
+
 
 ---
 ### RESOURCES
 
-Goodreads widgets (*reading challenge*, *grid*, *custom*): <br>
-https://www.goodreads.com/user/edit > Widgets <br>
+**Goodreads** (widgets): <br>
+- set up at [Account Settings](https://www.goodreads.com/user/edit) > Widgets <br>
+- widgets used: [Yearly] Reading Challenge, Grid, Custom
 
-FakeScroll (scrollbar): <br>
-https://github.com/yairEO/fakescroll <br>
-http://yaireo.github.io/fakescroll <br>
+**FakeScroll** (scrollbar): <br>
+- Repo: https://github.com/yairEO/fakescroll <br>
+- Demo: http://yaireo.github.io/fakescroll <br>
 
-jQuery UI (tabs): <br>
-https://jqueryui.com/ <br>
-https://jqueryui.com/tabs/#default <br>
-https://api.jqueryui.com/tabs/ <br>
+**jQuery UI** (tabs): <br>
+- Code/Demo: https://jqueryui.com/tabs/#default <br>
+- Docs: https://api.jqueryui.com/tabs/ <br>
 
-Tippy (tooltips): <br>
-https://github.com/atomiks/tippyjs <br>
-https://atomiks.github.io/tippyjs/
+**Tippy.js** (tooltips): <br>
+- Repo: https://github.com/atomiks/tippyjs <br>
+- Demo/Docs: https://atomiks.github.io/tippyjs/
 
 <!--
 ### REFERENCES
