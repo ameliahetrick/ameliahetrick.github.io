@@ -1,128 +1,50 @@
-    /* GOODREADS yearly reading challenge widget */
-    [id^="gr_challenge_progress_body_"] {
-        /* position */
-        position: absolute;
-        margin: auto;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        
-        /* size */
-        width: calc(var(--sidebar-width) - (6*var(--padding-size)));
-        height: inherit;
-        
-        /* border (enable only for editing purposes) */
-        //border: var(--border-style);
-    }
-    
-    
-    /* GOODREADS yearly reading challenge widget
-     * -> title (and title link)
-     *
-     * replace the default styling for the widget
-     *
-     * original sections:
-     *
-     *    <h3 style=\"margin: 4px 0 10px; font-weight: normal;
-     *    text-align: center\">
-     *
-     *    <a style=\"text-decoration: none; font-family:georgia,serif;
-     *    font-style:italic; font-size: 1.1em\" rel=\"nofollow\" 
-     *    href=\"[x]\">
-     */
-    [id^="gr_challenge_progress_body_"] h3 {
-    	margin: calc((-1/2)*var(--font-size)) 0px 0px 0px !important;
-        
-        line-height: 2;
-    }
-    [id^="gr_challenge_progress_body_"] a[style*="georgia"] {
-        text-decoration: underline !important;
-        font-family: inherit !important;
-        font-style: normal !important;
-        font-size: 13px !important;
-        
-        color: var(--link-color);
-    }
-    [id^="gr_challenge_progress_body_"] a:hover {
-        color: var(--link-hover-color);
-        transition-duration: var(--transition-time);
-        -webkit-transition-duration: var(--transition-time);
-        -moz-transition-duration: var(--transition-time);
-        -ms-transition-duration: var(--transition-time);
-        -o-transition-duration: var(--transition-time);
-    }
-    
-    
-    /* GOODREADS yearly reading challenge widget
-     * -> image
-     *
-     * replace the default styling for the widget
-     */
-    [id^="gr_challenge_progress_body_"] div[class="challengePic"] {
-        display: none;
-    }
-    
-    
-    /* GOODREADS yearly reading challenge widget
-     * -> progress bar container
-     *
-     * replace the default styling for the widget
-     *
-     * original section:
-     *    <div style=\"width: 100px; margin: 4px 5px 5px 0; float: left;
-     *    border: 1px solid #382110; height: 8px; overflow: hidden;
-     *    background-color: #FFF\">
-     */
-    [id^="gr_challenge_progress_body_"] div[style*="#382110"] {
-        width: calc(100% - (2*var(--border-size))) !important;
-        height: var(--padding-size) !important;
-        margin: 6px 0px 5px 0px !important;
-        border: var(--border-style) !important;
-        background-color: var(--background-color) !important;
-    }
-    
-    
-    /* GOODREADS yearly reading challenge widget
-     * -> progress bar fill
-     *
-     * replace the default styling for the widget
-     *
-     * original section:
-     *    <div style=\"width: [x]%; background-color: #D7D2C4;
-     *    float: left\">
-     */
-    [id^="gr_challenge_progress_body_"] div[style*="#D7D2C4"] {
-        background-color: var(--accent-color) !important;
-        height: calc(var(--padding-size) + 2*var(--border-size));
-    }
-    
-    
-    /* GOODREADS yearly reading challenge widget
-     * -> "[x] of [y] ([z]%)" text
-     *
-     * replace the default styling for the widget
-     *
-     * original section:
-     *    <div style=\"font-family: arial, verdana, helvetica,
-     *    sans-serif;font-size:90%\">
-     */
-    [id^="gr_challenge_progress_body_"] div[style*="font-size:90%"] {
-        font-size: 100% !important;
-    }
-    
-    
-    /* GOODREADS yearly reading challenge widget
-     * -> "view books" text
-     *
-     * replace the default styling for the widget
-     *
-     * original section:
-     *    <a style=\"text-decoration: none; font-size: 10px;\"
-     *    rel=\"nofollow\" href=\"https://www.goodreads.com/user_
-     *    challenges/[x]?utm_medium=api&utm_source=challenge_
-     *    widget&utm_campaign=\">view books<\/a>
-     */
-    [id^="gr_challenge_progress_body_"] a[style*="font-size: 10px;"] {
-        display: none;
-    }
+/* Goodreads
+ * [Yearly] Reading Challenge Widget */
+
+/* inner container */
+[id^="gr_challenge_progress_body_"] {
+	margin: auto;
+	width: calc(var(--sidebar-width) - (6*var(--padding-size)));
+}
+
+/* title position */
+[id^="gr_challenge_progress_body_"] h3 {
+	margin: calc((-1/2)*var(--font-size)) 0px 0px 0px !important;
+	line-height: 2;
+}
+
+/* title style */
+[id^="gr_challenge_progress_body_"] a[style*="georgia"] {
+	font-style: normal !important;
+	text-decoration: underline !important;
+	font-family: inherit !important;
+	font-size: 13px !important;
+}
+
+/* image */
+[id^="gr_challenge_progress_body_"] div[class="challengePic"] {
+	display: none;
+}
+
+/* progress bar container */
+[id^="gr_challenge_progress_body_"] div[style*="#382110"] {
+	margin: calc(0.5*var(--padding-size)) 0px calc(0.5*var(--padding-size)) 0px !important;
+	width: calc(100% - (2*var(--border-size))) !important;
+	height: var(--padding-size) !important;
+	border: var(--border-style) !important;
+}
+
+/* progress bar fill */
+[id^="gr_challenge_progress_body_"] div[style*="#D7D2C4"] {
+	background-color: var(--accent-color) !important;
+}
+
+/* "[x] of [y] ([z]%)" text */
+[id^="gr_challenge_progress_body_"] div[style*="font-size:90%"] {
+	font-size: 100% !important;
+}
+
+/* "view books" text */
+[id^="gr_challenge_progress_body_"] a[style*="font-size: 10px;"] {
+	display: none;
+}
