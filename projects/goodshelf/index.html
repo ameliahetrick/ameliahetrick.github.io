@@ -312,8 +312,7 @@ Tippy | create custom themes with CSS
      * replace the default styling for the widget
      */
     [id^="gr_challenge_progress_body_"] div[class="challengePic"] {
-    	visibility: hidden;
-        margin-left: -60px;
+        display: none;
     }
     
     
@@ -377,7 +376,7 @@ Tippy | create custom themes with CSS
      *    widget&utm_campaign=\">view books<\/a>
      */
     [id^="gr_challenge_progress_body_"] a[style*="font-size: 10px;"] {
-        visibility: hidden !important;
+        display: none;
     }
     
     
@@ -496,7 +495,7 @@ Tippy | create custom themes with CSS
     }
     
     
-    /* GOODREADS grid widget ;
+    /* GOODREADS grid widget
      * -> inner book images of the widget
      */
     .gr_grid_book_container img {
@@ -507,6 +506,125 @@ Tippy | create custom themes with CSS
         /* border */
         border: var(--border-style);
     }
+    
+    
+    
+    /* GOODREADS custom widget
+     * -> outer container of the widget
+     */
+	[class^="gr_custom_container_"] {
+    	/* position */
+		margin-top: calc(0.5 * var(--padding-size));
+		margin-left: calc(0.5 * var(--padding-size));
+		margin-right: calc(-1 * var(--padding-size));
+	}
+    
+    /* GOODREADS custom widget
+     * -> header of the widget
+     */
+    [class^="gr_custom_header_"] {
+        /* visibility */
+        display: none;
+    }
+    
+    /* GOODREADS custom widget
+     * -> inner containers of the widget
+     */
+    [class^="gr_custom_each_container_"] {
+    	/* position */
+        float: left;
+        margin-right: var(--padding-size);
+        margin-top: calc(0.5*var(--padding-size));
+        
+        /* padding */
+        padding-right: var(--padding-size);
+        padding-bottom: calc(0.5*var(--padding-size));
+        
+        /* size */
+        width: calc(2*var(--book-width) + 3*var(--border-size));
+        height: calc(var(--book-height) + 1*var(--border-size));
+        
+        /* border */
+        border-right: var(--border-style);
+        border-bottom: var(--border-style);
+        
+        /* overflow */
+        overflow: scroll !important;
+    }
+    
+    /* GOODREADS custom widget
+     * -> inner book containers of the widget
+     */
+    [class^="gr_custom_book_container_"] {
+    	/* position */
+        float: left;
+        margin-right: 10px;
+        
+        /* size */
+        height: calc(var(--book-height) - 1*var(--border-size));
+        width: var(--book-width);
+        
+        /* overflow */
+        overflow: hidden;
+        
+        /* border */
+        border: var(--border-style);
+    }
+    
+    /* GOODREADS custom widget
+     * -> inner book images of the widget
+     */
+    [class^="gr_custom_book_container_"] img {
+        /* size */
+        width: 100%; 
+        height: 100%;
+    }
+    
+    /* GOODREADS custom widget
+     * -> title, author, review
+     */
+    [class^="gr_custom_title_"],
+    [class^="gr_custom_author_"],
+    [class^="gr_custom_review_"] {
+        margin-left: calc((1*var(--book-width)) + 1*var(--padding-size) + 2*var(--border-size));
+
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        font-size: 10px;
+    }
+    [class^="gr_custom_author_"],
+    [class^="gr_custom_review_"] {
+        margin-top:10px;
+    }
+    [class^="gr_custom_review_"] {
+        display: none;
+    }
+    [class^="gr_custom_title_"] a,
+    [class^="gr_custom_author_"] a {
+        color: var(--link-color);
+        transition-duration: var(--transition-time);
+        -webkit-transition-duration: var(--transition-time);
+        -moz-transition-duration: var(--transition-time);
+        -ms-transition-duration: var(--transition-time);
+        -o-transition-duration: var(--transition-time);
+    }
+    [class^="gr_custom_title_"] a:hover,
+    [class^="gr_custom_author_"] a:hover {
+        color: var(--link-hover-color);
+        transition-duration: var(--transition-time);
+        -webkit-transition-duration: var(--transition-time);
+        -moz-transition-duration: var(--transition-time);
+        -ms-transition-duration: var(--transition-time);
+        -o-transition-duration: var(--transition-time);
+    }
+    
+    /* GOODREADS custom widget
+     * -> logo at bottom of widget
+     */
+    [class^="gr_custom_container_"] a[href="https://www.goodreads.com/"] {
+        display: none;
+    }
+    /* */
     
     
     
@@ -688,7 +806,7 @@ Tippy | create custom themes with CSS
                 <li><a href="#tab_1">2026</a></li>
                 <li><a href="#tab_2">2025</a></li>
                 <li><a href="#tab_3">2024</a></li>
-                <li><a href="#tab_4"><b>‪‪ㅤ♡</b></a></li>‬‬
+                <li><a href="#tab_4" title="favorites"><b>♡</b></a></li>
             </ul>
 
             <div id='tab_1'> 
@@ -719,7 +837,7 @@ Tippy | create custom themes with CSS
             <div id='tab_4'> 
 				<div id="scroll_4" class="bookshelf_inner">
 					<div class="gr_grid_container">
-						<script src="https://www.goodreads.com/review/grid_widget/28021191?cover_size=medium&hide_link=true&hide_title=true&num_books=200&order=d&shelf=_faves&sort=position&widget_id=1773095665" type="text/javascript" charset="utf-8"></script>
+						<script src="https://www.goodreads.com/review/custom_widget/28021191?cover_position=left&cover_size=medium&num_books=100&order=d&shelf=%E3%85%A4heart&show_author=1&show_cover=1&show_rating=0&show_review=1&show_tags=0&show_title=1&sort=position&widget_bg_color=FFFFFF&widget_bg_transparent=&widget_border_width=1&widget_id=1775580890&widget_text_color=000000&widget_title_size=medium&widget_width=medium" type="text/javascript" charset="utf-8"></script>
 					</div>
 				</div>    
             </div>
