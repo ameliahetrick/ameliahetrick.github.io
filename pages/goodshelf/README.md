@@ -65,4 +65,21 @@ http://keith-wood.name/uiTabs.html#tabs-min
 - Javascript formatting/comments (tabs/spaces)
 - char formatting (')
 - word break for alt text? > change tippyImgAlt maxWidth
+
+---
+### COLOR SCHEME
+Goodreads colors sign-in page:
+https://www.goodreads.com/user/sign_in
+- gr-button--dark: #382110;
+- gr-button--dark:hover: #58371F;
+- gr-button--dark:active: #1A0F07;
+- topLevelItem--signUp: #1E1915;
+
+monochromatic color scheme:
+https://www.color-hex.com/color/746965
+- background-color: #fff;
+- text-color: #4b4441;
+- link-color: #827571;
+- link-hover-color: #beb6b4;
+- accent-color: #827571;
 -->
