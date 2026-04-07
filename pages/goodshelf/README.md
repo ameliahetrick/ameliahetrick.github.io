@@ -1,9 +1,6 @@
-
-
 ## Goodshelf | Goodreads bookshelf
 https://ameliahetrick.github.io/pages/goodshelf/ <br>
 by **ameliahetrick**
-
 
 ---
 ### RESOURCES
