@@ -83,6 +83,12 @@ Tippy | create custom themes with CSS
     
     <!-- github.io stylesheet -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io/projects/style.css"/>
+    <!-- Goodreads [yearly] reading challenge widget stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io/projects/goodshelf/gr_challenge.css"/>
+    <!-- Goodreads grid widget stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io/projects/goodshelf/gr_grid.css"/>
+    <!-- Goodreads custom widget stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io/projects/goodshelf/gr_custom.css"/>
     
     
     <!-- FakeScroll (scrollbar) -->
@@ -250,136 +256,6 @@ Tippy | create custom themes with CSS
     }
     
     
-    /* GOODREADS yearly reading challenge widget */
-    [id^="gr_challenge_progress_body_"] {
-        /* position */
-        position: absolute;
-        margin: auto;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        
-        /* size */
-        width: calc(var(--sidebar-width) - (6*var(--padding-size)));
-        height: inherit;
-        
-        /* border (enable only for editing purposes) */
-        //border: var(--border-style);
-    }
-    
-    
-    /* GOODREADS yearly reading challenge widget
-     * -> title (and title link)
-     *
-     * replace the default styling for the widget
-     *
-     * original sections:
-     *
-     *    <h3 style=\"margin: 4px 0 10px; font-weight: normal;
-     *    text-align: center\">
-     *
-     *    <a style=\"text-decoration: none; font-family:georgia,serif;
-     *    font-style:italic; font-size: 1.1em\" rel=\"nofollow\" 
-     *    href=\"[x]\">
-     */
-    [id^="gr_challenge_progress_body_"] h3 {
-    	margin: calc((-1/2)*var(--font-size)) 0px 0px 0px !important;
-        
-        line-height: 2;
-    }
-    [id^="gr_challenge_progress_body_"] a[style*="georgia"] {
-        text-decoration: underline !important;
-        font-family: inherit !important;
-        font-style: normal !important;
-        font-size: 13px !important;
-        
-        color: var(--link-color);
-    }
-    [id^="gr_challenge_progress_body_"] a:hover {
-        color: var(--link-hover-color);
-        transition-duration: var(--transition-time);
-        -webkit-transition-duration: var(--transition-time);
-        -moz-transition-duration: var(--transition-time);
-        -ms-transition-duration: var(--transition-time);
-        -o-transition-duration: var(--transition-time);
-    }
-    
-    
-    /* GOODREADS yearly reading challenge widget
-     * -> image
-     *
-     * replace the default styling for the widget
-     */
-    [id^="gr_challenge_progress_body_"] div[class="challengePic"] {
-        display: none;
-    }
-    
-    
-    /* GOODREADS yearly reading challenge widget
-     * -> progress bar container
-     *
-     * replace the default styling for the widget
-     *
-     * original section:
-     *    <div style=\"width: 100px; margin: 4px 5px 5px 0; float: left;
-     *    border: 1px solid #382110; height: 8px; overflow: hidden;
-     *    background-color: #FFF\">
-     */
-    [id^="gr_challenge_progress_body_"] div[style*="#382110"] {
-        width: calc(100% - (2*var(--border-size))) !important;
-        height: var(--padding-size) !important;
-        margin: 6px 0px 5px 0px !important;
-        border: var(--border-style) !important;
-        background-color: var(--background-color) !important;
-    }
-    
-    
-    /* GOODREADS yearly reading challenge widget
-     * -> progress bar fill
-     *
-     * replace the default styling for the widget
-     *
-     * original section:
-     *    <div style=\"width: [x]%; background-color: #D7D2C4;
-     *    float: left\">
-     */
-    [id^="gr_challenge_progress_body_"] div[style*="#D7D2C4"] {
-        background-color: var(--accent-color) !important;
-        height: calc(var(--padding-size) + 2*var(--border-size));
-    }
-    
-    
-    /* GOODREADS yearly reading challenge widget
-     * -> "[x] of [y] ([z]%)" text
-     *
-     * replace the default styling for the widget
-     *
-     * original section:
-     *    <div style=\"font-family: arial, verdana, helvetica,
-     *    sans-serif;font-size:90%\">
-     */
-    [id^="gr_challenge_progress_body_"] div[style*="font-size:90%"] {
-        font-size: 100% !important;
-    }
-    
-    
-    /* GOODREADS yearly reading challenge widget
-     * -> "view books" text
-     *
-     * replace the default styling for the widget
-     *
-     * original section:
-     *    <a style=\"text-decoration: none; font-size: 10px;\"
-     *    rel=\"nofollow\" href=\"https://www.goodreads.com/user_
-     *    challenges/[x]?utm_medium=api&utm_source=challenge_
-     *    widget&utm_campaign=\">view books<\/a>
-     */
-    [id^="gr_challenge_progress_body_"] a[style*="font-size: 10px;"] {
-        display: none;
-    }
-    
-    
     /* links (left, middle) */
     #links {
     	/* position */
@@ -459,172 +335,6 @@ Tippy | create custom themes with CSS
         /* overflow */
         overflow-y: scroll;
     }
-    
-    
-    /* GOODREADS grid widget
-     * -> outer container of the widget
-     */
-    .gr_grid_container {
-        /* position */
-        margin-top: calc(-1 * var(--padding-size));
-        margin-left: calc(0.5 * var(--padding-size));
-        margin-right: calc(0.5 * var(--padding-size));
-        
-        /* size */
-        width: calc((4*var(--book-width)) + 4*var(--padding-size) + 8*var(--border-size));
-    }
-
-
-    /* GOODREADS grid widget
-     * -> inner book containers of the widget
-     */
-    .gr_grid_book_container {
-        /* position */
-        position: relative;
-        float: left;
-        
-        /* size */
-        width: var(--book-width);
-        height: var(--book-height);
-        
-        /* border */
-        padding: var(--padding-size) calc(var(--padding-size) + 2*var(--border-size)) calc(2*var(--border-size)) 0px;
-        
-        /* overflow */
-        overflow: hidden;
-    }
-    
-    
-    /* GOODREADS grid widget
-     * -> inner book images of the widget
-     */
-    .gr_grid_book_container img {
-        /* size */
-        width: 100%; 
-        height: 100%;
-        
-        /* border */
-        border: var(--border-style);
-    }
-    
-    
-    
-    /* GOODREADS custom widget
-     * -> outer container of the widget
-     */
-	[class^="gr_custom_container_"] {
-    	/* position */
-		margin-top: calc(0.5 * var(--padding-size));
-		margin-left: calc(0.5 * var(--padding-size));
-		margin-right: calc(-1 * var(--padding-size));
-	}
-    
-    /* GOODREADS custom widget
-     * -> header of the widget
-     */
-    [class^="gr_custom_header_"] {
-        /* visibility */
-        display: none;
-    }
-    
-    /* GOODREADS custom widget
-     * -> inner containers of the widget
-     */
-    [class^="gr_custom_each_container_"] {
-    	/* position */
-        float: left;
-        margin-right: var(--padding-size);
-        margin-top: calc(0.5*var(--padding-size));
-        
-        /* padding */
-        padding-right: var(--padding-size);
-        padding-bottom: calc(0.5*var(--padding-size));
-        
-        /* size */
-        width: calc(2*var(--book-width) + 3*var(--border-size));
-        height: calc(var(--book-height) + 1*var(--border-size));
-        
-        /* border */
-        border-right: var(--border-style);
-        border-bottom: var(--border-style);
-        
-        /* overflow */
-        overflow: scroll !important;
-    }
-    
-    /* GOODREADS custom widget
-     * -> inner book containers of the widget
-     */
-    [class^="gr_custom_book_container_"] {
-    	/* position */
-        float: left;
-        margin-right: 10px;
-        
-        /* size */
-        height: calc(var(--book-height) - 1*var(--border-size));
-        width: var(--book-width);
-        
-        /* overflow */
-        overflow: hidden;
-        
-        /* border */
-        border: var(--border-style);
-    }
-    
-    /* GOODREADS custom widget
-     * -> inner book images of the widget
-     */
-    [class^="gr_custom_book_container_"] img {
-        /* size */
-        width: 100%; 
-        height: 100%;
-    }
-    
-    /* GOODREADS custom widget
-     * -> title, author, review
-     */
-    [class^="gr_custom_title_"],
-    [class^="gr_custom_author_"],
-    [class^="gr_custom_review_"] {
-        margin-left: calc((1*var(--book-width)) + 1*var(--padding-size) + 2*var(--border-size));
-
-        overflow-wrap: break-word !important;
-        hyphens: auto !important;
-        font-size: 10px;
-    }
-    [class^="gr_custom_author_"],
-    [class^="gr_custom_review_"] {
-        margin-top:10px;
-    }
-    [class^="gr_custom_review_"] {
-        display: none;
-    }
-    [class^="gr_custom_title_"] a,
-    [class^="gr_custom_author_"] a {
-        color: var(--link-color);
-        transition-duration: var(--transition-time);
-        -webkit-transition-duration: var(--transition-time);
-        -moz-transition-duration: var(--transition-time);
-        -ms-transition-duration: var(--transition-time);
-        -o-transition-duration: var(--transition-time);
-    }
-    [class^="gr_custom_title_"] a:hover,
-    [class^="gr_custom_author_"] a:hover {
-        color: var(--link-hover-color);
-        transition-duration: var(--transition-time);
-        -webkit-transition-duration: var(--transition-time);
-        -moz-transition-duration: var(--transition-time);
-        -ms-transition-duration: var(--transition-time);
-        -o-transition-duration: var(--transition-time);
-    }
-    
-    /* GOODREADS custom widget
-     * -> logo at bottom of widget
-     */
-    [class^="gr_custom_container_"] a[href="https://www.goodreads.com/"] {
-        display: none;
-    }
-    /* */
     
     
     
@@ -806,7 +516,7 @@ Tippy | create custom themes with CSS
                 <li><a href="#tab_1">2026</a></li>
                 <li><a href="#tab_2">2025</a></li>
                 <li><a href="#tab_3">2024</a></li>
-                <li><a href="#tab_4" title="favorites"><b>♡</b></a></li>
+                <li><a href="#tab_4" title="favorites">♡</a></li>
             </ul>
 
             <div id='tab_1'> 
