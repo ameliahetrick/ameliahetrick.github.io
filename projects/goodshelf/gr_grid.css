@@ -1,0 +1,56 @@
+/*
+ * Goodshelf "gr_grid" stylesheet by ameliahetrick:
+ *   https://ameliahetrick.github.io/projects/goodshelf
+ *
+ *
+ * -- RESOURCES --
+ *
+ * Goodreads Grid Widget:
+ *   https://www.goodreads.com/user/edit > Widgets
+ */
+
+    /* GOODREADS grid widget
+     * -> outer container of the widget
+     */
+    .gr_grid_container {
+        /* position */
+        margin-top: calc(-1 * var(--padding-size));
+        margin-left: calc(0.5 * var(--padding-size));
+        margin-right: calc(0.5 * var(--padding-size));
+        
+        /* size */
+        width: calc((4*var(--book-width)) + 4*var(--padding-size) + 8*var(--border-size));
+    }
+
+
+    /* GOODREADS grid widget
+     * -> inner book containers of the widget
+     */
+    .gr_grid_book_container {
+        /* position */
+        position: relative;
+        float: left;
+        
+        /* size */
+        width: var(--book-width);
+        height: var(--book-height);
+        
+        /* border */
+        padding: var(--padding-size) calc(var(--padding-size) + 2*var(--border-size)) calc(2*var(--border-size)) 0px;
+        
+        /* overflow */
+        overflow: hidden;
+    }
+    
+    
+    /* GOODREADS grid widget
+     * -> inner book images of the widget
+     */
+    .gr_grid_book_container img {
+        /* size */
+        width: 100%; 
+        height: 100%;
+        
+        /* border */
+        border: var(--border-style);
+    }
