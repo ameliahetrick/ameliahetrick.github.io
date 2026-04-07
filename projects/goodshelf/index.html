@@ -6,6 +6,9 @@ Goodshelf by ameliahetrick:
 
 -- RESOURCES --
 
+Goodreads Widgets:
+	https://www.goodreads.com/user/edit > Widgets
+
 FakeScroll (scrollbar):
 	https://github.com/yairEO/fakescroll
     http://yaireo.github.io/fakescroll
@@ -89,11 +92,14 @@ Tippy | create custom themes with CSS
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io/projects/goodshelf/gr_grid.css"/>
     <!-- Goodreads custom widget stylesheet -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io/projects/goodshelf/gr_custom.css"/>
+    <!-- -->
     
     
     <!-- FakeScroll (scrollbar) -->
     <script src="https://cdn.jsdelivr.net/npm/@yaireo/fakescroll@2.5.1/fakescroll.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/fakescroll@2.5.1/fakescroll.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io/projects/goodshelf/fakescroll.css"/>
     <!-- -->
     
     
@@ -101,6 +107,8 @@ Tippy | create custom themes with CSS
     <script src="https://code.jquery.com/jquery-1.12.1.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io/projects/goodshelf/jquery-ui.css"/>
     <!-- -->
     
     
@@ -109,6 +117,8 @@ Tippy | create custom themes with CSS
     <script src="https://unpkg.com/tippy.js@6"></script>
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/svg-arrow.css"/>
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css"/>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io/projects/goodshelf/tippy.css"/>
     <!-- -->
     
     
@@ -335,144 +345,6 @@ Tippy | create custom themes with CSS
         /* overflow */
         overflow-y: scroll;
     }
-    
-    
-    
-    
-    /* FakeScroll (scrollbar)
-     */
-    .fakeScroll__track {
-        width: var(--padding-size);
-        right: calc(-1*var(--padding-size));
-        bottom: calc(-1*var(--border-size));
-    }
-    
-    .fakeScroll__bar {
-        background: var(--accent-color);
-        border-radius: 0px;
-    }
-    .fakeScroll__bar:hover {
-        background: var(--accent-color);
-        cursor: default;
-    }
-    
-    .fakeScroll__bar.fakeScroll--grabbed {
-        background: var(--accent-color);
-        cursor: default;
-    }
-    
-    body.fakeScroll--grabbed {
-        cursor: default;
-    }
-    /* */
-    
-    
-	/* jQuery UI (tabs)
-     */
-    .ui-tabs {
-        padding: 0px;
-        border-radius: 0px;
-    }
-    
-    .ui-tabs .ui-tabs-nav {
-        margin-top: calc(-1 * (var(--ui-tab-pad)) - 2*var(--padding-size) - 3*var(--border-size));
-        background-color: var(--background-color);
-        
-        padding: var(--padding-size) var(--padding-size) var(--padding-size) 0px;
-
-		border: none;
-        border-bottom: var(--border-style);
-        border-radius: 0px;
-    }
-
-    .ui-tabs .ui-tabs-nav li {
-        margin: 0px 0px 0px var(--padding-size);
-        background-color: var(--background-boxes-color);
-        color: var(--accent-color);
-        height: var(--ui-tab-pad);
-        width: var(--book-width);
-        border: var(--border-style);
-        border-radius: 0px;
-        
-        transition: background-color var(--transition-time) ease-in-out;
-        -webkit-transition: background-color var(--transition-time) ease-in-out;
-        -moz-transition: background-color var(--transition-time) ease-in-out;
-        -ms-transition: background-color var(--transition-time) ease-in-out;
-        -o-transition: background-color var(--transition-time) ease-in-out;
-    }
-    
-    .ui-tabs .ui-tabs-nav li:hover {
-        background-color: var(--accent-color);
-    }
-    
-    .ui-tabs .ui-tabs-nav li.active {
-        background-color: var(--accent-color);
-    }
-
-    .ui-tabs .ui-tabs-nav li a {
-    	color: inherit;
-        overflow: auto;
-        
-        transition: color var(--transition-time) ease-in-out;
-        -webkit-transition: color var(--transition-time) ease-in-out;
-        -moz-transition: color var(--transition-time) ease-in-out;
-        -ms-transition: color var(--transition-time) ease-in-out;
-        -o-transition: color var(--transition-time) ease-in-out;
-    }
-    
-    .ui-tabs .ui-tabs-nav li a:hover { 
-        color: var(--background-color);
-    }
-
-    .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
-        float: left;
-        text-decoration: none;
-
-        width: 100%;
-        padding: calc(0.5*var(--padding-size)) 0px;
-    }
-    
-    .ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor,
-	.ui-tabs .ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor,
-	.ui-tabs .ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor {
-        cursor: pointer;
-    }
-
-    .ui-tabs .ui-tabs-nav li.ui-tabs-active {
-        margin-bottom: 0px;
-        padding-bottom: 0px;
-        color: var(--background-color);
-    }
-    
-    .ui-tabs .ui-tabs-panel {
-        display: block;
-        border-width: 0;
-        padding: 0px;
-        background: none;
-        position: absolute;
-    }
-    /* */
-
-
-	/* Tippy (tooltip)
-     */
-    .tippy-box[data-theme~="tippyImgAlt"],
-    .tippy-box[data-theme~="tippyLinkTitle"] {
-    	margin: -0.5px; /* enable if tippyImgAlt maxWidth = --book-width */
-        background-color: var(--accent-color);
-        color: var(--background-color);
-        border: var(--border-style);
-        border-radius: 0px;
-        font-size: 12px;
-        overflow-wrap: break-word;
-        hyphens: auto;
-    }
-
-    .tippy-box[data-theme~="tippyImgAlt"] .tippy-svg-arrow,
-    .tippy-box[data-theme~="tippyLinkTitle"] .tippy-svg-arrow {
-      	fill: var(--accent-color);
-    }
-    /* */
 
 </style>
 </head>
@@ -703,7 +575,7 @@ Tippy | create custom themes with CSS
                         $(this).css('color', isDark(rgbRaw.r, rgbRaw.g, rgbRaw.b) ? 'black' : 'white');
                     });
 
-                    imghov.show();
+                    /*imghov.show();*/
                 }
 
 				/* pick appropriate text color for tooltip:
@@ -726,7 +598,7 @@ Tippy | create custom themes with CSS
                 $(this).removeClass('img_hover');
                 $(boxes).addClass('img_default');
                 /*$('.tippy-box[data-theme~="tippyImgAlt"]').css('background', oldColor);*/
-                imghov.hide();
+                /*imghov.hide();*/
             });;
         });
 
