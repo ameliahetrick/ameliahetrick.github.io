@@ -5,7 +5,7 @@
 
 **[Goodshelf](https://ameliahetrick.github.io/pages/goodshelf) \| Goodreads bookshelf** - visual reading log of recent years; imports data from [Goodreads](https://www.goodreads.com) widgets (*grid* & *reading challenge*).
 
-**[colorJumper](https://ameliahetrick.github.io/pages/colorJumper) \| Inspired by color mixers** - takes two input colors *initial*  and *midpoint*; returns *result* such that *initial* and *result* are equidistant to *midpoint*.
+**[colorJumper](https://ameliahetrick.github.io/pages/colorjumper) \| Inspired by color mixers** - takes two input colors *initial*  and *midpoint*; returns *result* such that *initial* and *result* are equidistant to *midpoint*.
 - color mixers: (red, blue) &rarr; purple
 - colorJumper: (red, purple) &rarr; blue
 

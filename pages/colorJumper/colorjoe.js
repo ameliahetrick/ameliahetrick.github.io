@@ -1,5 +1,5 @@
 /* https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/dist/colorjoe.js
-   with some variables changed (colorJumper change)
+   with some variables changed (colorjumper change)
 */
 
 
@@ -422,9 +422,9 @@ https://bebraw.github.com/colorjoe - 2020-01-27 */
 	        joe.done();
 	    }
 
-/* colorJumper change: 'p.y' -> 'p.x' */
-/* colorJumper change: 'utils.Y' -> 'utils.X' */
-/* colorJumper change: 'joe.setAlpha(1 - val)' -> 'joe.setAlpha(val)' */
+/* colorjumper change: 'p.y' -> 'p.x' */
+/* colorjumper change: 'utils.Y' -> 'utils.X' */
+/* colorjumper change: 'joe.setAlpha(1 - val)' -> 'joe.setAlpha(val)' */
 	    function change(p) {
 	        var val = utils.clamp(p.x, 0, 1);
 
@@ -432,8 +432,8 @@ https://bebraw.github.com/colorjoe - 2020-01-27 */
 	        joe.setAlpha(val);
 	    }
 
-/* colorJumper change: 'utils.Y' -> 'utils.X' */
-/* colorJumper change: '1 - col.alpha' -> 'col.alpha' */
+/* colorjumper change: 'utils.Y' -> 'utils.X' */
+/* colorjumper change: '1 - col.alpha' -> 'col.alpha' */
 	    return {
 	        change: function(col) {
 	            utils.X(e.pointer, col.alpha());
@@ -534,7 +534,7 @@ https://bebraw.github.com/colorjoe - 2020-01-27 */
 
 	        return col.saturation(p.x).value(1 - p.y);
 	    },
-/* colorJumper change: 'utils.Y' -> 'utils.X' */
+/* colorjumper change: 'utils.Y' -> 'utils.X' */
 	    z: function(col, v, xy, z) {
 	        utils.X(z.pointer, v);
 	        RGB_BG(xy.background, v);
@@ -559,7 +559,7 @@ https://bebraw.github.com/colorjoe - 2020-01-27 */
 
 	        return col.hue(p.x).saturation(1 - p.y);
 	    },
-/* colorJumper change: 'utils.Y' -> 'utils.X' */
+/* colorjumper change: 'utils.Y' -> 'utils.X' */
 	    z: function(col, v, xy, z) {
 	        utils.X(z.pointer, v);
 
@@ -628,7 +628,7 @@ https://bebraw.github.com/colorjoe - 2020-01-27 */
 	        },
 	    });
 
-/* colorJumper change: 'p.y' -> 'p.x' */
+/* colorjumper change: 'p.y' -> 'p.x' */
 	    function changeZ(p) {
 	        col = cbs.z(col, utils.clamp(p.x, 0, 1), xy, z);
 	        changed();
