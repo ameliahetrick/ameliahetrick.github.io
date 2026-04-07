@@ -1,6 +1,6 @@
 
 ## Goodshelf | Goodreads bookshelf
-by **ameliahetrick**
+by **ameliahetrick** <br>
 https://ameliahetrick.github.io/pages/goodshelf/
 
 ---
@@ -22,7 +22,7 @@ Tippy (tooltips):
 https://github.com/atomiks/tippyjs
 https://atomiks.github.io/tippyjs/
 
----
+<!--
 ### REFERENCES
 
 head | display favicon
@@ -58,7 +58,7 @@ http://keith-wood.name/uiTabs.html#tabs-min
 Tippy | create custom themes with CSS
 https://stackoverflow.com/a/65703128
 
-<!--
+---
 ### TO-DO LIST
 - FakeScroll: make scrollbar always visible
 - FakeScroll: add scrollbar to description (& check padding on description_inner)
