@@ -13,13 +13,15 @@
     
     
     <!-- github.io stylesheet -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/style.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@f0cdc697b599b34e8b4d6d3cac4acf601712b26b/pages/style.css"/>
     <!-- Goodreads [yearly] reading challenge widget stylesheet -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/goodshelf/gr_widgets/gr_challenge.css"/>
     <!-- Goodreads grid widget stylesheet -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/goodshelf/gr_widgets/gr_grid.css"/>
     <!-- Goodreads custom widget stylesheet -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/goodshelf/gr_widgets/gr_custom.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@9f306df62896e8cd23ac47bf66332137bd5af23f/pages/goodshelf/gr_widgets/gr_custom.css"/>
+    <!-- image filters stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/goodshelf/img_filters.css"/>
     <!-- -->
     
     
@@ -68,7 +70,7 @@
         
         --container-height: calc((3*var(--book-height)) + (4*var(--padding-size)) + (6*var(--border-size)));
         
-        --img-default-saturate: saturate(100%);
+        /*--img-default-saturate: saturate(100%);
         --img-default-contrast: contrast(100%);
         --img-default-opacity: opacity(100%);
         
@@ -78,13 +80,13 @@
         
         --img-sibling-hover-saturate: saturate(0%);
         --img-sibling-hover-contrast: contrast(95%);
-        --img-sibling-hover-opacity: opacity(70%);
+        --img-sibling-hover-opacity: opacity(70%);*/
     }
 
     
     /* image filters on book covers
      */
-    .img_default {
+    /*.img_default {
         filter: var(--img-default-saturate) var(--img-default-contrast) var(--img-default-opacity);
     }
     
@@ -106,41 +108,6 @@
         -o-transition: var(--transition-time) ease-in-out;
     }
     /* */
-
-    
-    /* body and links
-     */
-    /*body {
-        background-color: var(--background-color);
-        color: var(--text-color);
-        font-family: roboto, sans-serif;
-        font-size: var(--font-size);
-        line-height: 150%;
-        letter-spacing: 1px;
-        text-align: center;
-        overflow: hidden;
-    }
-
-    a {
-        color: var(--link-color);
-        text-decoration: underline;
-        transition-duration: var(--transition-time);
-        -webkit-transition-duration: var(--transition-time);
-        -moz-transition-duration: var(--transition-time);
-        -ms-transition-duration: var(--transition-time);
-        -o-transition-duration: var(--transition-time);
-    }
-
-    a:hover {
-        color: var(--link-hover-color);
-        text-decoration: underline;
-        transition-duration: var(--transition-time);
-        -webkit-transition-duration: var(--transition-time);
-        -moz-transition-duration: var(--transition-time);
-        -ms-transition-duration: var(--transition-time);
-        -o-transition-duration: var(--transition-time);
-    }
-    */
     
 
     /* container for page content */
@@ -281,7 +248,7 @@
 
         <div id="sidebar">
             
-            <!-- goodreads reading challenge widget -->
+            <!-- goodreads [yearly] reading challenge widget -->
             <div id="gr_challenge_outer">
                 <div id="gr_challenge_progress_body_11680">
                     <script src="https://www.goodreads.com/user_challenges/widget/28021191?challenge_id=11680&v=2"></script>
@@ -362,13 +329,13 @@
 
 		/* FakeScroll (scrollbar)
 	     */
-        var myScrollbar_1 = document.querySelector('#scroll_1').fakeScroll({track: "smooth"})
+        document.querySelector('#scroll_1').fakeScroll({track: "smooth"})
         
-        var myScrollbar_2 = document.querySelector('#scroll_2').fakeScroll({track: "smooth"})
+        document.querySelector('#scroll_2').fakeScroll({track: "smooth"})
         
-        var myScrollbar_3 = document.querySelector('#scroll_3').fakeScroll({track: "smooth"})
+        document.querySelector('#scroll_3').fakeScroll({track: "smooth"})
         
-        var myScrollbar_4 = document.querySelector('#scroll_4').fakeScroll({track: "smooth"})
+        document.querySelector('#scroll_4').fakeScroll({track: "smooth"})
         
         
         /* jQuery UI (tabs)
@@ -427,7 +394,7 @@
         $('a[title]').has('img').removeAttr('title');
 
 		/* tooltip for images with alt text */
-        var imghov = tippy('img[alt]', {
+        tippy('img[alt]', {
             theme: 'tippyImgAlt',
             arrow: tippy.roundArrow,
             zIndex: 9999999999,
@@ -500,8 +467,6 @@
                     $('.tippy-box[data-theme~="tippyImgAlt"]').each(function() {
                         $(this).css('color', isDark(rgbRaw.r, rgbRaw.g, rgbRaw.b) ? 'black' : 'white');
                     });
-
-                    /*imghov.show();*/
                 }
 
 				/* pick appropriate text color for tooltip:
@@ -524,7 +489,6 @@
                 $(this).removeClass('img_hover');
                 $(boxes).addClass('img_default');
                 /*$('.tippy-box[data-theme~="tippyImgAlt"]').css('background', oldColor);*/
-                /*imghov.hide();*/
             });;
         });
 
