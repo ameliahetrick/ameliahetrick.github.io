@@ -1,0 +1,15 @@
+/* Tippy.js */
+
+.tippy-box[data-theme~="tippyLinkTitle"] {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  border: var(--border-style);
+  border-radius: 0px;
+  font-size: 12px;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.tippy-box[data-theme~="tippyLinkTitle"] .tippy-svg-arrow {
+  fill: var(--accent-color);
+}

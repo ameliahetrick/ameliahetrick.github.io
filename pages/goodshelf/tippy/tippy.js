@@ -11,7 +11,6 @@ $(function() {
   var borderSize = parseInt(computedStyle.getPropertyValue('--border-size'), 10);
   var max = (bookWidth) + 2*(paddingSize) + 2*(borderSize);
   
-  /* tooltip for images with alt text */
   tippy('img[alt]', {
     theme: 'tippyImgAlt',
     arrow: tippy.roundArrow,
@@ -33,22 +32,6 @@ $(function() {
     
     onUntrigger(instance) {
       instance.setProps({theme: 'tippyLinkTitle'});
-    },
-  });
-  
-  /* tooltip for links with titles */
-  tippy('a[title]', {
-    theme: 'tippyLinkTitle',
-    arrow: tippy.roundArrow,
-    zIndex: 999,
-    maxWidth: 165,
-    animation: 'shift-away',
-    duration: 500,
-    
-    content(reference) {
-      const title = reference.getAttribute('title');
-      reference.removeAttribute('title');
-      return title;
     },
   });
   
@@ -150,5 +133,5 @@ function getAverageRGB(imgEl) {
   rgb.g = ~~(rgb.g/count);
   rgb.b = ~~(rgb.b/count);
   
-  return rgb; 
+  return rgb;
 }
