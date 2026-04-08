@@ -2,6 +2,8 @@
 
 $(function() {
   
+  $('a[title]').has('img').removeAttr('title');
+  
   tippy('a[title]', {
     theme: 'tippyLinkTitle',
     arrow: tippy.roundArrow,
