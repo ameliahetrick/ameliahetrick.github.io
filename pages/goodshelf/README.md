@@ -54,6 +54,9 @@ https://stackoverflow.com/a/51054217
 JavaScript | Tippy | create custom themes with CSS
 https://stackoverflow.com/a/65703128
 
+JavaScript | Tippy | convert string to int
+https://stackoverflow.com/a/44615330
+
 inspo | tab design inspiration:
 http://keith-wood.name/uiTabs.html#tabs-min
 

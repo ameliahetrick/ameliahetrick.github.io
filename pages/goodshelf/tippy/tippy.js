@@ -5,6 +5,13 @@ $(function() {
 
     $('a[title]').has('img').removeAttr('title');
     
+    /* calculate maxWidth */
+    var computedStyle = getComputedStyle(document.documentElement);
+    var bookWidth = parseInt(computedStyle.getPropertyValue('--book-width'), 10);
+    var paddingSize = parseInt(computedStyle.getPropertyValue('--padding-size'), 10);
+    var borderSize = parseInt(computedStyle.getPropertyValue('--border-size'), 10);
+    var max = (bookWidth) + 2*(paddingSize) + 2*(borderSize);
+    
     /* tooltip for images with alt text */
     tippy('img[alt]', {
         theme: 'tippyImgAlt',
