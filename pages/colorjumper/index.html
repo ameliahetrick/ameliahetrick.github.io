@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <!-- metadata -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
-    
-    <meta name="author" content="Amelia Hetrick">
-    <meta name="description" content="colorJumper | Inspired by color mixers">
-    <title>colorJumper</title>
-    <!-- -->
 
-
-<!-- github.io stylesheet -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io/pages/style.css"/>
-
-
-<!-- jQuery v3.5.1 -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- colorjoe v4.1.1 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/css/colorjoe.css"/>
-<!--
-<script src="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/dist/colorjoe.js"></script>
--->
-<script src="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io/pages/colorjumper/colorjoe.js"></script>
-
-
-<!-- Tippy (tooltip) -->
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/svg-arrow.css"/>
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css"/>
-    <!-- -->
+  <!-- metadata -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+  
+  <meta name="author" content="Amelia Hetrick">
+  <meta name="description" content="colorJumper | Inspired by color mixers">
+  <title>colorJumper</title>
+  <!-- -->
+  
+  
+  <!-- colorjoe -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/css/colorjoe.css"/>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/dist/colorjoe.js"></script> -->
+  
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  
+  <!-- Tippy.js -->
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/svg-arrow.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css"/>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+  <!-- -->
+  
+  
+  <!-- project files -->
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="../tippy.css"/>
+  <script src="../tippy.js"></script>
+  <script src="colorjoe.js"></script>
+  <!-- -->
+  
+  <!-- project files (hardcoded for testing) -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/tippy.css"/>
+  <script src="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@0fc0b460c304a8a4290fd5a450944fdd0bbb9812/pages/tippy.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io/pages/colorjumper/colorjoe.js"></script>
+  <!-- -->
 
 
 <style type="text/css">
@@ -859,24 +867,6 @@ input[type=text], select {
     
     
     
-    
-    /* Tippy (tooltip)
-         */
-        /* tooltip for links with titles */
-        tippy('a[title]', {
-            theme: 'tippyLinkTitle',
-            arrow: tippy.roundArrow,
-            zIndex: 9999999999,
-            maxWidth: 165,
-            animation: 'shift-away',
-            duration: 500,
-
-            content(reference) {
-                const title = reference.getAttribute('title');
-                reference.removeAttribute('title');
-                return title;
-            },
-        });
     
 </script>
 
