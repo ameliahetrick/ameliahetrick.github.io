@@ -1,5 +1,5 @@
 ## github.io
-https://ameliahetrick.github.io/pages <br>
+https://ameliahetrick.github.io/ <br>
 by **ameliahetrick**
 
 ---
