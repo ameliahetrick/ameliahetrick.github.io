@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
-	<!-- metadata -->
+    <!-- metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    
     <meta name="author" content="Amelia Hetrick">
     <meta name="description" content="Goodshelf | Goodreads Bookshelf">
-    <title>Goodshelf</title>
-    
-    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
+    <title>Good-shelf</title>
     <!-- -->
     
     
@@ -69,48 +69,10 @@
         --padding-size: 10px;
         
         --container-height: calc((3*var(--book-height)) + (4*var(--padding-size)) + (6*var(--border-size)));
-        
-        /*--img-default-saturate: saturate(100%);
-        --img-default-contrast: contrast(100%);
-        --img-default-opacity: opacity(100%);
-        
-        --img-hover-saturate: saturate(105%);
-        --img-hover-contrast: contrast(105%);
-        --img-hover-opacity: opacity(100%);
-        
-        --img-sibling-hover-saturate: saturate(0%);
-        --img-sibling-hover-contrast: contrast(95%);
-        --img-sibling-hover-opacity: opacity(70%);*/
     }
-
-    
-    /* image filters on book covers
-     */
-    /*.img_default {
-        filter: var(--img-default-saturate) var(--img-default-contrast) var(--img-default-opacity);
-    }
-    
-    .img_hover {
-        filter: var(--img-hover-saturate) var(--img-hover-contrast) var(--img-hover-opacity);
-    }
-    
-    .img_sibling_hover {
-        filter: var(--img-sibling-hover-saturate) var(--img-sibling-hover-contrast) var(--img-sibling-hover-opacity);
-    }
-    
-    .img_default,
-    .img_hover,
-    .img_sibling_hover {
-        transition: filter var(--transition-time) ease-in-out;
-        -webkit-transition: var(--transition-time) ease-in-out;
-        -moz-transition: var(--transition-time) ease-in-out;
-        -ms-transition: var(--transition-time) ease-in-out;
-        -o-transition: var(--transition-time) ease-in-out;
-    }
-    /* */
     
 
-    /* container for page content */
+    /* container */
     #container {
         /* position */
         position: absolute;
@@ -126,7 +88,7 @@
     }
     
     
-    /* sidebar (left) */
+    /* sidebar */
     #sidebar {
         /* position */
         float: left;
@@ -141,7 +103,7 @@
     }
     
     
-    /* container for reading challenge (left, top) */
+    /* container for [yearly] reading challenge */
     #gr_challenge_outer {
     	/* position */
         position: relative;
@@ -159,7 +121,7 @@
     }
     
     
-    /* links (left, middle) */
+    /* links */
     #links {
     	/* position */
         position: relative;
@@ -173,7 +135,7 @@
     }
     
     
-    /* outer container for description (left, bottom) */
+    /* outer container for description */
     #description_outer {
     	/* border */
         border: var(--border-style);
@@ -183,7 +145,7 @@
     }
     
     
-    /* inner container for description (left, bottom)
+    /* inner container for description
      *
      * allows for dynamic height (will become scrollable
      * if maximum height is reached)
@@ -201,7 +163,7 @@
     }
     
     
-    /* outer container for bookshelf (right)
+    /* outer container for bookshelf
      *
      * used for jquery ui tab navigation
      */
@@ -222,7 +184,7 @@
     }
     
     
-    /* inner container for bookshelf (right)
+    /* inner container for bookshelf
      *
      * used for jquery ui tab panels
      */
@@ -259,7 +221,7 @@
             <!-- links -->
             <div id="links">
                 <a href="/goodshelf">REFRESH</a>&emsp;&nbsp;
-                <a href="https://www.goodreads.com/user/show/28021191-lorem-ipsum">GOODREADS</a>&emsp;&nbsp;
+                <a href="https://www.goodreads.com/user/show/28021191">GOODREADS</a>&emsp;&nbsp;
                 <a href="https://ameliahetrick.github.io/">GITHUB</a>
             </div>
             
