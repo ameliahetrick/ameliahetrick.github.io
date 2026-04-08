@@ -3,58 +3,58 @@
 
 $(function() {
 
-$('a[title]').has('img').removeAttr('title');
-
-/* tooltip for images with alt text */
-tippy('img[alt]', {
-    theme: 'tippyImgAlt',
-    arrow: tippy.roundArrow,
-    zIndex: 999,
-    /* maxWidth calculation
-     * (--bookWidth) + (--padding-size*2) + (--border-size*2)
-     * (94) + (10*2) + (2)
-     * 116
-     */
-    maxWidth: 116,
-    animation: 'shift-away',
-    duration: [500,500],
-        
-    content(reference) {
-        const title = reference.getAttribute('alt');
-        reference.removeAttribute('alt');
-        return title;
-    },
-        
-    onUntrigger(instance) {
-        instance.setProps({theme: 'tippyLinkTitle'});
-    },
-});
+    $('a[title]').has('img').removeAttr('title');
     
-/* tooltip for links with titles */
-tippy('a[title]', {
-    theme: 'tippyLinkTitle',
-    arrow: tippy.roundArrow,
-    zIndex: 999,
-    maxWidth: 165,
-    animation: 'shift-away',
-    duration: 500,
+    /* tooltip for images with alt text */
+    tippy('img[alt]', {
+        theme: 'tippyImgAlt',
+        arrow: tippy.roundArrow,
+        zIndex: 999,
+        /* maxWidth calculation
+         * (--bookWidth) + (--padding-size*2) + (--border-size*2)
+         * (94) + (10*2) + (2)
+         * 116
+         */
+        maxWidth: 116,
+        animation: 'shift-away',
+        duration: [500,500],
         
-    content(reference) {
-        const title = reference.getAttribute('title');
-        reference.removeAttribute('title');
-        return title;
-    },
-});
-
-
-/* when user hovers over image, take average color of
- * image and set as tooltip background color 
- *
- * https://stackoverflow.com/a/47604126
- * https://stackoverflow.com/a/33710822
- * https://stackoverflow.com/a/4070010
- */
-
+        content(reference) {
+            const title = reference.getAttribute('alt');
+            reference.removeAttribute('alt');
+            return title;
+        },
+        
+        onUntrigger(instance) {
+            instance.setProps({theme: 'tippyLinkTitle'});
+        },
+    });
+    
+    /* tooltip for links with titles */
+    tippy('a[title]', {
+        theme: 'tippyLinkTitle',
+        arrow: tippy.roundArrow,
+        zIndex: 999,
+        maxWidth: 165,
+        animation: 'shift-away',
+        duration: 500,
+        
+        content(reference) {
+            const title = reference.getAttribute('title');
+            reference.removeAttribute('title');
+            return title;
+        },
+    });
+    
+    
+    /* when user hovers over image, take average color of
+     * image and set as tooltip background color 
+     *
+     * https://stackoverflow.com/a/47604126
+     * https://stackoverflow.com/a/33710822
+     * https://stackoverflow.com/a/4070010
+     */
+     
     var image = document.createElement('img');
     image.crossOrigin = 'Anonymous';
     
