@@ -2,8 +2,6 @@
 
 $(function() {
 
-  $('a[title]').has('img').removeAttr('title');
-  
   /* calculate maxWidth */
   var computedStyle = getComputedStyle(document.documentElement);
   var bookWidth = parseInt(computedStyle.getPropertyValue('--book-width'), 10);
@@ -15,12 +13,7 @@ $(function() {
     theme: 'tippyImgAlt',
     arrow: tippy.roundArrow,
     zIndex: 999,
-    /* maxWidth calculation
-     * (--bookWidth) + (--padding-size*2) + (--border-size*2)
-     * (94) + (10*2) + (2)
-     * 116
-     */
-    maxWidth: 116,
+    maxWidth: max,
     animation: 'shift-away',
     duration: [500,500],
     
