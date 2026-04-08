@@ -1,0 +1,16 @@
+/* Tippy.js (tooltip) */
+
+.tippy-box[data-theme~="tippyImgAlt"] {
+    margin: -0.5px; /* enable if tippyImgAlt maxWidth = --book-width */
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    border: var(--border-style);
+    border-radius: 0px;
+    font-size: 12px;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.tippy-box[data-theme~="tippyImgAlt"] .tippy-svg-arrow {
+    fill: var(--accent-color);
+}

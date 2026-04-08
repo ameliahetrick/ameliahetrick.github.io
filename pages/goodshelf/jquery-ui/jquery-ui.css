@@ -1,0 +1,84 @@
+/* jQuery UI (tabs) */
+
+.ui-tabs {
+    padding: 0px;
+    border-radius: 0px;
+}
+
+.ui-tabs .ui-tabs-nav {
+    margin-top: calc(-1 * (var(--ui-tab-pad)) - 2*var(--padding-size) - 3*var(--border-size));
+    background-color: var(--background-color);
+        
+    padding: var(--padding-size) var(--padding-size) var(--padding-size) 0px;
+
+    border: none;
+    border-bottom: var(--border-style);
+    border-radius: 0px;
+}
+
+.ui-tabs .ui-tabs-nav li {
+    margin: 0px 0px 0px var(--padding-size);
+    background-color: var(--background-boxes-color);
+    color: var(--accent-color);
+    height: var(--ui-tab-pad);
+    width: var(--book-width);
+    border: var(--border-style);
+    border-radius: 0px;
+        
+    transition: background-color var(--transition-time) ease-in-out;
+    -webkit-transition: background-color var(--transition-time) ease-in-out;
+    -moz-transition: background-color var(--transition-time) ease-in-out;
+    -ms-transition: background-color var(--transition-time) ease-in-out;
+    -o-transition: background-color var(--transition-time) ease-in-out;
+}
+
+.ui-tabs .ui-tabs-nav li:hover {
+    background-color: var(--accent-color);
+}
+
+.ui-tabs .ui-tabs-nav li.active {
+    background-color: var(--accent-color);
+}
+
+.ui-tabs .ui-tabs-nav li a {
+    color: inherit;
+    overflow: auto;
+        
+    transition: color var(--transition-time) ease-in-out;
+    -webkit-transition: color var(--transition-time) ease-in-out;
+    -moz-transition: color var(--transition-time) ease-in-out;
+    -ms-transition: color var(--transition-time) ease-in-out;
+    -o-transition: color var(--transition-time) ease-in-out;
+}
+
+.ui-tabs .ui-tabs-nav li a:hover { 
+    color: var(--background-color);
+}
+
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+    float: left;
+    text-decoration: none;
+
+    width: 100%;
+    padding: calc(0.5*var(--padding-size)) 0px;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor,
+.ui-tabs .ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor,
+.ui-tabs .ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor {
+    cursor: pointer;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    color: var(--background-color);
+}
+
+.ui-tabs .ui-tabs-panel {
+    display: block;
+    border-width: 0;
+    padding: 0px;
+    background: none;
+    position: absolute;
+}

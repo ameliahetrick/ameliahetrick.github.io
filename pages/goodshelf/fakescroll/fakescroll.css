@@ -1,0 +1,25 @@
+/* FakeScroll (scrollbar) */
+
+.fakeScroll__track {
+    width: var(--padding-size);
+    right: calc(-1*var(--padding-size));
+    bottom: calc(-1*var(--border-size));
+}
+
+.fakeScroll__bar {
+    background: var(--accent-color);
+    border-radius: 0px;
+}
+
+.fakeScroll__bar:hover {
+    background: var(--accent-color);
+    cursor: default;
+}
+.fakeScroll__bar.fakeScroll--grabbed {
+    background: var(--accent-color);
+    cursor: default;
+}
+
+body.fakeScroll--grabbed {
+    cursor: default;
+}
