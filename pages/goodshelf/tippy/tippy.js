@@ -1,5 +1,8 @@
 /* Tippy.js
  */
+
+$(function() {
+
 $('a[title]').has('img').removeAttr('title');
 
 /* tooltip for images with alt text */
@@ -51,7 +54,7 @@ tippy('a[title]', {
  * https://stackoverflow.com/a/33710822
  * https://stackoverflow.com/a/4070010
  */
-$(function() {
+
     var image = document.createElement('img');
     image.crossOrigin = 'Anonymous';
     
