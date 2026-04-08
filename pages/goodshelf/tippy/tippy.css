@@ -1,7 +1,7 @@
 /* Tippy.js */
 
 .tippy-box[data-theme~="tippyImgAlt"] {
-  margin: -0.5px; /* enable if tippyImgAlt maxWidth = --book-width */
+  margin: -0.5px;
   background-color: var(--accent-color);
   color: var(--background-color);
   border: var(--border-style);
