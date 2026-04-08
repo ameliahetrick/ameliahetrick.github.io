@@ -3,38 +3,38 @@
 
 /* root variables */
 :root {
-	--img-default-saturate: saturate(100%);
-	--img-default-contrast: contrast(100%);
-	--img-default-opacity: opacity(100%);
+    --img-default-saturate: saturate(100%);
+    --img-default-contrast: contrast(100%);
+    --img-default-opacity: opacity(100%);
 
-	--img-hover-saturate: saturate(105%);
-	--img-hover-contrast: contrast(105%);
-	--img-hover-opacity: opacity(100%);
+    --img-hover-saturate: saturate(105%);
+    --img-hover-contrast: contrast(105%);
+    --img-hover-opacity: opacity(100%);
 
-	--img-sibling-hover-saturate: saturate(0%);
-	--img-sibling-hover-contrast: contrast(95%);
-	--img-sibling-hover-opacity: opacity(70%);
+    --img-sibling-hover-saturate: saturate(0%);
+    --img-sibling-hover-contrast: contrast(95%);
+    --img-sibling-hover-opacity: opacity(70%);
 }
 
 /* image filters */
 .img_default {
-	filter: var(--img-default-saturate) var(--img-default-contrast) var(--img-default-opacity);
+    filter: var(--img-default-saturate) var(--img-default-contrast) var(--img-default-opacity);
 }
     
 .img_hover {
-	filter: var(--img-hover-saturate) var(--img-hover-contrast) var(--img-hover-opacity);
+    filter: var(--img-hover-saturate) var(--img-hover-contrast) var(--img-hover-opacity);
 }
     
 .img_sibling_hover {
-	filter: var(--img-sibling-hover-saturate) var(--img-sibling-hover-contrast) var(--img-sibling-hover-opacity);
+    filter: var(--img-sibling-hover-saturate) var(--img-sibling-hover-contrast) var(--img-sibling-hover-opacity);
 }
     
 .img_default,
 .img_hover,
 .img_sibling_hover {
-	transition: filter var(--transition-time) ease-in-out;
-	-webkit-transition: var(--transition-time) ease-in-out;
-	-moz-transition: var(--transition-time) ease-in-out;
-	-ms-transition: var(--transition-time) ease-in-out;
-	-o-transition: var(--transition-time) ease-in-out;
+    transition: filter var(--transition-time) ease-in-out;
+    -webkit-transition: var(--transition-time) ease-in-out;
+    -moz-transition: var(--transition-time) ease-in-out;
+    -ms-transition: var(--transition-time) ease-in-out;
+    -o-transition: var(--transition-time) ease-in-out;
 }
