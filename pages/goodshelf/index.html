@@ -59,18 +59,14 @@
   
 <style type="text/css">
 
-  /* root variables */
   :root {
     --background-boxes-color: #fff;
     
-    /* og height: 160px */
-    --book-height: 150px;
-    /* og width: 100px, match to Tippy custom theme tippyImgAlt maxWidth in script */
-    --book-width: 94px;
+    --book-height: 150px; /* og height: 160px */
+    --book-width: 94px; /* og width: 100px */
     
     --sidebar-width: 250px;
-    --ui-tab-pad: 25px;
-    
+    --tab-height: 25px;
     --padding-size: 10px;
     
     --container-height: calc((3*var(--book-height)) + (4*var(--padding-size)) + (6*var(--border-size)));
@@ -81,7 +77,7 @@
     /* position */
     position: absolute;
     margin: auto;
-    top: calc(var(--ui-tab-pad) + var(--padding-size));
+    top: calc(var(--tab-height) + var(--padding-size));
     right: 0;
     bottom: 0;
     left: 0;
@@ -301,7 +297,7 @@
     /* set first tab as active */
     $('li').first().addClass('active');
     
-    /* get background and accent colors*/
+    /* get background and accent colors */
     var computedStyle = getComputedStyle(document.documentElement);
     var inactiveBG = computedStyle.getPropertyValue('--background-color');
     var activeBG = computedStyle.getPropertyValue('--accent-color');

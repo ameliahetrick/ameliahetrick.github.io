@@ -6,7 +6,7 @@
 }
 
 .ui-tabs .ui-tabs-nav {
-    margin-top: calc(-1 * (var(--ui-tab-pad)) - 2*var(--padding-size) - 3*var(--border-size));
+    margin-top: calc(-1 * (var(--tab-height)) - 2*var(--padding-size) - 3*var(--border-size));
     background-color: var(--background-color);
         
     padding: var(--padding-size) var(--padding-size) var(--padding-size) 0px;
@@ -20,7 +20,7 @@
     margin: 0px 0px 0px var(--padding-size);
     background-color: var(--background-boxes-color);
     color: var(--accent-color);
-    height: var(--ui-tab-pad);
+    height: var(--tab-height);
     width: var(--book-width);
     border: var(--border-style);
     border-radius: 0px;
