@@ -1,26 +1,25 @@
-/* Goodreads
- * Grid Widget */
+/* Goodreads: Grid Widget */
 
 /* outer container */
 .gr_grid_container {
-    margin-top: calc(-1 * var(--padding-size));
-    margin-left: calc(0.5 * var(--padding-size));
-    margin-right: calc(0.5 * var(--padding-size));
-    width: calc((4*var(--book-width)) + 4*var(--padding-size) + 8*var(--border-size));
+  margin-top: calc(-1 * var(--padding-size));
+  margin-left: calc(0.5 * var(--padding-size));
+  margin-right: calc(0.5 * var(--padding-size));
+  width: calc((4*var(--book-width)) + 4*var(--padding-size) + 8*var(--border-size));
 }
 
 /* inner book containers */
 .gr_grid_book_container {
-    float: left;
-    width: var(--book-width);
-    height: var(--book-height);
-    padding: var(--padding-size) calc(var(--padding-size) + 2*var(--border-size)) calc(2*var(--border-size)) 0px;
-    overflow: hidden;
+  float: left;
+  width: var(--book-width);
+  height: var(--book-height);
+  padding: var(--padding-size) calc(var(--padding-size) + 2*var(--border-size)) calc(2*var(--border-size)) 0px;
+  overflow: hidden;
 }
 
 /* inner book images */
 .gr_grid_book_container img {
-    width: 100%; 
-    height: 100%;
-    border: var(--border-style);
+  width: 100%; 
+  height: 100%;
+  border: var(--border-style);
 }

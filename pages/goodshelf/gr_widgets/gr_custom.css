@@ -1,71 +1,70 @@
-/* Goodreads
- * Custom Widget */
+/* Goodreads: Custom Widget */
 
 /* outer container */
 [class^="gr_custom_container_"] {
-    margin-top: calc(0.5 * var(--padding-size));
-    margin-left: calc(0.5 * var(--padding-size));
-    margin-right: calc(-1 * var(--padding-size));
+  margin-top: calc(0.5 * var(--padding-size));
+  margin-left: calc(0.5 * var(--padding-size));
+  margin-right: calc(-1 * var(--padding-size));
 }
 
 /* header */
 [class^="gr_custom_header_"] {
-    display: none;
+  display: none;
 }
 
 /* inner containers */
 [class^="gr_custom_each_container_"] {
-    float: left;
-    margin-top: calc(0.5*var(--padding-size));
-    margin-right: var(--padding-size);
-    padding-right: var(--padding-size);
-    padding-bottom: calc(0.5*var(--padding-size) + var(--border-size));
-    width: calc(2*var(--book-width) + 3*var(--border-size));
-    height: var(--book-height);
-    border-right: var(--border-style);
-    border-bottom: var(--border-style);
-    overflow: hidden;
+  float: left;
+  margin-top: calc(0.5*var(--padding-size));
+  margin-right: var(--padding-size);
+  padding-right: var(--padding-size);
+  padding-bottom: calc(0.5*var(--padding-size) + var(--border-size));
+  width: calc(2*var(--book-width) + 3*var(--border-size));
+  height: var(--book-height);
+  border-right: var(--border-style);
+  border-bottom: var(--border-style);
+  overflow: hidden;
 }
 
 /* inner book containers */
 [class^="gr_custom_book_container_"] {
-    float: left;
-    height: calc(var(--book-height));
-    width: var(--book-width);
-    border: var(--border-style);
+  float: left;
+  height: calc(var(--book-height));
+  width: var(--book-width);
+  border: var(--border-style);
 }
 
 /* inner book images */
 [class^="gr_custom_book_container_"] img {
-    width: 100%; 
-    height: 100%;
+  width: 100%; 
+  height: 100%;
 }
 
 /* title, author, review */
 [class^="gr_custom_title_"],
 [class^="gr_custom_author_"],
 [class^="gr_custom_review_"] {
-    margin-left: calc((var(--book-width)) + var(--padding-size) + 2*var(--border-size));
-    overflow-wrap: break-word;
-    font-size: 10px;
+  margin-left: calc((var(--book-width)) + var(--padding-size) + 2*var(--border-size));
+  overflow-wrap: break-word;
+  font-size: 10px;
 }
 [class^="gr_custom_title_"] a,
 [class^="gr_custom_author_"] a {
-    color: var(--link-color);
+  color: var(--link-color);
 }
 [class^="gr_custom_title_"] a:hover,
 [class^="gr_custom_author_"] a:hover {
-    color: var(--link-hover-color);
+  color: var(--link-hover-color);
 }
 [class^="gr_custom_author_"],
 [class^="gr_custom_review_"] {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 [class^="gr_custom_review_"] {
-    display: none;
+  display: none;
 }
 
 /* logo at bottom */
 [class^="gr_custom_container_"] a[href="https://www.goodreads.com/"] {
-    display: none;
+  display: none;
 }
