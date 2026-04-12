@@ -36,6 +36,7 @@
 /* progress bar fill */
 [id^="gr_challenge_progress_body_"] div[style*="#D7D2C4"] {
   background-color: var(--accent-color) !important;
+  height: var(--padding-size);
 }
 
 /* "[x] of [y] ([z]%)" text */
