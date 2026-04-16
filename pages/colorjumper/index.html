@@ -144,22 +144,35 @@
   #resultContainer {
     float: left;
     background: #ddd;
-    height: calc(var(--colorjoe-height) + 45px);
+    //height: calc(var(--colorjoe-height) + 45px);
     width: calc(var(--twod-height) + 3*var(--padding-size));
   }
   
   #resultInnerContainer {
     margin: var(--padding-size);
     background: white;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1.5;
     width: calc(var(--twod-height) + 2*var(--padding-size));
+    height: calc(1.5*var(--twod-height) + 3*var(--padding-size));
   }
   
   #resultBlock {
     width: var(--twod-height);
     height: var(--twod-height);
     position: absolute;
+  }
+  
+  #resultText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: var(--padding-size);
+    margin-top: calc(2*var(--padding-size));
+    height: calc(0.5*var(--twod-height));
+    width: var(--twod-height);
+    border: var(--border-style);
   }
   
   #boundsAlert {
@@ -173,6 +186,10 @@
     text-align: center;
     background: black;
     color: white;
+  }
+  
+  #boundsAlert:hover {
+    cursor: default;
   }
   
 /* start overriding ColorJoe properties */
@@ -408,12 +425,10 @@
 
 #initialPickerRGB, #midpointPickerRGB {
 	display: block;
-    display: none;
 }
 
 #initialPickerHSL, #midpointPickerHSL {
 	display: none;
-    display: block;
 }
 
 
@@ -585,9 +600,7 @@ input[type=text], select {
 					<div id="boundsAlert">!</div>
 				</div>
 			</div>
-            <br>
-			<p id="resultText" style="margin-left:8px;"></p>
-            <br>
+			<p id="resultText"></p>
 
 		</div>
 	</div>
@@ -880,9 +893,6 @@ input[type=text], select {
 	}
     
 	});
-    
-    
-    
     
     
     
