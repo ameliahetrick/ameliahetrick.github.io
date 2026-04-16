@@ -178,19 +178,18 @@
   #boundsAlert {
     display: flex;
     justify-content: center;
-    align-items: right;
+    align-items: center;
     
-    height: 20px;
-    //width: 20px;
+    height: calc(2.5*var(--padding-size));
     width: 90px;
-    //border-radius: 50%;
     position: absolute;
-    top: -10px;
-    right: -10px;
-    border: 1px solid white;
-    text-align: center;
+    top: calc(-1*var(--padding-size));
+    right: calc(-1*var(--padding-size));
+    //border: 1px solid white;
     background: var(--accent-color);
     color: white;
+    
+    //box-shadow: inset 1px 1px black, inset -1px -1px black;
   }
   
   #boundsAlert:hover {
@@ -794,19 +793,19 @@ input[type=text], select {
 		}*/
         
         if (!inBounds.r && !inBounds.g && !inBounds.b) {
-            setTooltip("red, green, blue", "#808080");
+            setTooltip("red<br>green<br>blue", "#808080");
         }
         else if (!inBounds.r && !inBounds.g) {
-            setTooltip("red, green", "#808000");
+            setTooltip("red<br>green", "#808000");
         }
         else if (!inBounds.r && !inBounds.b) {
-            setTooltip("red, blue", "#803380");
+            setTooltip("red<br>blue", "#803380");
         }
         else if (!inBounds.r) {
             setTooltip("red", "#FF3300");
         }
         else if (!inBounds.g && !inBounds.b) {
-            setTooltip("green, blue", "#008080");
+            setTooltip("green<br>blue", "#008080");
         }
         else if (!inBounds.g) {
             setTooltip("green", "#00CC00");
@@ -929,7 +928,7 @@ function setTooltip(text, bgColor) {
     tippyInstances.forEach(instance => instance.destroy());
     //tippyInstances = [];
     
-    $("#boundsAlert").css("display", "block");
+    $("#boundsAlert").css("display", "flex");
     //$("#boundsAlert").css("background", bgColor);
     
     const tip = document.getElementById('boundsAlert');
@@ -945,7 +944,7 @@ function setTooltip(text, bgColor) {
         duration: 500,
         //interactive: true,
         allowHTML: true,
-        placement: 'bottom',
+        placement: 'right-start',
     });
       
     tippyInstances.push(temp);
