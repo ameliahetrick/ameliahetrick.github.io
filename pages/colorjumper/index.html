@@ -176,15 +176,20 @@
   }
   
   #boundsAlert {
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    
     height: 20px;
-    width: 20px;
-    border-radius: 50%;
+    //width: 20px;
+    width: 90px;
+    //border-radius: 50%;
     position: absolute;
     top: -10px;
     right: -10px;
     border: 1px solid white;
     text-align: center;
-    background: black;
+    background: var(--accent-color);
     color: white;
   }
   
@@ -597,7 +602,7 @@ input[type=text], select {
 		<div id="resultInnerContainer">
 			<div id="checkeredBGresult" class="checkeredBG">
 				<div id="resultBlock">
-					<div id="boundsAlert">!</div>
+					<div id="boundsAlert">out of bounds</div>
 				</div>
 			</div>
 			<p id="resultText"></p>
@@ -789,25 +794,25 @@ input[type=text], select {
 		}*/
         
         if (!inBounds.r && !inBounds.g && !inBounds.b) {
-            setTooltip("- Red<br>- Green<br>- Blue", "#808080");
+            setTooltip("red, green, blue", "#808080");
         }
         else if (!inBounds.r && !inBounds.g) {
-            setTooltip("- Red<br>- Green", "#808000");
+            setTooltip("red, green", "#808000");
         }
         else if (!inBounds.r && !inBounds.b) {
-            setTooltip("- Red<br>- Blue", "#803380");
+            setTooltip("red, blue", "#803380");
         }
         else if (!inBounds.r) {
-            setTooltip("- Red", "#FF3300");
+            setTooltip("red", "#FF3300");
         }
         else if (!inBounds.g && !inBounds.b) {
-            setTooltip("- Green<br>- Blue", "#008080");
+            setTooltip("green, blue", "#008080");
         }
         else if (!inBounds.g) {
-            setTooltip("- Green", "#00CC00");
+            setTooltip("green", "#00CC00");
         }
         else if (!inBounds.b) {
-            setTooltip("- Blue", "#0033FF");
+            setTooltip("blue", "#0033FF");
         }
 	}
     
@@ -922,13 +927,13 @@ let tippyInstances = [];
 function setTooltip(text, bgColor) {
 
     tippyInstances.forEach(instance => instance.destroy());
-    tippyInstances = [];
+    //tippyInstances = [];
     
     $("#boundsAlert").css("display", "block");
-    $("#boundsAlert").css("background", bgColor);
+    //$("#boundsAlert").css("background", bgColor);
     
     const tip = document.getElementById('boundsAlert');
-    tip.dataset.tippyContent = "Out of Bounds<br>" + text;
+    tip.dataset.tippyContent = text;
     
     temp = tippy(tip, {
         content: tip.dataset.tippyContent,
@@ -938,19 +943,33 @@ function setTooltip(text, bgColor) {
         maxWidth: 165,
         animation: 'shift-away',
         duration: 500,
-        interactive: true,
+        //interactive: true,
         allowHTML: true,
-      });
+        placement: 'bottom',
+    });
       
-      tippyInstances.push(temp);
+    tippyInstances.push(temp);
+    
+    /*$('#boundsAlert').on('mouseenter', function() {
+      var rgbRaw = hexToRgb(bgColor);
+      var rgb = 'rgb(' + rgbRaw.r + ',' + rgbRaw.g + ',' + rgbRaw.b + ')';
+      $('.tippy-box[data-theme~="tippyLinkTitle"]').css('backgroundColor', rgb);
+    });;*/
+    
+    //document.getElementById("boundsAlert").innerHTML = "out of bounds<br>" + text;
       
-      /*$('.tippy-box[data-theme~="tippyLinkTitle"]').css('backgroundColor', bgColor);
-      $('.tippy-box[data-theme~="tippyLinkTitle"] .tippy-svg-arrow').css('fill', bgColor);*/
       
-      /*$('.tippy-box[data-theme~="tippyLinkTitle"]').each(function() {
-        $(this).css('color', isDark(rgbRaw.r, rgbRaw.g, rgbRaw.b) ? 'black' : 'white');
-      });*/
   }
+
+function hexToRgb(hex) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+}
+
 
 </script>
 
