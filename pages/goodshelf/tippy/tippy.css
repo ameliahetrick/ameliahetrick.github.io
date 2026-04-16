@@ -1,5 +1,9 @@
 /* Tippy.js */
 
+.tippy-box[data-theme~="tippyLinkTitle"] {
+  margin: -0.5px;
+}
+
 .tippy-box[data-theme~="tippyImgAlt"] {
   margin: -0.5px;
   background-color: var(--accent-color);
