@@ -180,16 +180,13 @@
     justify-content: center;
     align-items: center;
     
-    height: calc(2.5*var(--padding-size));
+    height: 29px;
     width: 90px;
     position: absolute;
     top: calc(-1*var(--padding-size));
     right: calc(-1*var(--padding-size));
-    //border: 1px solid white;
     background: var(--accent-color);
     color: white;
-    
-    //box-shadow: inset 1px 1px black, inset -1px -1px black;
   }
   
   #boundsAlert:hover {
@@ -545,6 +542,10 @@ input[type=text], select {
 #button-10 .colorSpaceCheckbox:checked ~ .layer {
   background-color: #c0e0ff; //light blue bg
 }
+
+  .tippy-box[data-theme~="tippyLinkTitle"] {
+      margin: 0px;
+  }
     
 
 </style>
