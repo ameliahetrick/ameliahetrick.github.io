@@ -766,30 +766,49 @@ input[type=text], select {
     
 		$("#boundsAlert").css("display", "none");
         
-		if (!inBounds.r) {
-			$("#boundsAlert").css("display", "block");
-            $("#boundsAlert").css("background", "#FF3300");
+		/*if (!inBounds.r) {
+			setTooltip("- Red", "#FF3300");
             if (!inBounds.g) {
-            	$("#boundsAlert").css("background", "#808000");
+            	setTooltip("- Red<br>- Green", "#808000");
                 if (!inBounds.b) {
-                	$("#boundsAlert").css("background", "#808080");
+                	setTooltip("- Red<br>- Green<br>- Blue", "#808080");
 				}
 			}
 			else if (!inBounds.b) {
-				$("#boundsAlert").css("background", "#803380");
+				setTooltip("- Red<br>- Blue", "#803380");
 			}
 		}
 		else if (!inBounds.g) {
-			$("#boundsAlert").css("display", "block");
-			$("#boundsAlert").css("background", "#00CC00");
+			setTooltip("- Green", "#00CC00");
 			if (!inBounds.b) {
-				$("#boundsAlert").css("background", "#008080");
+				setTooltip("- Green<br>- Blue", "#008080");
 			}
 		}
 		else if (!inBounds.b) {
-			$("#boundsAlert").css("display", "block");
-			$("#boundsAlert").css("background", "#0033FF");
-		}
+			setTooltip("- Blue", "#0033FF");
+		}*/
+        
+        if (!inBounds.r && !inBounds.g && !inBounds.b) {
+            setTooltip("- Red<br>- Green<br>- Blue", "#808080");
+        }
+        else if (!inBounds.r && !inBounds.g) {
+            setTooltip("- Red<br>- Green", "#808000");
+        }
+        else if (!inBounds.r && !inBounds.b) {
+            setTooltip("- Red<br>- Blue", "#803380");
+        }
+        else if (!inBounds.r) {
+            setTooltip("- Red", "#FF3300");
+        }
+        else if (!inBounds.g && !inBounds.b) {
+            setTooltip("- Green<br>- Blue", "#008080");
+        }
+        else if (!inBounds.g) {
+            setTooltip("- Green", "#00CC00");
+        }
+        else if (!inBounds.b) {
+            setTooltip("- Blue", "#0033FF");
+        }
 	}
     
 	/* calculate()
@@ -897,6 +916,42 @@ input[type=text], select {
     
     
     
+
+let tippyInstances = [];
+
+function setTooltip(text, bgColor) {
+
+    tippyInstances.forEach(instance => instance.destroy());
+    tippyInstances = [];
+    
+    $("#boundsAlert").css("display", "block");
+    $("#boundsAlert").css("background", bgColor);
+    
+    const tip = document.getElementById('boundsAlert');
+    tip.dataset.tippyContent = "Out of Bounds<br>" + text;
+    
+    temp = tippy(tip, {
+        content: tip.dataset.tippyContent,
+        theme: 'tippyLinkTitle',
+        arrow: tippy.roundArrow,
+        zIndex: 999,
+        maxWidth: 165,
+        animation: 'shift-away',
+        duration: 500,
+        interactive: true,
+        allowHTML: true,
+      });
+      
+      tippyInstances.push(temp);
+      
+      /*$('.tippy-box[data-theme~="tippyLinkTitle"]').css('backgroundColor', bgColor);
+      $('.tippy-box[data-theme~="tippyLinkTitle"] .tippy-svg-arrow').css('fill', bgColor);*/
+      
+      /*$('.tippy-box[data-theme~="tippyLinkTitle"]').each(function() {
+        $(this).css('color', isDark(rgbRaw.r, rgbRaw.g, rgbRaw.b) ? 'black' : 'white');
+      });*/
+  }
+
 </script>
 
 </body>
