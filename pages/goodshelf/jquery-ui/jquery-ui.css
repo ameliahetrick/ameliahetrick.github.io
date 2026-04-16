@@ -11,9 +11,7 @@
   
   padding: var(--padding-size) var(--padding-size) var(--padding-size) 0px;
   
-  border: none;
-  //border-bottom: var(--border-style);
-  //border-radius: 0px;
+  border-bottom: var(--border-style);
 }
 
 .ui-tabs .ui-tabs-nav li {
