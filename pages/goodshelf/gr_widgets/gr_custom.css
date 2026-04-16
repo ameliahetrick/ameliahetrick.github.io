@@ -4,7 +4,7 @@
 [class^="gr_custom_container_"] {
   margin-top: calc(0.5 * var(--padding-size));
   margin-left: calc(0.5 * var(--padding-size));
-  margin-right: calc(-1 * var(--padding-size));
+  margin-right: calc(-0.5 * var(--padding-size));
 }
 
 /* header */
