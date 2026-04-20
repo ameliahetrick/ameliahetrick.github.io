@@ -11,6 +11,7 @@ $(function() {
     maxWidth: 165,
     animation: 'shift-away',
     duration: 500,
+    offset: [0,10],
     
     content(reference) {
       const title = reference.getAttribute('title');

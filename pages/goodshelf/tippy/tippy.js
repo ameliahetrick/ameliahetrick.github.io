@@ -16,6 +16,7 @@ $(function() {
     maxWidth: max,
     animation: 'shift-away',
     duration: [500,500],
+    offset: [0,10],
     
     content(reference) {
       const title = reference.getAttribute('alt');
