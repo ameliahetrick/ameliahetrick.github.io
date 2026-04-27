@@ -1,0 +1,62 @@
+/* colorjoe RGB color picker*/
+
+.colorPicker .twod {
+  margin-top: calc(var(--twod-height) + 2*var(--padding-size));
+  margin-left: var(--padding-size);
+}
+.colorPicker .twod, .colorPicker .twod .bg {
+  width: var(--twod-height);
+  height: var(--twod-height);
+}
+
+.colorPicker .oned {
+  position: relative;
+  top: calc(-6px - var(--oned-height));
+  margin-left: var(--padding-size);
+}
+.colorPicker .oned, .colorPicker .oned .bg {
+  height: var(--oned-height);
+  width: var(--twod-height);
+  border: none;
+}
+.colorPicker .oned .bg {
+  background: -moz-linear-gradient(left, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 66%, #ff00ff 83%, #ff0000 100%);
+  background: -webkit-gradient(linear, left, right, color-stop(0%,#ff0000), color-stop(17%,#ffff00), color-stop(33%,#00ff00), color-stop(50%,#00ffff), color-stop(66%,#0000ff), color-stop(83%,#ff00ff), color-stop(100%,#ff0000));
+  background: -webkit-linear-gradient(left, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 66%, #ff00ff 83%, #ff0000 100%);
+  background: -o-linear-gradient(left, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 66%, #ff00ff 83%, #ff0000 100%);
+  background: linear-gradient(to right, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 66%, #ff00ff 83%, #ff0000 100%);
+}
+.colorPicker .oned .pointer .shape {
+  position: relative;
+  top: calc(var(--oned-height) + 2px);
+  margin-left: -4.5px;
+  height: var(--oned-height);
+  width: 5px;
+  //-moz-border-radius: 5px;
+  //border-radius: 5px;
+}
+
+.colorPicker .oned.alpha, .colorPicker .oned.alpha .bg {
+  //height: var(--oned-height);
+  //width: var(--twod-height);
+  
+  position: relative;
+  top: calc(var(--twod-height) + var(--padding-size));
+  margin-left: 0px;
+}
+.colorPicker .oned.alpha .bg {
+  background: -moz-linear-gradient(right, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%);
+  background: -webkit-gradient(linear, right, left, color-stop(0%,rgba(0,0,0,1)), color-stop(100%,rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(right, rgba(0,0,0,1) 0%,rgba(255,255,255,1) 100%);
+  background: -o-linear-gradient(right, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%);
+}
+.colorPicker .oned.alpha .pointer .shape {
+  //position: relative;
+  top: calc(var(--twod-height) + var(--padding-size) + var(--oned-height) + 2px);
+  //margin-left: -4.5px;
+  //height: var(--oned-height);
+  //width: 5px;
+  //-moz-border-radius: 5px;
+  //border-radius: 5px;
+}

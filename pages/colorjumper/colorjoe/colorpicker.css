@@ -1,0 +1,79 @@
+/* colorjoe */
+
+.colorPicker {
+    //position: relative;
+    height: var(--colorjoe-height);
+    width: calc(var(--twod-height) + 2*var(--padding-size));
+    margin: var(--padding-size);
+    
+    background: #fff;
+    border: 0px;
+    border-radius: 0;
+    -moz-border-radius: 0;
+}
+
+.colorPicker .extras {
+    position: absolute;
+    margin: var(--padding-size);
+}
+
+.colorPicker .extras .currentColor {
+    width: var(--twod-height);
+    height: var(--twod-height);
+    border: 0px;
+    -moz-border-radius: 0;
+    border-radius: 0;
+
+    position: absolute;
+    top: 0;
+}
+
+.colorPicker .extras .color {
+    //float: left;
+    height: var(--fields-height);
+    font-size: 14px;
+    line-height: 125%;
+    text-align: center;
+}
+
+.colorPicker .extras .colorFields {
+    position: absolute;
+    top: calc(2*var(--twod-height) + 2*var(--oned-height) + 3*var(--padding-size));
+    width: var(--twod-height);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: "Consolas", monospace;
+    text-transform: uppercase;
+}
+
+.colorPicker .extras .colorFields input {
+    width: calc(0.1945*var(--twod-height));
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.colorPicker .extras .hex {
+    position: absolute;
+    top: calc(2*var(--twod-height) + 2*var(--oned-height) + var(--fields-height) + 5*var(--padding-size));
+    left: calc(0.1*var(--twod-height));
+    height: var(--hex-height);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.colorPicker .extras .hex input {
+    width: calc(0.8*var(--twod-height));
+    //text-align: center;
+}
+
+#initialPickerRGB, #midpointPickerRGB {
+	display: block;
+}
+#initialPickerHSL, #midpointPickerHSL {
+	display: none;
+}
