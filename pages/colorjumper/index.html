@@ -39,7 +39,7 @@
   <!-- -->
   
   <!-- project files (hardcoded for testing) -->
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/style.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/tippy.css"/>
   <script src="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/tippy.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages//colorjumper/colorjoe/colorpicker.css"/>
@@ -52,7 +52,7 @@
 <style type="text/css">
 
   :root {
-    --title-height: 24px;
+    --title-height: 21px;
     --twod-height: 160px;
     --oned-height: 20px;
     --fields-height: 41px;
@@ -61,6 +61,7 @@
     --colorjoe-height: calc(var(--title-height) + 2*var(--twod-height) + 2*var(--oned-height) + var(--fields-height) + var(--hex-height) + 5*var(--padding-size) - 4px);
     --sidebar-width: 250px;
     --font-size: 16px;
+    --highlight-color: #dedad9;
   }
   
   body {
@@ -71,22 +72,28 @@
     justify-content: center;
   }
   
-  h1 {
-    font-size: 16px;
-    margin-top: 20px;
-  }
-  
   #sidebar {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
-    float: left;
-    background: #ddd;
-    height: 100%;
     width: var(--sidebar-width);
-    float: left;
+    height: 100%;
+    background: var(--highlight-color);
     border-right: var(--border-style);
+  }
+  
+  #sidebar .title {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  #sidebar .info {
+    margin-top: 10px;
+  }
+  
+  #sidebar .links {
+    margin-top: 20px;
   }
   
   #main {
@@ -101,15 +108,13 @@
     width: calc(3*var(--twod-height) + 10*var(--padding-size));
     border: var(--border-style);
     
-    background: #ddd;
+    background: var(--highlight-color);
   }
   
   #titles {
     position: relative;
     margin-left: var(--padding-size);
     text-transform: uppercase;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
     font-weight: bold;
     letter-spacing: 1px;
     border-bottom: var(--border-style);
@@ -118,7 +123,7 @@
   
   #pickerContainer {
     float: left;
-    background: #ddd;
+    background: var(--highlight-color);
     width: calc(var(--twod-height) + 3*var(--padding-size));
   }
   
@@ -149,7 +154,7 @@
   
   #resultContainer {
     float: left;
-    background: #ddd;
+    background: var(--highlight-color);
     //height: calc(var(--colorjoe-height) + 45px);
     width: calc(var(--twod-height) + 3*var(--padding-size));
   }
@@ -203,9 +208,8 @@
 
 input[type=text], select {
   border: var(--border-style);
-  background: #eee;
+  background: #e7e4e4;
   font-family: roboto, sans-serif;
-  //line-height: 125%;
   letter-spacing: 1px;
   text-align: center;
   height: 20px;
@@ -317,13 +321,16 @@ input[type=text], select {
 <body>
 
     <div id="sidebar">
-    <!-- Page title -->
-	<center>
-    <h1>colorJumper</h1>
-    Inspired by color mixers
-    <br><br>
-    <a href="https://ameliahetrick.github.io/">GITHUB</a>
-    </center>
+    <div class="title">
+		colorJumper
+    </div>
+    <div class="info">
+		Inspired by color mixers
+    </div>
+    <div class="links">
+    	<a href="/pages/colorjumper">REFRESH</a>&nbsp;&nbsp;
+    	<a href="https://ameliahetrick.github.io/">GITHUB</a>
+    </div>
     <br><br>
     
     <!-- Toggle between RGB and HSL color spaces -->
@@ -707,7 +714,6 @@ function setTooltip(text, bgColor) {
         animation: 'shift-away',
         duration: 500,
         offset: [0,10],
-        //interactive: true,
         allowHTML: true,
         placement: 'right-start',
     });
