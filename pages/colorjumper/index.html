@@ -39,7 +39,7 @@
   <!-- -->
   
   <!-- project files (hardcoded for testing) -->
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/style.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/tippy.css"/>
   <script src="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/tippy.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@36938ff7a444066bbd2a9e5b35426a5647eadaf5/pages/colorjumper/colorjoe/colorpicker.css"/>
@@ -191,13 +191,14 @@
     justify-content: center;
     align-items: center;
     
-    height: 29px;
+    height: 27px;
     width: 95px;
     position: absolute;
     top: calc(-1*var(--padding-size));
     right: calc(-1*var(--padding-size));
     background: var(--accent-color);
     color: white;
+    border: var(--border-style);
   }
   
   #boundsAlert:hover {
@@ -533,26 +534,26 @@ $(document).ready(function () {
   function showBoundsAlert() {
     $("#boundsAlert").css("display", "none");
     
-    if (!inBounds.r && !inBounds.g && !inBounds.b) {
-      setTooltip("red<br>green<br>blue", "#808080");
-    }
-    else if (!inBounds.r && !inBounds.g) {
-      setTooltip("red<br>green", "#808000");
-    }
-    else if (!inBounds.r && !inBounds.b) {
-      setTooltip("red<br>blue", "#803380");
-    }
-    else if (!inBounds.r) {
-      setTooltip("red", "#FF3300");
-    }
-    else if (!inBounds.g && !inBounds.b) {
-      setTooltip("green<br>blue", "#008080");
+    if (!inBounds.r) {
+      if (!inBounds.g) {
+        if (!inBounds.b)
+          setTooltip("red<br>green<br>blue", "#404040");
+        else
+          setTooltip("red<br>green", "#404000");
+      }
+      else if (!inBounds.b)
+        setTooltip("red<br>blue", "#400040");
+      else
+        setTooltip("red", "#800000");
     }
     else if (!inBounds.g) {
-      setTooltip("green", "#00CC00");
+      if (!inBounds.b)
+        setTooltip("green<br>blue", "#004040");
+      else
+        setTooltip("green", "#008000");
     }
     else if (!inBounds.b) {
-      setTooltip("blue", "#0033FF");
+      setTooltip("blue", "#000080");
     }
   }
   
@@ -658,13 +659,12 @@ function setTooltip(text, bgColor) {
     //tippyInstances = [];
     
     $("#boundsAlert").css("display", "flex");
-    //$("#boundsAlert").css("background", bgColor);
+    $("#boundsAlert").css("background", bgColor);
     
     const tip = document.getElementById('boundsAlert');
-    tip.dataset.tippyContent = text;
     
     temp = tippy(tip, {
-        content: tip.dataset.tippyContent,
+        content: text,
         theme: 'tippyLinkTitle',
         arrow: tippy.roundArrow,
         zIndex: 999,
@@ -678,25 +678,12 @@ function setTooltip(text, bgColor) {
       
     tippyInstances.push(temp);
     
-    /*$('#boundsAlert').on('mouseenter', function() {
-      var rgbRaw = hexToRgb(bgColor);
-      var rgb = 'rgb(' + rgbRaw.r + ',' + rgbRaw.g + ',' + rgbRaw.b + ')';
-      $('.tippy-box[data-theme~="tippyLinkTitle"]').css('backgroundColor', rgb);
-    });;*/
+    $('#boundsAlert').on('mousemove', function() {
+      $('.tippy-box[data-theme~="tippyLinkTitle"]').css('background', bgColor);
+      $('.tippy-box[data-theme~="tippyLinkTitle"] .tippy-svg-arrow').css('fill', bgColor);
+    });
     
-    //document.getElementById("boundsAlert").innerHTML = "out of bounds<br>" + text;
-      
-      
   }
-
-function hexToRgb(hex) {
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? {
-    r: parseInt(result[1], 16),
-    g: parseInt(result[2], 16),
-    b: parseInt(result[3], 16)
-  } : null;
-}
 
 
 </script>
