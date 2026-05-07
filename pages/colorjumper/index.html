@@ -39,7 +39,7 @@
   <!-- -->
   
   <!-- project files (hardcoded for testing) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/style.css"/>
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/style.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/tippy.css"/>
   <script src="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@latest/pages/tippy.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ameliahetrick/ameliahetrick.github.io@36938ff7a444066bbd2a9e5b35426a5647eadaf5/pages/colorjumper/colorjoe/colorpicker.css"/>
@@ -203,494 +203,452 @@
   #boundsAlert:hover {
     cursor: default;
   }
-
-
-
-input[type=text], select {
-  border: var(--border-style);
-  background: #e7e4e4;
-  font-family: roboto, sans-serif;
-  letter-spacing: 1px;
-  text-align: center;
-  height: 20px;
-}
-
-
-
-
-/* COLOR SPACE CHECKBOX */
-
-.knobs,
-.layer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.button {
-  position: relative;
-  top: -15px;
-  width: 80px;
-  height: 40px;
-  margin: 0 auto 0 auto;
-  overflow: hidden;
-}
-
-.colorSpaceCheckbox {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  opacity: 0;
-  cursor: pointer;
-  z-index: 3;
-}
-
-.knobs {
-  z-index: 2;
-}
-
-.layer {
-  width: 100%;
-  background-color: #ffc0c0; //light red bg
-  transition: 0.3s ease all;
-  z-index: 1;
-}
-
-
-/* Button 10 */
-#button-10 .knobs:before,
-#button-10 .knobs:after,
-#button-10 .knobs span {
-  position: absolute;
-  top: 6px;
-  width: 25px;
-  height: 10px;
-  font-size: 11px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1;
-  color: #fff;
-  padding: 9px 4px;
-  transition: 0.3s ease all;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-#button-10 .knobs:before {
-  content: "";
-  left: 5px;
-  background-color: #ff4949; //red
-}
-
-#button-10 .knobs:after {
-  content: "HSL";
-  right: 4px;
-  color: #4e4e4e;
-}
-
-#button-10 .knobs span {
-  display: inline-block;
-  left: 4px;
-  z-index: 1;
-}
-
-#button-10 .colorSpaceCheckbox:checked + .knobs:before {
-  left: 42px;
-  background-color: #498fff; //blue
-}
-
-#button-10 .colorSpaceCheckbox:checked + .knobs:after {
-  color: #fff;
-}
-
-#button-10 .colorSpaceCheckbox:checked + .knobs span {
-  color: #4e4e4e;
-}
-
-#button-10 .colorSpaceCheckbox:checked ~ .layer {
-  background-color: #c0e0ff; //light blue bg
-}
-    
-
+  
+  
+  input[type=text], select {
+    border: var(--border-style);
+    background: #e7e4e4;
+    font-family: roboto, sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+    height: 20px;
+  }
+  
+  
+  /* COLOR SPACE CHECKBOX */
+  
+  .knobs,
+  .layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .button {
+    position: relative;
+    top: -15px;
+    width: 80px;
+    height: 40px;
+    margin: 0 auto 0 auto;
+    overflow: hidden;
+  }
+  
+  .colorSpaceCheckbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+  }
+  
+  .knobs {
+    z-index: 2;
+  }
+  
+  .layer {
+    width: 100%;
+    background-color: #ffc0c0; //light red bg
+    transition: 0.3s ease all;
+    z-index: 1;
+  }
+  
+  
+  /* Button 10 */
+  
+  #button-10 .knobs:before,
+  #button-10 .knobs:after,
+  #button-10 .knobs span {
+    position: absolute;
+    top: 6px;
+    width: 25px;
+    height: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    color: #fff;
+    padding: 9px 4px;
+    transition: 0.3s ease all;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  #button-10 .knobs:before {
+    content: "";
+    left: 5px;
+    background-color: #ff4949; //red
+  }
+  
+  #button-10 .knobs:after {
+    content: "HSL";
+    right: 4px;
+    color: #4e4e4e;
+  }
+  
+  #button-10 .knobs span {
+    display: inline-block;
+    left: 4px;
+    z-index: 1;
+  }
+  
+  #button-10 .colorSpaceCheckbox:checked + .knobs:before {
+    left: 42px;
+    background-color: #498fff; //blue
+  }
+  
+  #button-10 .colorSpaceCheckbox:checked + .knobs:after {
+    color: #fff;
+  }
+  
+  #button-10 .colorSpaceCheckbox:checked + .knobs span {
+    color: #4e4e4e;
+  }
+  
+  #button-10 .colorSpaceCheckbox:checked ~ .layer {
+    background-color: #c0e0ff; //light blue bg
+  }
+  
 </style>
 </head>
 
 <body>
 
-    <div id="sidebar">
-    <div class="title">
-		colorJumper
+  <div id="sidebar">
+  <div class="title">
+    colorJumper
+  </div>
+  <div class="info">
+    Inspired by color mixers
+  </div>
+  <div class="links">
+    <a href="/pages/colorjumper">REFRESH</a>&nbsp;&nbsp;
+    <a href="https://ameliahetrick.github.io/">GITHUB</a>
+  </div>
+  <br><br>
+  
+  <!-- Toggle between RGB and HSL color spaces -->
+  <div class="button b2" id="button-10">
+    <input type="checkbox" id="check" class="colorSpaceCheckbox"/>
+    <div class="knobs">
+      <span>RGB</span>
     </div>
-    <div class="info">
-		Inspired by color mixers
-    </div>
-    <div class="links">
-    	<a href="/pages/colorjumper">REFRESH</a>&nbsp;&nbsp;
-    	<a href="https://ameliahetrick.github.io/">GITHUB</a>
-    </div>
-    <br><br>
-    
-    <!-- Toggle between RGB and HSL color spaces -->
-    <div class="button b2" id="button-10">
-		<input type="checkbox" id="check" class="colorSpaceCheckbox"/>
-		<div class="knobs">
-			<span>RGB</span>
-		</div>
-		<div class="layer"></div>
-	</div>
-    </div>
-
-<div id="main">
-	<!-- Initial color picker -->
-	<div id="pickerContainer">
-		<div id="titles">Initial</div>
-		<div id="initialPickerRGB">
-			<div id="checkeredBGpickers" class="checkeredBG"></div>
-		</div>
-        <div id="initialPickerHSL">
-			<div id="checkeredBGpickers" class="checkeredBG"></div>
-		</div>
-	</div>
+    <div class="layer"></div>
+  </div>
+  
+  </div> <!-- end <div id="sidebar"> -->
+  
+  <div id="main">
+    <!-- Initial color picker -->
+    <div id="pickerContainer">
+      <div id="titles">Initial</div>
+      <div id="initialPickerRGB">
+        <div id="checkeredBGpickers" class="checkeredBG"></div>
+      </div>
+      <div id="initialPickerHSL">
+        <div id="checkeredBGpickers" class="checkeredBG"></div>
+      </div>
+    </div> <!-- end <div id="pickerContainer"> -->
     
     <!-- Midpoint color picker -->
-	<div id="pickerContainer">
-		<div id="titles">Midpoint</div>
-		<div id="midpointPickerRGB">
-			<div id="checkeredBGpickers" class="checkeredBG"></div>
-		</div>
-        <div id="midpointPickerHSL">
-			<div id="checkeredBGpickers" class="checkeredBG"></div>
-		</div>
-	</div>
+    <div id="pickerContainer">
+      <div id="titles">Midpoint</div>
+      <div id="midpointPickerRGB">
+        <div id="checkeredBGpickers" class="checkeredBG"></div>
+      </div>
+      <div id="midpointPickerHSL">
+        <div id="checkeredBGpickers" class="checkeredBG"></div>
+      </div>
+    </div> <!-- end <div id="pickerContainer"> -->
     
     <!-- Result container -->
-	<div id="resultContainer">
-		<div id="titles">Result</div>
-		<div id="resultInnerContainer">
-			<div id="checkeredBGresult" class="checkeredBG">
-				<div id="resultBlock">
-					<div id="boundsAlert">out of bounds</div>
-				</div>
-			</div>
-			<p id="resultText"></p>
-
-		</div>
-	</div>
-</div>
-
-<a id="credit" href="https://ameliahetrick.github.io/" title="src"></a>
-
+    <div id="resultContainer">
+      <div id="titles">Result</div>
+      <div id="resultInnerContainer">
+        <div id="checkeredBGresult" class="checkeredBG">
+          <div id="resultBlock">
+            <div id="boundsAlert">out of bounds</div>
+          </div>
+        </div>
+        <p id="resultText"></p>
+      </div>
+    </div> <!-- end <div id="resultContainer"> -->
+    
+  </div> <!-- end <div id="main"> -->
+  
+  <a id="credit" href="https://ameliahetrick.github.io/" title="src"></a>
 
 <script type="text/javascript">
-	$(document).ready(function () {
-    
-    
-    /* SET STARTUP VARIABLES */
-    
-    
-    /* initial color visble on page startup */
-	var initial = {
-		r: 255, g:   0, b:   0, a: 1.00
-	}
-    
-    /* midpoint color visble on page startup */
-	var midpoint = {
-		r: 128, g:   0, b: 128, a: 1.00
-	}
-    
-    /* result color placeholder on startup */
-	var result = {
-		r:   0, g:   0, b:   0, a: 1.00
-	}
-    
-    /* whether the fields of the result color are "in bounds" (0-255) */
-	var inBounds = {
-    	r: true, g: true, b: true, a: true
-	}
-    
-    
-    /* SET UP RGB PICKERS */
-    
-    
-    /* initial RGB picker */
-	const initialColorPickerRGB = 
-		colorjoe.rgb("initialPickerRGB", obj_to_RGB(initial), [
-			["fields", { space: "RGBA", limit: 255, fix: 0 }],
-			"currentColor", "alpha", ["hex", {label: ''}]
-	]);
-    
-	initialColorPickerRGB.on("change", function (c) {
-		RGB_to_obj(c.cssa(), initial);
-		calculate();
-	}).update();
-    
-    
-    /* midpoint RGB picker */
-	const midpointColorPickerRGB = 
-		colorjoe.rgb("midpointPickerRGB", obj_to_RGB(midpoint), [
-			["fields", { space: "RGBA", limit: 255, fix: 0 }],
-            "currentColor", "alpha", ["hex", {label: ''}]
-	]);
-    
-	midpointColorPickerRGB.on("change", function (c) {
-		RGB_to_obj(c.cssa(), midpoint);
-		calculate();
-	}).update();
-    
-    
-    /* SET UP HSL PICKERS */
-    
-    
-    /* initial HSL picker */
-    const initialColorPickerHSL = 
-		colorjoe.hsl("initialPickerHSL", obj_to_RGB(initial), [
-			["fields", { space: "HSLA", limit: 255, fix: 0 }],
-			"currentColor", "alpha", ["hex", {label: ''}]
-	]);
-    
-	initialColorPickerHSL.on("change", function (c) {
-		RGB_to_obj(c.cssa(), initial);
-		calculate();
-	}).update();
-    
-    
-    /* midpoint HSL picker */
-    const midpointColorPickerHSL = 
-		colorjoe.hsl("midpointPickerHSL", obj_to_RGB(midpoint), [
-			["fields", { space: "HSLA", limit: 255, fix: 0 }],
-			"currentColor", "alpha", ["hex", {label: ''}]
-	]);
-    
-	midpointColorPickerHSL.on("change", function (c) {
-		RGB_to_obj(c.cssa(), midpoint);
-		calculate();
-	}).update();
-    
-    
-    /* TOGGLE BETWEEN RGB AND HSL COLOR SPACES */
-    
-    
-    const colorSpaceCheckbox = document.getElementById('check');
-    
-    colorSpaceCheckbox.addEventListener('change', (event) => {
-    	$("#initialPickerRGB").toggle();
-    	$("#initialPickerHSL").toggle();
-    	$("#midpointPickerRGB").toggle();
-    	$("#midpointPickerHSL").toggle();
-    
-        if (event.currentTarget.checked) {
-            initialColorPickerHSL.set(initialColorPickerRGB.get());
-            midpointColorPickerHSL.set(midpointColorPickerRGB.get());
-        }
-        else {
-            initialColorPickerRGB.set(initialColorPickerHSL.get());
-            midpointColorPickerRGB.set(midpointColorPickerHSL.get());
-        }
-    })
-    
-    
-	/* colorJumper functions */
-    
-    
-	/* RGB_to_obj(rgb, color)
-	 *
-     * params:
-     * rgb: a String
-     * color: the object with RGB fields to be updated
-     *
-     * converts String "rgb(z,y,z)" to
-     * object properties {r: x, g: y, b: z}
-     */
-	function RGB_to_obj(rgb, color) {
-		var splitString = rgb.split(",");
-        color.r = parseInt(splitString[0].slice(5));
-        color.g = parseInt(splitString[1]);
-        color.b = parseInt(splitString[2]);
-        color.a = parseFloat(splitString[3].slice(0, -1));
-	}
-    
-	function obj_to_RGB(color) {
-    	return "rgba("+color.r+", "
-        			  +color.g+", "
-                      +color.b+", "
-                      +color.a+")";
-	}
-    
-	function obj_to_hex(color) {
-		return "#"+("0"+(Number(color.r).toString(16))).slice(-2)
-				  +("0"+(Number(color.g).toString(16))).slice(-2)
-                  +("0"+(Number(color.b).toString(16))).slice(-2)
-                  +("0"+(Number(alpha_0_to_255(color.a)).toString(16))).slice(-2);
-	}
-    
-	function alpha_0_to_1(a) {
-		return Math.round(a / 255.0);
-	}
-    
-	function alpha_0_to_255(a) {
-		return Math.round(a * 255.0);
-	}
-    
-    
-    
-    
-	function showBoundsAlert() {
-    
-		$("#boundsAlert").css("display", "none");
-        
-		/*if (!inBounds.r) {
-			setTooltip("- Red", "#FF3300");
-            if (!inBounds.g) {
-            	setTooltip("- Red<br>- Green", "#808000");
-                if (!inBounds.b) {
-                	setTooltip("- Red<br>- Green<br>- Blue", "#808080");
-				}
-			}
-			else if (!inBounds.b) {
-				setTooltip("- Red<br>- Blue", "#803380");
-			}
-		}
-		else if (!inBounds.g) {
-			setTooltip("- Green", "#00CC00");
-			if (!inBounds.b) {
-				setTooltip("- Green<br>- Blue", "#008080");
-			}
-		}
-		else if (!inBounds.b) {
-			setTooltip("- Blue", "#0033FF");
-		}*/
-        
-        if (!inBounds.r && !inBounds.g && !inBounds.b) {
-            setTooltip("red<br>green<br>blue", "#808080");
-        }
-        else if (!inBounds.r && !inBounds.g) {
-            setTooltip("red<br>green", "#808000");
-        }
-        else if (!inBounds.r && !inBounds.b) {
-            setTooltip("red<br>blue", "#803380");
-        }
-        else if (!inBounds.r) {
-            setTooltip("red", "#FF3300");
-        }
-        else if (!inBounds.g && !inBounds.b) {
-            setTooltip("green<br>blue", "#008080");
-        }
-        else if (!inBounds.g) {
-            setTooltip("green", "#00CC00");
-        }
-        else if (!inBounds.b) {
-            setTooltip("blue", "#0033FF");
-        }
-	}
-    
-	/* calculate()
-     *
-     * Calculates and displays new result color.
-     */
-	function calculate() {
-    
-    	[result.r, inBounds.r] = calculateRGBA(initial.r, midpoint.r, false);
-        [result.g, inBounds.g] = calculateRGBA(initial.g, midpoint.g, false);
-        [result.b, inBounds.b] = calculateRGBA(initial.b, midpoint.b, false);
-        [result.a, inBounds.a] = calculateRGBA(initial.a, midpoint.a, true);
-        
-		showBoundsAlert();
-        
-        $("#resultBlock").css("background", obj_to_RGB(result));
-		document.getElementById("resultText").innerHTML =
-			obj_to_RGB(result) + "<br>" + 
-            obj_to_hex(result);
-	}
-    
-    
-	/* calculateRGBA(initialRGB, midpointRGB, isAlpha)
-	 *
-     * params:
-     *   initialRGB:  the initial  R, G, B (or A) value
-     *   midpointRGB: the midpoint R, G, B (or A) value
-     *   isAlpha: whether the input is A or not
-     *
-     * Returns [# resultRGB, boolean inBoundsRGB]
-     */
-	function calculateRGBA(initialRGB, midpointRGB, isAlpha) {
-    
-		/* Set the lower and upper bounds for each range.
-         *
-         * Range for R,G,B: [0, 255]
-         * Range for A: [0.0, 1.0]
-         */
-		var lowerBound = 0;
-        var upperBound = 255;
-        if (isAlpha)
-        	upperBound = 1.0;
-        
-        
-		/* Handle edge case where midpoint is gray and
-         * initial is a lower or upper bound.
-         */
-        if (midpointRGB == 128) {
-        	if (initialRGB == lowerBound)
-            	return [upperBound, true];
-			if (initialRGB == upperBound)
-            	return [lowerBound, true];
-		}
-        
+$(document).ready(function () {
+  
+  /* SET STARTUP VARIABLES
+   *
+   * initial, midpoint, result (placeholder),
+   * result "in bounds" (0-255)
+   */
+  var initial = {
+    r: 255,
+    g: 0,
+    b: 0,
+    a: 1.00
+  }
+  var midpoint = {
+    r: 128,
+    g: 0,
+    b: 128,
+    a: 1.00
+  }
+  var result = {
+    r: 0,
+    g: 0,
+    b: 0,
+    a: 1.00
+  }
+  var inBounds = {
+    r: true,
+    g: true,
+    b: true,
+    a: true
+  }
+  
+  
+  /* SET UP RGB PICKERS
+   *
+   * initial RGB, midpoint RGB
+   */
+  const initialColorPickerRGB = 
+    colorjoe.rgb("initialPickerRGB", obj_to_RGB(initial), [
+      ["fields", {space: "RGBA", limit: 255, fix: 0}],
+       "currentColor", "alpha", ["hex", {label: ''}]
+  ]);
+  initialColorPickerRGB.on("change", function (c) {
+    RGB_to_obj(c.cssa(), initial);
+    calculate();
+  }).update();
+  
+  const midpointColorPickerRGB = 
+    colorjoe.rgb("midpointPickerRGB", obj_to_RGB(midpoint), [
+      ["fields", {space: "RGBA", limit: 255, fix: 0}],
+       "currentColor", "alpha", ["hex", {label: ''}]
+  ]);
+  midpointColorPickerRGB.on("change", function (c) {
+    RGB_to_obj(c.cssa(), midpoint);
+    calculate();
+  }).update();
+  
+  
+  /* SET UP HSL PICKERS
+   *
+   * initial HSL, midpoint HSL
+   */
+  const initialColorPickerHSL = 
+    colorjoe.hsl("initialPickerHSL", obj_to_RGB(initial), [
+      ["fields", {space: "HSLA", limit: 255, fix: 0}],
+      "currentColor", "alpha", ["hex", {label: ''}]
+  ]);
+  initialColorPickerHSL.on("change", function (c) {
+    RGB_to_obj(c.cssa(), initial);
+    calculate();
+  }).update();
+  
+  const midpointColorPickerHSL = 
+    colorjoe.hsl("midpointPickerHSL", obj_to_RGB(midpoint), [
+      ["fields", {space: "HSLA", limit: 255, fix: 0}],
+      "currentColor", "alpha", ["hex", {label: ''}]
+  ]);
+  midpointColorPickerHSL.on("change", function (c) {
+    RGB_to_obj(c.cssa(), midpoint);
+    calculate();
+  }).update();
+  
+  
+  /* TOGGLE BETWEEN RGB AND HSL COLOR SPACES */
+  
+  const colorSpaceCheckbox = document.getElementById('check');
 
-		/* Set up result variables.
-         *
-         * If midpoint is equal to initial, then
-         * result is (initial or) midpoint.
-         */
-        var resultRGB = midpointRGB;
-        var inBoundsRGB = true;
-        
-        
-        /* If midpoint is greater than initial, then result is
-         * (midpoint - initial) ADDED to midpoint.
-         */
-        if (initialRGB < midpointRGB) {
-        	resultRGB = midpointRGB + (midpointRGB - initialRGB);
-        }
-        /* If midpoint is less than or equal to initial, then
-         * result is (initial - midpoint) SUBTRACTED from midpoint.
-         */
-        else if (initialRGB > midpointRGB) {
-        	//resultRGB = Math.abs(midpointRGB - (initialRGB - midpointRGB));
-            resultRGB = midpointRGB - (initialRGB - midpointRGB);
-        }
-        
-        
-        /* Handle case where result is out of bounds. Set result
-         * to lowest or highest bound (0 or 255 for RGB; 0.0 or 1.0
-         * for alpha).
-         */
-        if (resultRGB < lowerBound) {
-			resultRGB = lowerBound;
-			inBoundsRGB = false;
-		}
-		else if (resultRGB > upperBound) {
-			resultRGB = upperBound;
-			inBoundsRGB = false;
-		}
-        
-        
-        /* If input value is alpha, set result to 2 decimal places.
-         */
-		if (isAlpha)
-			resultRGB = resultRGB.toFixed(2);
-        
-        
-		return [resultRGB, inBoundsRGB];
-	}
+  colorSpaceCheckbox.addEventListener('change', (event) => {
+    $("#initialPickerRGB").toggle();
+    $("#initialPickerHSL").toggle();
+    $("#midpointPickerRGB").toggle();
+    $("#midpointPickerHSL").toggle();
     
-	});
+    if (event.currentTarget.checked) {
+      initialColorPickerHSL.set(initialColorPickerRGB.get());
+      midpointColorPickerHSL.set(midpointColorPickerRGB.get());
+    }
+    else {
+      initialColorPickerRGB.set(initialColorPickerHSL.get());
+      midpointColorPickerRGB.set(midpointColorPickerHSL.get());
+    }
+  })
+  
+  
+  /* COLORJUMPER FUNCTIONS */
+  
+  /* RGB_to_obj(rgb, color)
+   *
+   * params:
+   * rgb: a String
+   * color: the object with RGB fields to be updated
+   *
+   * converts String "rgb(z,y,z)" to
+   * object properties {r: x, g: y, b: z}
+   */
+  function RGB_to_obj(rgb, color) {
+    var splitString = rgb.split(",");
+    color.r = parseInt(splitString[0].slice(5));
+    color.g = parseInt(splitString[1]);
+    color.b = parseInt(splitString[2]);
+    color.a = parseFloat(splitString[3].slice(0, -1));
+  }
+  
+  function obj_to_RGB(color) {
+    return "rgba(" + color.r + ", "
+                   + color.g + ", "
+                   + color.b + ", "
+                   + color.a + ")";
+  }
+  
+  function obj_to_hex(color) {
+    return "#" + ("0" + (Number(color.r).toString(16))).slice(-2)
+               + ("0" + (Number(color.g).toString(16))).slice(-2)
+               + ("0" + (Number(color.b).toString(16))).slice(-2)
+               + ("0" + (Number(alpha_0_to_255(color.a)).toString(16))).slice(-2);
+  }
+  
+  function alpha_0_to_1(a) {
+    return Math.round(a / 255.0);
+  }
+  
+  function alpha_0_to_255(a) {
+    return Math.round(a * 255.0);
+  }
+  
+  
+  /* Bounds Notification */
+  
+  function showBoundsAlert() {
+    $("#boundsAlert").css("display", "none");
     
+    if (!inBounds.r && !inBounds.g && !inBounds.b) {
+      setTooltip("red<br>green<br>blue", "#808080");
+    }
+    else if (!inBounds.r && !inBounds.g) {
+      setTooltip("red<br>green", "#808000");
+    }
+    else if (!inBounds.r && !inBounds.b) {
+      setTooltip("red<br>blue", "#803380");
+    }
+    else if (!inBounds.r) {
+      setTooltip("red", "#FF3300");
+    }
+    else if (!inBounds.g && !inBounds.b) {
+      setTooltip("green<br>blue", "#008080");
+    }
+    else if (!inBounds.g) {
+      setTooltip("green", "#00CC00");
+    }
+    else if (!inBounds.b) {
+      setTooltip("blue", "#0033FF");
+    }
+  }
+  
+  /* calculate()
+   *
+   * Calculates and displays new result color.
+   */
+  function calculate() {
+    [result.r, inBounds.r] = calculateRGBA(initial.r, midpoint.r, false);
+    [result.g, inBounds.g] = calculateRGBA(initial.g, midpoint.g, false);
+    [result.b, inBounds.b] = calculateRGBA(initial.b, midpoint.b, false);
+    [result.a, inBounds.a] = calculateRGBA(initial.a, midpoint.a, true);
     
+    showBoundsAlert();
     
+    $("#resultBlock").css("background", obj_to_RGB(result));
+    document.getElementById("resultText").innerHTML =
+      obj_to_RGB(result) + "<br>" + 
+      obj_to_hex(result);
+  }
+  
+  /* calculateRGBA(initialRGB, midpointRGB, isAlpha)
+   *
+   * params:
+   *   initialRGB:  the initial  R, G, B (or A) value
+   *   midpointRGB: the midpoint R, G, B (or A) value
+   *   isAlpha: whether the input is A or not
+   *
+   * Returns [# resultRGB, boolean inBoundsRGB]
+   */
+  function calculateRGBA(initialRGB, midpointRGB, isAlpha) {
     
+    /* Set the lower and upper bounds for each range.
+     *
+     * Range for R,G,B: [0, 255]
+     * Range for A: [0.0, 1.0]
+     */
+    var lowerBound = 0;
+    var upperBound = 255;
+    if (isAlpha)
+      upperBound = 1.0;
+    
+    /* Handle edge case where midpoint is gray and
+     * initial is a lower or upper bound.
+     */
+    if (midpointRGB == 128) {
+      if (initialRGB == lowerBound)
+        return [upperBound, true];
+      if (initialRGB == upperBound)
+        return [lowerBound, true];
+    }
+    
+    /* Set up result variables.
+     *
+     * If midpoint is equal to initial, then
+     * result is (initial or) midpoint.
+     */
+    var resultRGB = midpointRGB;
+    var inBoundsRGB = true;
+    
+    /* If midpoint is greater than initial, then result is
+     * (midpoint - initial) ADDED to midpoint.
+     */
+    if (initialRGB < midpointRGB) {
+      resultRGB = midpointRGB + (midpointRGB - initialRGB);
+    }
+    /* If midpoint is less than or equal to initial, then
+     * result is (initial - midpoint) SUBTRACTED from midpoint.
+     */
+    else if (initialRGB > midpointRGB) {
+      resultRGB = midpointRGB - (initialRGB - midpointRGB);
+    }
+    
+    /* Handle case where result is out of bounds. Set result
+     * to lowest or highest bound (0 or 255 for RGB; 0.0 or 1.0
+     * for alpha).
+     */
+    if (resultRGB < lowerBound) {
+      resultRGB = lowerBound;
+      inBoundsRGB = false;
+    }
+    else if (resultRGB > upperBound) {
+      resultRGB = upperBound;
+      inBoundsRGB = false;
+    }
+    
+    /* If input value is alpha, set result to 2 decimal places. */
+    if (isAlpha)
+      resultRGB = resultRGB.toFixed(2);
+      
+    return [resultRGB, inBoundsRGB];
+  }
+    
+});
+
+
 
 let tippyInstances = [];
 
@@ -744,5 +702,4 @@ function hexToRgb(hex) {
 </script>
 
 </body>
-
 </html>
