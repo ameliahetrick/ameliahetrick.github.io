@@ -28,4 +28,7 @@ https://stackoverflow.com/a/46575472
 
 JavaScript | colorjoe | checkbox onChange:
 https://stackoverflow.com/a/50012963
+
+JavaScript | Tippy.js | Tippy.js with dynamic content:
+https://www.javaspring.net/blog/javascript-tippy-js-not-working-for-dynamic-content/#solution-4-manage-tippy-instances-destroy-and-recreate
 -->
