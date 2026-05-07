@@ -24,7 +24,7 @@ by **ameliahetrick**
 <!--
 ### REFERENCES
 
-head | display favicon
+head | display favicon:
 https://stackoverflow.com/a/55121118
 https://stackoverflow.com/a/68333967
 
@@ -45,17 +45,20 @@ https://css-tricks.com/almanac/properties/f/filter/
 CSS | jQuery UI | make entire tab clickable:
 https://forum.jquery.com/portal/en/community/topic/vertical-tabs-entirely-clickable#14737000005362369
 
+JavaScript | access CSS variables:
+https://stackoverflow.com/a/41725782
+
 JavaScript | jQuery UI | make tabs load immediately:
 https://stackoverflow.com/a/39106847
 
 JavaScript | jQuery UI | crossfade tab content:
 https://stackoverflow.com/a/51054217
 
-JavaScript | Tippy | create custom themes with CSS
+JavaScript | Tippy | create custom themes with CSS:
 https://stackoverflow.com/a/65703128
 https://stackoverflow.com/a/65426933
 
-JavaScript | Tippy | convert string to int
+JavaScript | Tippy | convert string to int:
 https://stackoverflow.com/a/44615330
 
 inspo | tab design inspiration:
